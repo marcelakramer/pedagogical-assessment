@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+.underline {
+    text-decoration: underline;
+    text-decoration-color: #3fa14c;
+    text-decoration-thickness: 1.5px;
+    text-underline-position: under;
+}
+
+.btn {
+    border: 2px solid #3fa14c;
+    border-radius: 32px;
+    font-family: Nunito, 'sans-serif';
+    font-weight: bold;
+    box-shadow: 0 2px 2px rgba($color: #000000, $alpha: 0.25);
+
+    &:hover {
+        opacity: 0.75;
+        cursor: pointer;
+    }
+}
+
+.btn-primary {
+    background-color: #3fa14c;
+    color: #fff;  
+}
+
+.btn-secondary {
+    background-color: #fff;
+    color: #3fa14c;
+}

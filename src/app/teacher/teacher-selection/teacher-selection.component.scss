@@ -1,0 +1,52 @@
+div, select {
+    font-family: Nunito, 'sans-serif';
+}
+
+#teacher-selection-section {
+    margin-top: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+#combo-box-section {
+    width: 40%;
+    position: relative;
+
+    select {
+        padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+        border-radius: 12px;
+        border: 2px solid #ccc;
+        color: #4d4d4d;
+        font-size: 1.25rem;
+        font-weight: 500;
+        width: 100%;
+        outline: none;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+        appearance: none;
+        background-image: url('../../../assets/icons/arrow-down.svg');
+        background-position: calc(100% - 1.5rem) center;;
+        background-repeat: no-repeat;
+
+        & option {
+            color: #adadad;
+        }
+    }
+}
+
+#buttons-section {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    & button {
+        width: 7.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+}
+
+
