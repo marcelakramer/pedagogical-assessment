@@ -1,0 +1,84 @@
+[
+  {
+    "aspect": "Comportamental",
+    "color": "#3688a3",
+    "criteria": [
+      {
+        "name": "Pontualidade",
+        "description": "Ser pontual para aulas ou reuniões."
+      },
+      {
+        "name": "Assiduidade",
+        "description": "Comparecer regularmente às aulas ou reuniões."
+      },
+      {
+        "name": "Relacionamento",
+        "description": "Demonstrar bom relacionamento com alunos e colegas."
+      },
+      {
+        "name": "Motivação",
+        "description": "Demonstrar motivação e entusiasmo ao ensinar."
+      }
+    ]
+  },
+  {
+    "aspect": "Metodológico",
+    "color": "#ff9900",
+    "criteria": [
+      {
+        "name": "Plano de Ensino",
+        "description": "Elaborar planos de aula bem estruturados."
+      },
+      {
+        "name": "Plano de Aula",
+        "description": "Preparar aulas que abordem os conteúdos de forma clara e organizada."
+      },
+      {
+        "name": "Metodologias Tradicionais",
+        "description": "Utilizar métodos tradicionais de ensino, como palestras e exercícios."
+      },
+      {
+        "name": "Metodologias Ativas",
+        "description": "Implementar métodos ativos de ensino, como aprendizagem baseada em projetos e discussões em grupo."
+      },
+      {
+        "name": "Linguagem",
+        "description": "Utilizar linguagem clara e acessível para os alunos."
+      },
+      {
+        "name": "Avaliação de Aprendizagem",
+        "description": "Avaliar o progresso dos alunos de forma justa e eficaz."
+      }
+    ]
+  },
+  {
+    "aspect": "Pedagógico",
+    "color": "#731db7",
+    "criteria": [
+      {
+        "name": "Domínio",
+        "description": "Demonstrar domínio do conteúdo ensinado."
+      },
+      {
+        "name": "Clareza",
+        "description": "Apresentar os conteúdos de forma clara e compreensível."
+      },
+      {
+        "name": "Integração",
+        "description": "Integrar diferentes aspectos do conhecimento em suas aulas."
+      },
+      {
+        "name": "Receptividade",
+        "description": "Ser receptivo às dúvidas e sugestões dos alunos."
+      },
+      {
+        "name": "Comprometimento",
+        "description": "Demonstrar comprometimento com o processo de ensino-aprendizagem."
+      },
+      {
+        "name": "Participação dos Alunos",
+        "description": "Estimular a participação ativa dos alunos nas aulas."
+      }
+    ]
+  }
+]

@@ -1,0 +1,87 @@
+div {
+    font-family: Nunito, 'sans-serif';
+}
+
+div#assessment-criteria {
+    margin: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+div#aspect-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+
+}
+
+div#aspect {
+    font-size: 2.25rem;
+    font-weight: bold;
+}
+
+div#criterion-title {
+    margin-top: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+
+}
+
+div#criterion-name {
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+div#criterion-description {
+    width: 30%;
+    height: 6rem;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+
+}
+
+div#rating-section {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: row;
+}
+
+div.rate {
+    margin: 0.5rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 2px solid;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 2.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    &:hover {
+        opacity: 0.75;
+        cursor: pointer;
+        transform: scale(1.1);
+        transition: 0.25s;
+    }
+
+    &.rate-selected {
+        color: #fff;
+        font-size: bold;
+        transform: scale(1.1);  
+    }
+}
+
+#buttons-section {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    & button {
+        width: 7.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,28 @@
+<div id="assessment-criteria">
+    <div id="aspect-title" class="underline">
+        Aspecto avaliativo:
+    </div>
+    <div id="aspect" [ngStyle]="{ 'color': this.selectedAspectColor }">
+        {{this.selectedAspect.aspect}}
+    </div>
+    <div id="criterion-title" class="underline">
+        Critério:
+    </div>
+    <div id="criterion-name" [ngStyle]="{ 'color': this.selectedAspectColor }">
+        {{this.selectedCriteria.name}}
+    </div>
+    <div id="criterion-description" [ngStyle]="{ 'color': this.selectedAspectColor }">
+        {{this.selectedCriteria.description}}
+    </div>
+    <div id="rating-section">
+        <div (click)="changeCurrentRate(rate)" class="rate" *ngFor="let rate of ratingRange" [ngClass]="{ 'rate-selected': isRateCurrent(rate) }" [ngStyle]="{ 'color': !isRateCurrent(rate) ? this.selectedAspectColor : '#fff', 'background-color': isRateCurrent(rate) ? this.selectedAspectColor : 'inherit' }">{{rate}}</div>
+    </div>
+    <div id="buttons-section">
+        <button (click)="previousCriteria()" class="btn btn-secondary">
+            Voltar
+        </button>
+        <button (click)="nextCriteria()" class="btn btn-primary">
+            Próximo
+        </button>
+    </div>
+</div>
