@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import criteria from '../../shared/criteria.json'
+import { AssessmentRating } from '../../shared/interfaces/aspect';
 
 @Component({
   selector: 'app-assessment-criteria',
@@ -8,16 +9,34 @@ import criteria from '../../shared/criteria.json'
 })
 export class AssessmentCriteriaComponent {
   ratingRange: Array<string> = ['1','2','3','4','5','6','7','8','9','10'];
-  currentRate: string = '';
-  criteria: Array<{}> = criteria;
+  currentCriteriaRate: number = 0;
   selectedAspect = criteria[0];
   selectedAspectColor =  this.selectedAspect.color;
   selectedCriteria = this.selectedAspect.criteria[0];
+  assessment: AssessmentRating = this.transformCriteriaIntoAssessmentRating();
+
+
+  transformCriteriaIntoAssessmentRating(): AssessmentRating {
+    let assessment: AssessmentRating = {};
+
+    criteria.forEach(item => {
+        let aspectName = item.aspect;
+        let aspectCriteria: { [criterionName: string]: number } = {};
+
+        item.criteria.forEach(criterion => {
+            aspectCriteria[criterion.name] = 0;
+        });
+
+        assessment[aspectName] = aspectCriteria;
+    });
+
+    return assessment;
+  }
   
 
   nextCriteria(): void {
-    // save rate
-    this.currentRate = '';
+    this.assessment[this.selectedAspect.aspect][this.selectedCriteria.name] = this.currentCriteriaRate;
+    this.currentCriteriaRate = 0;
     let selectedAspectIndex = criteria.indexOf(this.selectedAspect);
     const selectedCriteriaIndex = criteria[selectedAspectIndex].criteria.indexOf(this.selectedCriteria);
     if (selectedCriteriaIndex === this.selectedAspect.criteria.length - 1) {
@@ -37,7 +56,6 @@ export class AssessmentCriteriaComponent {
   previousCriteria(): void {
     let selectedAspectIndex = criteria.indexOf(this.selectedAspect);
     const selectedCriteriaIndex = criteria[selectedAspectIndex].criteria.indexOf(this.selectedCriteria);
-    console.log(selectedCriteriaIndex)
     if (selectedCriteriaIndex === 0) {
       if (selectedAspectIndex !== 0) {
         selectedAspectIndex--;
@@ -50,6 +68,7 @@ export class AssessmentCriteriaComponent {
     } else {
       this.selectedCriteria = criteria[selectedAspectIndex].criteria[selectedCriteriaIndex - 1];
     }
+    this.currentCriteriaRate = this.assessment[this.selectedAspect.aspect][this.selectedCriteria.name];
   }
 
   updateColor(): void {
@@ -57,10 +76,18 @@ export class AssessmentCriteriaComponent {
   }
 
   changeCurrentRate(rate: string): void {
-    this.currentRate = rate;
+    if (this.isRateCurrent(rate)) {
+      this.currentCriteriaRate = 0;
+    } else {
+      this.currentCriteriaRate = parseInt(rate);
+    }
   }
 
   isRateCurrent(rate: string): boolean {
-    return rate === this.currentRate;
+    return parseInt(rate) === this.currentCriteriaRate;
+  }
+
+  isAnyRateSelected(): boolean {
+    return this.currentCriteriaRate !== 0;
   }
 }

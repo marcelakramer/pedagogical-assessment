@@ -21,7 +21,7 @@
         <button (click)="previousCriteria()" class="btn btn-secondary">
             Voltar
         </button>
-        <button (click)="nextCriteria()" class="btn btn-primary">
+        <button (click)="nextCriteria()" class="btn btn-primary" [ngClass]="{ 'btn-disabled': !isAnyRateSelected() }">
             Próximo
         </button>
     </div>
