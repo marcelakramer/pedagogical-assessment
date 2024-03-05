@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import criteria from '../../shared/criteria.json'
-import { AssessmentRating } from '../../shared/interfaces/aspect';
+import { AssessmentRating } from '../../shared/interfaces/assessment-rating';
 
 @Component({
   selector: 'app-assessment-criteria',
@@ -24,7 +24,7 @@ export class AssessmentCriteriaComponent {
         let aspectCriteria: { [criterionName: string]: number } = {};
 
         item.criteria.forEach(criterion => {
-            aspectCriteria[criterion.name] = 0;
+            aspectCriteria[criterion.criterion] = 0;
         });
 
         assessment[aspectName] = aspectCriteria;
@@ -35,8 +35,7 @@ export class AssessmentCriteriaComponent {
   
 
   nextCriteria(): void {
-    this.assessment[this.selectedAspect.aspect][this.selectedCriteria.name] = this.currentCriteriaRate;
-    this.currentCriteriaRate = 0;
+    this.assessment[this.selectedAspect.aspect][this.selectedCriteria.criterion] = this.currentCriteriaRate;
     let selectedAspectIndex = criteria.indexOf(this.selectedAspect);
     const selectedCriteriaIndex = criteria[selectedAspectIndex].criteria.indexOf(this.selectedCriteria);
     if (selectedCriteriaIndex === this.selectedAspect.criteria.length - 1) {
@@ -47,9 +46,15 @@ export class AssessmentCriteriaComponent {
         this.updateColor();
       } else {
         // finish the assessment
+        console.log(this.assessment)
       }
     } else {
       this.selectedCriteria = criteria[selectedAspectIndex].criteria[selectedCriteriaIndex + 1];
+    }
+    if (this.assessment[this.selectedAspect.aspect][this.selectedCriteria.criterion] !== 0) {
+      this.currentCriteriaRate = this.assessment[this.selectedAspect.aspect][this.selectedCriteria.criterion]
+    } else {
+      this.currentCriteriaRate = 0
     }
   }
 
@@ -68,7 +73,7 @@ export class AssessmentCriteriaComponent {
     } else {
       this.selectedCriteria = criteria[selectedAspectIndex].criteria[selectedCriteriaIndex - 1];
     }
-    this.currentCriteriaRate = this.assessment[this.selectedAspect.aspect][this.selectedCriteria.name];
+    this.currentCriteriaRate = this.assessment[this.selectedAspect.aspect][this.selectedCriteria.criterion];
   }
 
   updateColor(): void {

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TeacherModule } from './teacher/teacher.module';
 import { AssessmentModule } from './assessment/assessment.module';
+import { ReportModule } from './report/report.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AssessmentModule } from './assessment/assessment.module';
     BrowserModule,
     AppRoutingModule,
     TeacherModule,
-    AssessmentModule
+    AssessmentModule,
+    ReportModule
   ],
   providers: [],
   bootstrap: [AppComponent]
