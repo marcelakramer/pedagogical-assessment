@@ -8,9 +8,14 @@
         <div id="overall-average">{{ this.overallAverage }}</div>
         <div id="specifics-average-title" class="underline">Média por aspecto avaliativo:</div>
         <div id="specifics-average">
-            <!-- <div *ngFor="let average of specificsAverages" class="each-average">
-                <div class="aspect-average">{{ average.aspect }}</div>
-            </div> -->
+            <div *ngFor="let average of this.specificsAverages" class="each-average">
+                <div class="aspect-average-title">{{ average.aspect }}</div>
+                <div class="aspect-average">{{ average.average }}</div>
+                <div *ngFor="let criterion of average.criteriaAverage" class="each-criterion">
+                    <div class="criterion-average-title">{{ criterion.criterion }}</div>
+                    <div class="criterion-average">{{ criterion.average }}</div>
+                </div>
+            </div>
         </div>
     </div>
 </div>    
