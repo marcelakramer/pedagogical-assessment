@@ -1,19 +1,21 @@
 <div id="report-viewing">
     <div id="teacher-info">
-        <div id="teacher-name"><span class="underline">Docente: </span>Alecsandro Monteiro Kramer</div>
-        <div id="teacher-registration"><span class="underline">Matrícula: </span>100387</div>
+        <div id="teacher-name"><span class="underline">Docente:</span>Alecsandro Monteiro Kramer</div>
+        <div id="teacher-registration"><span class="underline">Matrícula:</span>100387</div>
     </div>
     <div id="averages">
         <div id="overall-average-title" class="underline">Média geral:</div>
-        <div id="overall-average">{{ this.overallAverage }}</div>
+        <div id="overall-average">{{ this.overallAverage % 1 !== 0 ? this.overallAverage.toFixed(1) : this.overallAverage }}</div>
         <div id="specifics-average-title" class="underline">Média por aspecto avaliativo:</div>
         <div id="specifics-average">
             <div *ngFor="let average of this.specificsAverages" class="each-average">
+                <div class="aspect-average">{{ average.average.toFixed(2) }}</div>
                 <div class="aspect-average-title">{{ average.aspect }}</div>
-                <div class="aspect-average">{{ average.average }}</div>
-                <div *ngFor="let criterion of average.criteriaAverage" class="each-criterion">
-                    <div class="criterion-average-title">{{ criterion.criterion }}</div>
-                    <div class="criterion-average">{{ criterion.average }}</div>
+                <div class="aspect-criteria">
+                    <div *ngFor="let criterion of average.criteriaAverage" class="each-criterion">
+                        <div class="criterion-average-title">{{ criterion.criterion }}</div>
+                        <div class="criterion-average">{{ criterion.average % 1 !== 0 ? criterion.average.toFixed(1) : criterion.average }}</div>
+                    </div>
                 </div>
             </div>
         </div>
