@@ -1,7 +1,7 @@
 div#report-viewing {
     display: flex;
     flex-direction: column;
-    margin: auto;
+    margin: 2rem auto;
     align-items: center;
     text-align: center;
     gap: 3rem;
@@ -12,11 +12,11 @@ div#teacher-info {
     display: flex;
     justify-content: center;
     gap: 7rem;
-    font-weight: 600;
+    font-weight: 500;
 
     & span {
         margin-right: 1rem;
-        font-weight: 500;
+        font-weight: 600;
     }
 }
 
@@ -27,7 +27,7 @@ div#averages {
 }
 
 div#overall-average {
-    margin: auto;
+    margin: 1.5rem auto;
     color: #3fa14c;
     font-size: 5rem;
     font-weight: 700;
@@ -39,6 +39,10 @@ div#overall-average {
     line-height: 2.4;
 }
 
+div#overall-average-title, div#specifics-average-title {
+    font-weight: 600;
+}
+
 div#specifics-average {
     display: flex;
     flex-direction: row;
@@ -47,7 +51,7 @@ div#specifics-average {
 }
 
 div.each-average {
-    width: 17rem;
+    width: 12rem;
 }
 
 div.aspect-average {
@@ -69,6 +73,9 @@ div.aspect-average-title {
 }
 
 div.aspect-criteria {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
     text-align: center;
 }
 
@@ -76,19 +83,38 @@ div.aspect-criteria {
 div.each-criterion {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 3rem;
     align-items: center;
+    position: relative;
+}
+
+div.criterion-average-title {
+    max-width: 70%;
+    position: absolute;
+    margin-right: 2rem ;
+    font-weight: 600;
 }
 
 div.criterion-average {
-    margin: auto;
     font-size: 1rem;
     font-weight: 700;
-    border: 2px solid black;
+    border: 2px solid;
     border-radius: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.3rem;
+    height: 2.3rem;
     text-align: center;
-    line-height: 2.5;
+    line-height: 2.4;
+    position: absolute;
+    right: 0;
+}
+
+#buttons-section {
+    margin-top: 3rem;
+
+    & button {
+        width: 7.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
 }

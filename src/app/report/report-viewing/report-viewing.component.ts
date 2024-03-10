@@ -3,6 +3,7 @@ import { Teacher } from '../../shared/models/teacher';
 import { AssessmentRating } from '../../shared/interfaces/assessment-rating';
 import { assessments } from '../../shared/assessments';
 import { SpecificsAverages } from '../../shared/interfaces/specifics-averages';
+import criteria from '../../shared/criteria.json'
 
 @Component({
   selector: 'app-report-viewing',
@@ -35,13 +36,18 @@ export class ReportViewingComponent {
     const averages: SpecificsAverages[] = [];
 
     for (const aspect in assessments[0]) {
+        let aspectColor = ''
+        criteria.some(item => {
+          if (aspect == item.aspect) {
+            aspectColor = item.color;
+          }
+        })
         const aspectAverages: number[] = [];
         const criteriaAverages: { criterion: string, average: number }[] = [];
 
         for (const criterion in assessments[0][aspect]) {
             let total = 0;
 
-  
             assessments.forEach(assessment => {
                 total += assessment[aspect][criterion];
             });
@@ -54,6 +60,7 @@ export class ReportViewingComponent {
 
         averages.push({
             aspect,
+            aspectColor,
             average: aspectAverage,
             criteriaAverage: criteriaAverages
         });
