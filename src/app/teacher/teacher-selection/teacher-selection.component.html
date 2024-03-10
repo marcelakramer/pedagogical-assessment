@@ -4,9 +4,7 @@
     </div>
     <div id="combo-box-section">    
         <select>
-            <option value="value">Lorem ipsum, dolor sit amet consectetur</option>
-            <option value="value">Adipisicing elit Maiores autem incidunt</option>
-            <option value="value">Corrupti accusamus dolores ratione</option>
+            <option *ngFor="let teacher of teachers" [value]="teacher.id">{{ teacher.name }}</option>
         </select>
     </div>
     <div id="buttons-section">

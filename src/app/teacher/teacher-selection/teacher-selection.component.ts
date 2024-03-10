@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Teacher } from '../../shared/models/teacher';
+import { TeacherService } from '../../shared/services/teacher.service';
 
 @Component({
   selector: 'app-teacher-selection',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrl: './teacher-selection.component.scss'
 })
 export class TeacherSelectionComponent {
+  teachers: Array<Teacher> = [];
 
+  constructor(teacherService: TeacherService) {
+    teacherService.getAll().subscribe(
+      response => {
+        this.teachers = response;
+      }
+    )}
 }

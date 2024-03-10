@@ -1,0 +1,22 @@
+{
+    "teachers": [
+      {
+        "id": "1",
+        "registration": "100293",
+        "name": "Alecsandro Monteiro Kramer",
+        "assessments": []
+      },
+      {
+        "id": "2",
+        "registration": "234566",
+        "name": "Arthur Barôncio Lucena Kramer Neto",
+        "assessments": []
+      },
+      {
+        "id": "3",
+        "registration": "988032",
+        "name": "Dilene Barreto de Oliveira",
+        "assessments": []
+      }
+    ]
+  }

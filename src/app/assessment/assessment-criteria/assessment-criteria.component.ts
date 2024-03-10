@@ -10,11 +10,10 @@ import { AssessmentRating } from '../../shared/interfaces/assessment-rating';
 export class AssessmentCriteriaComponent {
   ratingRange: Array<string> = ['1','2','3','4','5','6','7','8','9','10'];
   currentCriteriaRate: number = 0;
-  selectedAspect = criteria[0];
-  selectedAspectColor =  this.selectedAspect.color;
-  selectedCriteria = this.selectedAspect.criteria[0];
+  currentAspect = criteria[0];
+  currentAspectColor =  this.currentAspect.color;
+  currentCriteria = this.currentAspect.criteria[0];
   assessment: AssessmentRating = this.transformCriteriaIntoAssessmentRating();
-
 
   transformCriteriaIntoAssessmentRating(): AssessmentRating {
     let assessment: AssessmentRating = {};
@@ -35,49 +34,48 @@ export class AssessmentCriteriaComponent {
   
 
   nextCriteria(): void {
-    this.assessment[this.selectedAspect.aspect][this.selectedCriteria.criterion] = this.currentCriteriaRate;
-    let selectedAspectIndex = criteria.indexOf(this.selectedAspect);
-    const selectedCriteriaIndex = criteria[selectedAspectIndex].criteria.indexOf(this.selectedCriteria);
-    if (selectedCriteriaIndex === this.selectedAspect.criteria.length - 1) {
-      if (selectedAspectIndex !== criteria.length - 1) {
-        selectedAspectIndex++;
-        this.selectedAspect = criteria[selectedAspectIndex];
-        this.selectedCriteria = criteria[selectedAspectIndex].criteria[0];
+    this.assessment[this.currentAspect.aspect][this.currentCriteria.criterion] = this.currentCriteriaRate;
+    let currentAspectIndex = criteria.indexOf(this.currentAspect);
+    const currentCriteriaIndex = criteria[currentAspectIndex].criteria.indexOf(this.currentCriteria);
+    if (currentCriteriaIndex === this.currentAspect.criteria.length - 1) {
+      if (currentAspectIndex !== criteria.length - 1) {
+        currentAspectIndex++;
+        this.currentAspect = criteria[currentAspectIndex];
+        this.currentCriteria = criteria[currentAspectIndex].criteria[0];
         this.updateColor();
       } else {
-        // finish the assessment
-        console.log(this.assessment)
+        this.finishAssessment()
       }
     } else {
-      this.selectedCriteria = criteria[selectedAspectIndex].criteria[selectedCriteriaIndex + 1];
+      this.currentCriteria = criteria[currentAspectIndex].criteria[currentCriteriaIndex + 1];
     }
-    if (this.assessment[this.selectedAspect.aspect][this.selectedCriteria.criterion] !== 0) {
-      this.currentCriteriaRate = this.assessment[this.selectedAspect.aspect][this.selectedCriteria.criterion]
+    if (this.assessment[this.currentAspect.aspect][this.currentCriteria.criterion] !== 0) {
+      this.currentCriteriaRate = this.assessment[this.currentAspect.aspect][this.currentCriteria.criterion]
     } else {
       this.currentCriteriaRate = 0
     }
   }
 
   previousCriteria(): void {
-    let selectedAspectIndex = criteria.indexOf(this.selectedAspect);
-    const selectedCriteriaIndex = criteria[selectedAspectIndex].criteria.indexOf(this.selectedCriteria);
-    if (selectedCriteriaIndex === 0) {
-      if (selectedAspectIndex !== 0) {
-        selectedAspectIndex--;
-        this.selectedAspect = criteria[selectedAspectIndex];
-        this.selectedCriteria = criteria[selectedAspectIndex].criteria[criteria[selectedAspectIndex].criteria.length - 1];
+    let currentAspectIndex = criteria.indexOf(this.currentAspect);
+    const currentCriteriaIndex = criteria[currentAspectIndex].criteria.indexOf(this.currentCriteria);
+    if (currentCriteriaIndex === 0) {
+      if (currentAspectIndex !== 0) {
+        currentAspectIndex--;
+        this.currentAspect = criteria[currentAspectIndex];
+        this.currentCriteria = criteria[currentAspectIndex].criteria[criteria[currentAspectIndex].criteria.length - 1];
         this.updateColor();
       } else {
         // back to main page
       }
     } else {
-      this.selectedCriteria = criteria[selectedAspectIndex].criteria[selectedCriteriaIndex - 1];
+      this.currentCriteria = criteria[currentAspectIndex].criteria[currentCriteriaIndex - 1];
     }
-    this.currentCriteriaRate = this.assessment[this.selectedAspect.aspect][this.selectedCriteria.criterion];
+    this.currentCriteriaRate = this.assessment[this.currentAspect.aspect][this.currentCriteria.criterion];
   }
 
   updateColor(): void {
-    this.selectedAspectColor =  this.selectedAspect.color;
+    this.currentAspectColor =  this.currentAspect.color;
   }
 
   changeCurrentRate(rate: string): void {
@@ -94,5 +92,9 @@ export class AssessmentCriteriaComponent {
 
   isAnyRateSelected(): boolean {
     return this.currentCriteriaRate !== 0;
+  }
+
+  finishAssessment(): void {
+    console.log(this.assessment);
   }
 }
