@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TeacherSelectionComponent } from './teacher-selection/teacher-selection.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -9,7 +10,8 @@ import { TeacherSelectionComponent } from './teacher-selection/teacher-selection
     TeacherSelectionComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     TeacherSelectionComponent

@@ -18,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     TeacherModule,
     AssessmentModule,
     ReportModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

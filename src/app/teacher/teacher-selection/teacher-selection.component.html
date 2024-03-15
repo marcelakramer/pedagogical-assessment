@@ -3,15 +3,16 @@
         <h1>Selecione um docente: </h1>
     </div>
     <div id="combo-box-section">    
-        <select>
-            <option *ngFor="let teacher of teachers" [value]="teacher.id">{{ teacher.name }}</option>
+        <select (change)="selectTeacher($event.target)">
+            <option *ngIf="!selectedTeacher" value="" disabled selected>Selecione um docente</option>
+            <option *ngFor="let teacher of teachers" [ngValue]="teacher">{{ teacher.name }}</option>
         </select>
     </div>
     <div id="buttons-section">
         <button class="btn btn-secondary">
             Relatório
         </button>
-        <button class="btn btn-primary">
+        <button class="btn btn-primary" (click)="goToAssessment()">
             Avaliar
         </button>
     </div>
