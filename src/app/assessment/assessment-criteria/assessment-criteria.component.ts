@@ -1,19 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import criteria from '../../shared/criteria.json'
 import { AssessmentRating } from '../../shared/interfaces/assessment-rating';
+import { Teacher } from '../../shared/models/teacher';
+import { TeacherService } from '../../shared/services/teacher.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-assessment-criteria',
   templateUrl: './assessment-criteria.component.html',
   styleUrl: './assessment-criteria.component.scss'
 })
-export class AssessmentCriteriaComponent {
+export class AssessmentCriteriaComponent implements OnInit {
   ratingRange: Array<string> = ['1','2','3','4','5','6','7','8','9','10'];
   currentCriteriaRate: number = 0;
   currentAspect = criteria[0];
   currentAspectColor =  this.currentAspect.color;
   currentCriteria = this.currentAspect.criteria[0];
   assessment: AssessmentRating = this.transformCriteriaIntoAssessmentRating();
+  teacher!: Teacher;
+
+  constructor(private teacherService: TeacherService, private router: Router, private activatedRoute: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    const teacherId = this.activatedRoute.snapshot.params['teacherId'];
+    this.teacherService.getById(teacherId).subscribe(
+      response => {
+        this.teacher = response;
+      }
+    );
+  }
 
   transformCriteriaIntoAssessmentRating(): AssessmentRating {
     let assessment: AssessmentRating = {};
@@ -44,7 +60,7 @@ export class AssessmentCriteriaComponent {
         this.currentCriteria = criteria[currentAspectIndex].criteria[0];
         this.updateColor();
       } else {
-        this.finishAssessment()
+        this.finishAssessment();
       }
     } else {
       this.currentCriteria = criteria[currentAspectIndex].criteria[currentCriteriaIndex + 1];
@@ -95,6 +111,8 @@ export class AssessmentCriteriaComponent {
   }
 
   finishAssessment(): void {
-    console.log(this.assessment);
+    this.teacher.assessments.push(this.assessment);
+    this.teacherService.update(this.teacher);
+    this.router.navigate(['/']);
   }
 }

@@ -21,19 +21,19 @@ export class TeacherService {
     return this.http.get<Teacher[]>(`${this.baseUrl}`);
   }
 
-  getById(id: string) {
-    return this.http.get<Teacher>(`${this.baseUrl}?id=${id}`)
+  getById(id: string): Observable<Teacher> {
+    return this.http.get<Teacher>(`${this.baseUrl}/${id}`);
   }
 
-  create(Teacher: Teacher) {
-    return this.http.post<Teacher>(`${this.baseUrl}`, Teacher);
+  create(teacher: Teacher) {
+    return this.http.post<Teacher>(`${this.baseUrl}`, teacher);
   }
 
-  update(Teacher: Teacher) {
-    return this.http.put<Teacher>(`${this.baseUrl}/Teacher/${Teacher.id}`, Teacher);
+  update(teacher: Teacher) {
+    return this.http.put<Teacher>(`${this.baseUrl}/teacher/${teacher.id}`, teacher);
   }
 
-  delete(Teacher: Teacher) {
-    return this.http.delete<Teacher>(`${this.baseUrl}/Teacher/${Teacher.id}`);
+  delete(teacher: Teacher) {
+    return this.http.delete<Teacher>(`${this.baseUrl}/teacher/${teacher.id}`);
   }
 }

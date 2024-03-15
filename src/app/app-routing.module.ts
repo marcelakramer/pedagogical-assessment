@@ -7,7 +7,7 @@ import { ReportViewingComponent } from './report/report-viewing/report-viewing.c
 const routes: Routes = [
   { path: '', component: TeacherSelectionComponent },
   // { path: 'teacher-selection', component: TeacherSelectionComponent },
-  { path: 'assessment', component: AssessmentCriteriaComponent },
+  { path: 'assessment/:teacherId', component: AssessmentCriteriaComponent },
   { path: 'report', component: ReportViewingComponent }
 ];
 

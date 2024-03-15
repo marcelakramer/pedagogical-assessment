@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Teacher } from '../../shared/models/teacher';
 import { TeacherService } from '../../shared/services/teacher.service';
 import { Router } from '@angular/router';
-import { DataService } from '../../shared/services/data.service';
 
 @Component({
   selector: 'app-teacher-selection',
@@ -13,7 +12,7 @@ export class TeacherSelectionComponent implements OnInit {
   teachers: Array<Teacher> = [];
   selectedTeacher!: Teacher;
 
-  constructor(private teacherService: TeacherService, private dataService: DataService, private router: Router) { }
+  constructor(private teacherService: TeacherService, private router: Router) { }
 
   ngOnInit(): void {
     this.teacherService.getAll().subscribe(
@@ -23,9 +22,7 @@ export class TeacherSelectionComponent implements OnInit {
   }
 
   goToAssessment(): void {
-    console.log(this.selectedTeacher)
-    // this.dataService.setData()
-    this.router.navigate(['/assessment']);
+    this.router.navigate(['/assessment', this.selectedTeacher.id]);
   }
 
   selectTeacher(eventTarget: EventTarget | null): void {
