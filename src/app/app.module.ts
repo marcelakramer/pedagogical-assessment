@@ -7,6 +7,7 @@ import { TeacherModule } from './teacher/teacher.module';
 import { AssessmentModule } from './assessment/assessment.module';
 import { ReportModule } from './report/report.module';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     TeacherModule,
     AssessmentModule,
     ReportModule,
+    HomeModule,
     HttpClientModule,
   ],
   providers: [],

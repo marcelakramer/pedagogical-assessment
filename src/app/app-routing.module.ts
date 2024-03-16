@@ -3,10 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { TeacherSelectionComponent } from './teacher/teacher-selection/teacher-selection.component';
 import { AssessmentCriteriaComponent } from './assessment/assessment-criteria/assessment-criteria.component';
 import { ReportViewingComponent } from './report/report-viewing/report-viewing.component';
+import { HomePageComponent } from './home/home-page/home-page.component';
 
 const routes: Routes = [
-  { path: '', component: TeacherSelectionComponent },
-  // { path: 'teacher-selection', component: TeacherSelectionComponent },
+  { path: '', component: HomePageComponent },
+  { path: 'teacher-selection', component: TeacherSelectionComponent },
   { path: 'assessment/:teacherId', component: AssessmentCriteriaComponent },
   { path: 'report/:teacherId', component: ReportViewingComponent }
 ];

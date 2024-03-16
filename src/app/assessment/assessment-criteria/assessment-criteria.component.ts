@@ -117,6 +117,6 @@ export class AssessmentCriteriaComponent implements OnInit {
   }
 
   goToTeacherSelection(): void {
-    this.router.navigate(['/']);
+    this.router.navigate(['/teacher-selection']);
   }
 }
