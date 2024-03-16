@@ -8,6 +8,7 @@ import { AssessmentModule } from './assessment/assessment.module';
 import { ReportModule } from './report/report.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './home/home.module';
+import { ThankYouModule } from './thank-you/thank-you.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HomeModule } from './home/home.module';
     AssessmentModule,
     ReportModule,
     HomeModule,
+    ThankYouModule,
     HttpClientModule,
   ],
   providers: [],

@@ -76,6 +76,54 @@
             "Comprometimento": 6,
             "Participação dos Alunos": 5
           }
+        },
+        {
+          "Comportamental": {
+            "Pontualidade": 1,
+            "Assiduidade": 2,
+            "Relacionamento": 3,
+            "Motivação": 4
+          },
+          "Metodológico": {
+            "Plano de Ensino": 5,
+            "Plano de Aula": 6,
+            "Metodologias Tradicionais": 7,
+            "Metodologias Ativas": 8,
+            "Linguagem": 9,
+            "Avaliação de Aprendizagem": 10
+          },
+          "Pedagógico": {
+            "Domínio": 7,
+            "Clareza": 6,
+            "Integração": 5,
+            "Receptividade": 3,
+            "Comprometimento": 8,
+            "Participação dos Alunos": 6
+          }
+        },
+        {
+          "Comportamental": {
+            "Pontualidade": 2,
+            "Assiduidade": 5,
+            "Relacionamento": 7,
+            "Motivação": 4
+          },
+          "Metodológico": {
+            "Plano de Ensino": 6,
+            "Plano de Aula": 8,
+            "Metodologias Tradicionais": 2,
+            "Metodologias Ativas": 9,
+            "Linguagem": 10,
+            "Avaliação de Aprendizagem": 6
+          },
+          "Pedagógico": {
+            "Domínio": 5,
+            "Clareza": 4,
+            "Integração": 3,
+            "Receptividade": 7,
+            "Comprometimento": 6,
+            "Participação dos Alunos": 9
+          }
         }
       ]
     },
@@ -131,6 +179,30 @@
             "Comprometimento": 6,
             "Participação dos Alunos": 7
           }
+        },
+        {
+          "Comportamental": {
+            "Pontualidade": 4,
+            "Assiduidade": 7,
+            "Relacionamento": 6,
+            "Motivação": 6
+          },
+          "Metodológico": {
+            "Plano de Ensino": 5,
+            "Plano de Aula": 7,
+            "Metodologias Tradicionais": 8,
+            "Metodologias Ativas": 7,
+            "Linguagem": 6,
+            "Avaliação de Aprendizagem": 7
+          },
+          "Pedagógico": {
+            "Domínio": 8,
+            "Clareza": 7,
+            "Integração": 6,
+            "Receptividade": 6,
+            "Comprometimento": 5,
+            "Participação dos Alunos": 5
+          }
         }
       ]
     },
@@ -138,7 +210,32 @@
       "id": "3",
       "registration": "988032",
       "name": "Dilene Barreto de Oliveira",
-      "assessments": []
+      "assessments": [
+        {
+          "Comportamental": {
+            "Pontualidade": 10,
+            "Assiduidade": 10,
+            "Relacionamento": 10,
+            "Motivação": 10
+          },
+          "Metodológico": {
+            "Plano de Ensino": 10,
+            "Plano de Aula": 10,
+            "Metodologias Tradicionais": 10,
+            "Metodologias Ativas": 10,
+            "Linguagem": 10,
+            "Avaliação de Aprendizagem": 10
+          },
+          "Pedagógico": {
+            "Domínio": 10,
+            "Clareza": 10,
+            "Integração": 10,
+            "Receptividade": 10,
+            "Comprometimento": 10,
+            "Participação dos Alunos": 10
+          }
+        }
+      ]
     }
   ]
 }

@@ -1,4 +1,4 @@
-div#home {
+div#thank-you {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,21 +7,22 @@ div#home {
     margin-top: 2rem;
 }
 
-div#home-main-section {
+div#thank-you-main-section {
     max-width: 80%;
     display: flex;
     justify-content: space-around;
 }
 
-div#home-text {
-    max-width: 40%;
+div#thank-you-text {
+    max-width: 60%;
     text-align: center;
     font-size: 5rem;
     font-weight: 700;
+    padding-top: 7rem;
 }
 
 div#buttons-section button {
-    width: 8.5rem;
+    width: 10.5rem;
     height: 3.25rem;
     font-size: 1.25rem;
 }
