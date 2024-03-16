@@ -28,6 +28,30 @@
             "Comprometimento": 10,
             "Participação dos Alunos": 2
           }
+        },
+        {
+          "Comportamental": {
+            "Pontualidade": 5,
+            "Assiduidade": 6,
+            "Relacionamento": 3,
+            "Motivação": 8
+          },
+          "Metodológico": {
+            "Plano de Ensino": 10,
+            "Plano de Aula": 10,
+            "Metodologias Tradicionais": 10,
+            "Metodologias Ativas": 10,
+            "Linguagem": 10,
+            "Avaliação de Aprendizagem": 10
+          },
+          "Pedagógico": {
+            "Domínio": 1,
+            "Clareza": 1,
+            "Integração": 1,
+            "Receptividade": 1,
+            "Comprometimento": 1,
+            "Participação dos Alunos": 1
+          }
         }
       ]
     },
@@ -35,7 +59,32 @@
       "id": "2",
       "registration": "234566",
       "name": "Arthur Barôncio Lucena Kramer Neto",
-      "assessments": []
+      "assessments": [
+        {
+          "Comportamental": {
+            "Pontualidade": 10,
+            "Assiduidade": 10,
+            "Relacionamento": 10,
+            "Motivação": 10
+          },
+          "Metodológico": {
+            "Plano de Ensino": 10,
+            "Plano de Aula": 10,
+            "Metodologias Tradicionais": 10,
+            "Metodologias Ativas": 10,
+            "Linguagem": 10,
+            "Avaliação de Aprendizagem": 10
+          },
+          "Pedagógico": {
+            "Domínio": 10,
+            "Clareza": 10,
+            "Integração": 10,
+            "Receptividade": 10,
+            "Comprometimento": 10,
+            "Participação dos Alunos": 10
+          }
+        }
+      ]
     },
     {
       "id": "3",

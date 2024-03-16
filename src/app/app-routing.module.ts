@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', component: TeacherSelectionComponent },
   // { path: 'teacher-selection', component: TeacherSelectionComponent },
   { path: 'assessment/:teacherId', component: AssessmentCriteriaComponent },
-  { path: 'report', component: ReportViewingComponent }
+  { path: 'report/:teacherId', component: ReportViewingComponent }
 ];
 
 @NgModule({

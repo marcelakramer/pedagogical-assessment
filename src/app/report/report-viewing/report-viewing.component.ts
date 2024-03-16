@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Teacher } from '../../shared/models/teacher';
 import { AssessmentRating } from '../../shared/interfaces/assessment-rating';
-import { assessments } from '../../shared/assessments';
 import { SpecificsAverages } from '../../shared/interfaces/specifics-averages';
 import criteria from '../../shared/criteria.json'
+import { TeacherService } from '../../shared/services/teacher.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-report-viewing',
@@ -11,9 +12,22 @@ import criteria from '../../shared/criteria.json'
   styleUrl: './report-viewing.component.scss'
 })
 export class ReportViewingComponent {
-  teacher: Teacher = new Teacher('1', '130089', 'Alecsandro Monteiro Kramer', assessments)
-  overallAverage: number = this.calcOverallAverage(this.teacher.assessments)
-  specificsAverages: Array<SpecificsAverages> = this.calcSpecificsAverages(this.teacher.assessments);
+  teacher!: Teacher;
+  overallAverage: number = 0;
+  specificsAverages: Array<SpecificsAverages> = [];
+
+  constructor(private teacherService: TeacherService, private router: Router, private activatedRoute: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    const teacherId = this.activatedRoute.snapshot.params['teacherId'];
+    this.teacherService.getById(teacherId).subscribe(
+      response => {
+        this.teacher = response;
+        this.overallAverage = this.calcOverallAverage(this.teacher.assessments);
+        this.specificsAverages = this.calcSpecificsAverages(this.teacher.assessments);
+      }
+    );
+  }
 
   calcOverallAverage(assessments: Array<AssessmentRating>): number {
     let ratingTotal = 0;
@@ -67,4 +81,9 @@ export class ReportViewingComponent {
     }
     return averages;
   }
+
+  goToTeacherSelection(): void {
+    this.router.navigate(['/']);
+  }
+  
 }

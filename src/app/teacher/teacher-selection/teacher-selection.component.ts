@@ -25,6 +25,10 @@ export class TeacherSelectionComponent implements OnInit {
     this.router.navigate(['/assessment', this.selectedTeacher.id]);
   }
 
+  goToReport(): void {
+    this.router.navigate(['/report', this.selectedTeacher.id]);
+  }
+
   selectTeacher(eventTarget: EventTarget | null): void {
     if (eventTarget) {
       const object = eventTarget as HTMLSelectElement;

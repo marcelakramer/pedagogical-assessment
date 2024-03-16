@@ -82,7 +82,7 @@ export class AssessmentCriteriaComponent implements OnInit {
         this.currentCriteria = criteria[currentAspectIndex].criteria[criteria[currentAspectIndex].criteria.length - 1];
         this.updateColor();
       } else {
-        // back to main page
+        this.goToTeacherSelection();
       }
     } else {
       this.currentCriteria = criteria[currentAspectIndex].criteria[currentCriteriaIndex - 1];
@@ -113,6 +113,10 @@ export class AssessmentCriteriaComponent implements OnInit {
   finishAssessment(): void {
     this.teacher.assessments.push(this.assessment);
     this.teacherService.update(this.teacher).subscribe();
+    this.router.navigate(['/']);
+  }
+
+  goToTeacherSelection(): void {
     this.router.navigate(['/']);
   }
 }
