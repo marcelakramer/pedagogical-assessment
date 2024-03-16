@@ -112,7 +112,7 @@ export class AssessmentCriteriaComponent implements OnInit {
 
   finishAssessment(): void {
     this.teacher.assessments.push(this.assessment);
-    this.teacherService.update(this.teacher);
+    this.teacherService.update(this.teacher).subscribe();
     this.router.navigate(['/']);
   }
 }

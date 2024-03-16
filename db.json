@@ -1,22 +1,47 @@
 {
-    "teachers": [
-      {
-        "id": "1",
-        "registration": "100293",
-        "name": "Alecsandro Monteiro Kramer",
-        "assessments": []
-      },
-      {
-        "id": "2",
-        "registration": "234566",
-        "name": "Arthur Barôncio Lucena Kramer Neto",
-        "assessments": []
-      },
-      {
-        "id": "3",
-        "registration": "988032",
-        "name": "Dilene Barreto de Oliveira",
-        "assessments": []
-      }
-    ]
-  }
+  "teachers": [
+    {
+      "id": "1",
+      "registration": "100293",
+      "name": "Alecsandro Monteiro Kramer",
+      "assessments": [
+        {
+          "Comportamental": {
+            "Pontualidade": 3,
+            "Assiduidade": 7,
+            "Relacionamento": 7,
+            "Motivação": 6
+          },
+          "Metodológico": {
+            "Plano de Ensino": 7,
+            "Plano de Aula": 6,
+            "Metodologias Tradicionais": 8,
+            "Metodologias Ativas": 5,
+            "Linguagem": 6,
+            "Avaliação de Aprendizagem": 5
+          },
+          "Pedagógico": {
+            "Domínio": 8,
+            "Clareza": 9,
+            "Integração": 4,
+            "Receptividade": 3,
+            "Comprometimento": 10,
+            "Participação dos Alunos": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "registration": "234566",
+      "name": "Arthur Barôncio Lucena Kramer Neto",
+      "assessments": []
+    },
+    {
+      "id": "3",
+      "registration": "988032",
+      "name": "Dilene Barreto de Oliveira",
+      "assessments": []
+    }
+  ]
+}
