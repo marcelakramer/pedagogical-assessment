@@ -34,8 +34,8 @@ export class ReportViewingComponent {
     let criterionsQuantity = 0;
 
     assessments.forEach(item => {
-      Object.values(item).forEach(aspect => {
-        Object.values(aspect).forEach(criterionRate => {
+      Object.values(item).forEach(dimension => {
+        Object.values(dimension).forEach(criterionRate => {
             ratingTotal += criterionRate;
             criterionsQuantity++;
           });
@@ -49,21 +49,21 @@ export class ReportViewingComponent {
   calcSpecificsAverages(assessments: Array<AssessmentRating>): Array<SpecificsAverages> {
     const averages: SpecificsAverages[] = [];
 
-    for (const aspect in assessments[0]) {
+    for (const dimension in assessments[0]) {
         let aspectColor = ''
         criteria.some(item => {
-          if (aspect == item.aspect) {
+          if (dimension == item.dimension) {
             aspectColor = item.color;
           }
         })
         const aspectAverages: number[] = [];
         const criteriaAverages: { criterion: string, average: number }[] = [];
 
-        for (const criterion in assessments[0][aspect]) {
+        for (const criterion in assessments[0][dimension]) {
             let total = 0;
 
             assessments.forEach(assessment => {
-                total += assessment[aspect][criterion];
+                total += assessment[dimension][criterion];
             });
 
             criteriaAverages.push({ criterion, average: total / assessments.length });
@@ -73,7 +73,7 @@ export class ReportViewingComponent {
         const aspectAverage = aspectAverages.reduce((acc, curr) => acc + curr, 0) / aspectAverages.length;
 
         averages.push({
-            aspect,
+            dimension,
             aspectColor,
             average: aspectAverage,
             criteriaAverage: criteriaAverages

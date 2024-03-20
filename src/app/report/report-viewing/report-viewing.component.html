@@ -9,9 +9,9 @@
         <div id="specifics-average-title" class="underline">Média por aspecto avaliativo:</div>
         <div id="specifics-average">
             <div *ngFor="let average of this.specificsAverages" class="each-average" [ngStyle]="{ 'color': average.aspectColor }">
-                <div class="aspect-average" [ngStyle]="{ 'border-color': average.aspectColor }">{{ average.average % 1 !== 0 ? average.average.toFixed(1) : average.average}}</div>
-                <div class="aspect-average-title">{{ average.aspect }}</div>
-                <div class="aspect-criteria">
+                <div class="dimension-average" [ngStyle]="{ 'border-color': average.aspectColor }">{{ average.average % 1 !== 0 ? average.average.toFixed(1) : average.average}}</div>
+                <div class="dimension-average-title">{{ average.dimension }}</div>
+                <div class="dimension-criteria">
                     <div *ngFor="let criterion of average.criteriaAverage" class="each-criterion">
                         <div class="criterion-average-title">{{ criterion.criterion }}</div>
                         <div class="criterion-average" [ngStyle]="{ 'border-color': average.aspectColor }">{{ criterion.average % 1 !== 0 ? criterion.average.toFixed(1) : criterion.average }}</div>

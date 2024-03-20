@@ -12,11 +12,11 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrl: './assessment-criteria.component.scss'
 })
 export class AssessmentCriteriaComponent implements OnInit {
-  ratingRange: Array<string> = ['1','2','3','4','5','6','7','8','9','10'];
-  currentCriteriaRate: number = 0;
-  currentAspect = criteria[0];
-  currentAspectColor =  this.currentAspect.color;
-  currentCriteria = this.currentAspect.criteria[0];
+  ratingRange: Array<string> = ['1','2','3','4','5'];
+  currentSentenceRate: number = 0;
+  currentDimension = criteria[0];
+  currentDimensionColor =  this.currentDimension.color;
+  currentSentence = this.currentDimension.sentences[0];
   assessment: AssessmentRating = this.transformCriteriaIntoAssessmentRating();
   teacher!: Teacher;
 
@@ -35,14 +35,14 @@ export class AssessmentCriteriaComponent implements OnInit {
     let assessment: AssessmentRating = {};
 
     criteria.forEach(item => {
-        let aspectName = item.aspect;
-        let aspectCriteria: { [criterionName: string]: number } = {};
+        let dimensionName = item.dimension;
+        let dimensionSentences: { [sentence: string]: number } = {};
 
-        item.criteria.forEach(criterion => {
-            aspectCriteria[criterion.criterion] = 0;
+        item.sentences.forEach(sentence => {
+            dimensionSentences[sentence] = 0;
         });
 
-        assessment[aspectName] = aspectCriteria;
+        assessment[dimensionName] = dimensionSentences;
     });
 
     return assessment;
@@ -50,64 +50,64 @@ export class AssessmentCriteriaComponent implements OnInit {
   
 
   nextCriteria(): void {
-    this.assessment[this.currentAspect.aspect][this.currentCriteria.criterion] = this.currentCriteriaRate;
-    let currentAspectIndex = criteria.indexOf(this.currentAspect);
-    const currentCriteriaIndex = criteria[currentAspectIndex].criteria.indexOf(this.currentCriteria);
-    if (currentCriteriaIndex === this.currentAspect.criteria.length - 1) {
-      if (currentAspectIndex !== criteria.length - 1) {
-        currentAspectIndex++;
-        this.currentAspect = criteria[currentAspectIndex];
-        this.currentCriteria = criteria[currentAspectIndex].criteria[0];
+    this.assessment[this.currentDimension.dimension][this.currentSentence] = this.currentSentenceRate;
+    let currentDimensionIndex = criteria.indexOf(this.currentDimension);
+    const currentSentenceIndex = criteria[currentDimensionIndex].sentences.indexOf(this.currentSentence);
+    if (currentSentenceIndex === this.currentDimension.sentences.length - 1) {
+      if (currentDimensionIndex !== criteria.length - 1) {
+        currentDimensionIndex++;
+        this.currentDimension = criteria[currentDimensionIndex];
+        this.currentSentence = criteria[currentDimensionIndex].sentences[0];
         this.updateColor();
       } else {
         this.finishAssessment();
       }
     } else {
-      this.currentCriteria = criteria[currentAspectIndex].criteria[currentCriteriaIndex + 1];
+      this.currentSentence = criteria[currentDimensionIndex].sentences[currentSentenceIndex + 1];
     }
-    if (this.assessment[this.currentAspect.aspect][this.currentCriteria.criterion] !== 0) {
-      this.currentCriteriaRate = this.assessment[this.currentAspect.aspect][this.currentCriteria.criterion]
+    if (this.assessment[this.currentDimension.dimension][this.currentSentence] !== 0) {
+      this.currentSentenceRate = this.assessment[this.currentDimension.dimension][this.currentSentence]
     } else {
-      this.currentCriteriaRate = 0
+      this.currentSentenceRate = 0
     }
   }
 
   previousCriteria(): void {
-    let currentAspectIndex = criteria.indexOf(this.currentAspect);
-    const currentCriteriaIndex = criteria[currentAspectIndex].criteria.indexOf(this.currentCriteria);
-    if (currentCriteriaIndex === 0) {
-      if (currentAspectIndex !== 0) {
-        currentAspectIndex--;
-        this.currentAspect = criteria[currentAspectIndex];
-        this.currentCriteria = criteria[currentAspectIndex].criteria[criteria[currentAspectIndex].criteria.length - 1];
+    let currentDimensionIndex = criteria.indexOf(this.currentDimension);
+    const currentSentenceIndex = criteria[currentDimensionIndex].sentences.indexOf(this.currentSentence);
+    if (currentSentenceIndex === 0) {
+      if (currentDimensionIndex !== 0) {
+        currentDimensionIndex--;
+        this.currentDimension = criteria[currentDimensionIndex];
+        this.currentSentence = criteria[currentDimensionIndex].sentences[criteria[currentDimensionIndex].sentences.length - 1];
         this.updateColor();
       } else {
         this.goToTeacherSelection();
       }
     } else {
-      this.currentCriteria = criteria[currentAspectIndex].criteria[currentCriteriaIndex - 1];
+      this.currentSentence = criteria[currentDimensionIndex].sentences[currentSentenceIndex - 1];
     }
-    this.currentCriteriaRate = this.assessment[this.currentAspect.aspect][this.currentCriteria.criterion];
+    this.currentSentenceRate = this.assessment[this.currentDimension.dimension][this.currentSentence];
   }
 
   updateColor(): void {
-    this.currentAspectColor =  this.currentAspect.color;
+    this.currentDimensionColor =  this.currentDimension.color;
   }
 
   changeCurrentRate(rate: string): void {
     if (this.isRateCurrent(rate)) {
-      this.currentCriteriaRate = 0;
+      this.currentSentenceRate = 0;
     } else {
-      this.currentCriteriaRate = parseInt(rate);
+      this.currentSentenceRate = parseInt(rate);
     }
   }
 
   isRateCurrent(rate: string): boolean {
-    return parseInt(rate) === this.currentCriteriaRate;
+    return parseInt(rate) === this.currentSentenceRate;
   }
 
   isAnyRateSelected(): boolean {
-    return this.currentCriteriaRate !== 0;
+    return this.currentSentenceRate !== 0;
   }
 
   finishAssessment(): void {

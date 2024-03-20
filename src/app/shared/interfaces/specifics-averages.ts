@@ -1,5 +1,5 @@
 export interface SpecificsAverages {
-    aspect: string;
+    dimension: string;
     aspectColor: string;
     average: number;
     criteriaAverage: Array<{criterion: string, average: number}>;

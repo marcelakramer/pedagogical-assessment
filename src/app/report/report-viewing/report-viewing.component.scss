@@ -54,7 +54,7 @@ div.each-average {
     width: 12rem;
 }
 
-div.aspect-average {
+div.dimension-average {
     margin: auto;
     font-size: 2.5rem;
     font-weight: 700;
@@ -66,13 +66,13 @@ div.aspect-average {
     line-height: 3.2;
 }
 
-div.aspect-average-title {
+div.dimension-average-title {
     margin: 1.5rem 0;
     font-size: 1.5rem;
     font-weight: 700;
 }
 
-div.aspect-criteria {
+div.dimension-criteria {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;

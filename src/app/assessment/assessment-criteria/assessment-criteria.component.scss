@@ -2,48 +2,87 @@ div {
     font-family: Nunito, 'sans-serif';
 }
 
-div#assessment-criteria {
+div#header {
+    display: flex;
+    justify-content: center;
+}
+
+div#dimension-title, div#sentence-title {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    width: 50%;
+}
+
+div#main {
     margin: 1.25rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center ;
+    justify-content: center;
+}
+
+div#dimension {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    justify-content: center;
+    width: 50%;
 }
 
-div#aspect-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-
+div#dimension-info {
+    border: 1px solid;
+    border-radius: 1rem;
+    width: 70%;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 }
 
-div#aspect {
-    font-size: 2.25rem;
-    font-weight: bold;
-}
-
-div#criterion-title {
-    margin-top: 1.5rem;
-    font-size: 1.25rem;
-    font-weight: 600;
-
-}
-
-div#criterion-name {
-    font-size: 1.75rem;
-    font-weight: bold;
-}
-
-div#criterion-description {
-    width: 30%;
-    height: 6rem;
+div#dimension-name {
     text-align: center;
-    font-size: 1.25rem;
-    font-weight: 500;
+    font-size: 2rem;
+    font-weight: bold;
+}
 
+div#dimension-description {
+    text-align: justify;
+    font-weight: 500;
+    // width: 80%;
+}
+
+div#sentence-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div#sentence {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    height: 10rem;
+}
+
+div#sentence-description {
+    margin-top: 3rem;
+    border: 1px solid;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    height: auto;
 }
 
 div#rating-section {
-    margin-top: 3rem;
+    padding-top: 5rem;
     display: flex;
     flex-direction: row;
 }

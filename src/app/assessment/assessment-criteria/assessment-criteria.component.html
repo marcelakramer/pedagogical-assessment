@@ -1,28 +1,40 @@
 <div id="assessment-criteria">
-    <div id="aspect-title" class="underline">
-        Aspecto avaliativo:
+    <div id="header">
+        <div id="dimension-title" class="underline">
+            Dimensão:
+        </div>
+        <div id="sentence-title" class="underline">
+            Critério:
+        </div>
     </div>
-    <div id="aspect" [ngStyle]="{ 'color': this.currentAspectColor }">
-        {{this.currentAspect.aspect}}
-    </div>
-    <div id="criterion-title" class="underline">
-        Critério:
-    </div>
-    <div id="criterion-name" [ngStyle]="{ 'color': this.currentAspectColor }">
-        {{this.currentCriteria.criterion}}
-    </div>
-    <div id="criterion-description" [ngStyle]="{ 'color': this.currentAspectColor }">
-        {{this.currentCriteria.description}}
-    </div>
-    <div id="rating-section">
-        <div (click)="changeCurrentRate(rate)" class="rate" *ngFor="let rate of ratingRange" [ngClass]="{ 'rate-selected': isRateCurrent(rate) }" [ngStyle]="{ 'color': !isRateCurrent(rate) ? this.currentAspectColor : '#fff', 'background-color': isRateCurrent(rate) ? this.currentAspectColor : 'inherit' }">{{rate}}</div>
-    </div>
-    <div id="buttons-section">
-        <button (click)="previousCriteria()" class="btn btn-secondary">
-            Voltar
-        </button>
-        <button (click)="nextCriteria()" (keyup.enter)="nextCriteria()" class="btn btn-primary" [ngClass]="{ 'btn-disabled': !isAnyRateSelected() }">
-            Próximo
-        </button>
+    <div id="main">
+        <div id="dimension">
+            <div id="dimension-info" [ngStyle]="{ 'color': this.currentDimensionColor, 'border-color': this.currentDimensionColor }">
+                <div id="dimension-name">
+                    {{this.currentDimension.dimension}}
+                </div>
+                <div id="dimension-description">
+                    {{this.currentDimension.description}}
+                </div>
+            </div>
+        </div>
+        <div id="sentence-rating">
+            <div id="sentence">
+                <div id="sentence-description" [ngStyle]="{ 'color': this.currentDimensionColor, 'border-color': this.currentDimensionColor }">
+                    {{this.currentSentence}}
+                </div>
+            </div>
+            <div id="rating-section">
+                <div (click)="changeCurrentRate(rate)" class="rate" *ngFor="let rate of ratingRange" [ngClass]="{ 'rate-selected': isRateCurrent(rate) }" [ngStyle]="{ 'color': !isRateCurrent(rate) ? this.currentDimensionColor : '#fff', 'background-color': isRateCurrent(rate) ? this.currentDimensionColor : 'inherit' }">{{rate}}</div>
+            </div>
+            <div id="buttons-section">
+                <button (click)="previousCriteria()" class="btn btn-secondary">
+                    Voltar
+                </button>
+                <button (click)="nextCriteria()" (keyup.enter)="nextCriteria()" class="btn btn-primary" [ngClass]="{ 'btn-disabled': !isAnyRateSelected() }">
+                    Próximo
+                </button>
+            </div>
+        </div>
     </div>
 </div>
