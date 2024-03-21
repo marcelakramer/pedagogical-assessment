@@ -36,4 +36,8 @@ export class TeacherSelectionComponent implements OnInit {
       this.selectedTeacher = this.teachers.find(teacher => teacher.name === selectedTeacherName)!!;
     }
   }
+
+  isTeacherSelected(): boolean {
+    return this.selectedTeacher != null;
+  }
 }

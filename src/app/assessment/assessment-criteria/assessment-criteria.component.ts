@@ -4,6 +4,7 @@ import { AssessmentRating } from '../../shared/interfaces/assessment-rating';
 import { Teacher } from '../../shared/models/teacher';
 import { TeacherService } from '../../shared/services/teacher.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FrequencyRatingEnum } from '../../shared/enum/frequencyRating';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrl: './assessment-criteria.component.scss'
 })
 export class AssessmentCriteriaComponent implements OnInit {
-  ratingRange: Array<string> = ['1','2','3','4','5'];
+  ratingRange: Array<string> = Object.keys(FrequencyRatingEnum);
   currentSentenceRate: number = 0;
   currentDimension = criteria[0];
   currentDimensionColor =  this.currentDimension.color;
@@ -49,7 +50,7 @@ export class AssessmentCriteriaComponent implements OnInit {
   }
   
 
-  nextCriteria(): void {
+  nextSentence(): void {
     this.assessment[this.currentDimension.dimension][this.currentSentence] = this.currentSentenceRate;
     let currentDimensionIndex = criteria.indexOf(this.currentDimension);
     const currentSentenceIndex = criteria[currentDimensionIndex].sentences.indexOf(this.currentSentence);
@@ -72,7 +73,7 @@ export class AssessmentCriteriaComponent implements OnInit {
     }
   }
 
-  previousCriteria(): void {
+  previousSentence(): void {
     let currentDimensionIndex = criteria.indexOf(this.currentDimension);
     const currentSentenceIndex = criteria[currentDimensionIndex].sentences.indexOf(this.currentSentence);
     if (currentSentenceIndex === 0) {
@@ -92,6 +93,10 @@ export class AssessmentCriteriaComponent implements OnInit {
 
   updateColor(): void {
     this.currentDimensionColor =  this.currentDimension.color;
+  }
+  
+  getFrequencyByRate(rate: string): string {
+    return FrequencyRatingEnum[rate as keyof typeof FrequencyRatingEnum];
   }
 
   changeCurrentRate(rate: string): void {

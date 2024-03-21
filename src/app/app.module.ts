@@ -9,6 +9,7 @@ import { ReportModule } from './report/report.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './home/home.module';
 import { ThankYouModule } from './thank-you/thank-you.module';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,11 @@ import { ThankYouModule } from './thank-you/thank-you.module';
     ReportModule,
     HomeModule,
     ThankYouModule,
-    HttpClientModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

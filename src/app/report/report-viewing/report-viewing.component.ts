@@ -35,14 +35,14 @@ export class ReportViewingComponent {
 
     assessments.forEach(item => {
       Object.values(item).forEach(dimension => {
-        Object.values(dimension).forEach(criterionRate => {
-            ratingTotal += criterionRate;
+        Object.values(dimension).forEach(sentenceRate => {
+            ratingTotal += sentenceRate;
             criterionsQuantity++;
           });
         });
     });
 
-    const overallAverage = ratingTotal / criterionsQuantity;
+    const overallAverage = (ratingTotal / criterionsQuantity) * 2;
     return overallAverage;
   }
 
@@ -50,33 +50,33 @@ export class ReportViewingComponent {
     const averages: SpecificsAverages[] = [];
 
     for (const dimension in assessments[0]) {
-        let aspectColor = ''
+        let dimensionColor = ''
         criteria.some(item => {
           if (dimension == item.dimension) {
-            aspectColor = item.color;
+            dimensionColor = item.color;
           }
         })
-        const aspectAverages: number[] = [];
-        const criteriaAverages: { criterion: string, average: number }[] = [];
+        const dimensionAverages: number[] = [];
+        const sentenceAverages: { sentence: string, average: number }[] = [];
 
-        for (const criterion in assessments[0][dimension]) {
+        for (const sentence in assessments[0][dimension]) {
             let total = 0;
 
             assessments.forEach(assessment => {
-                total += assessment[dimension][criterion];
+                total += assessment[dimension][sentence];
             });
 
-            criteriaAverages.push({ criterion, average: total / assessments.length });
-            aspectAverages.push(total / assessments.length);
+            sentenceAverages.push({ sentence: sentence, average: (total / assessments.length) * 2 });
+            dimensionAverages.push(total / assessments.length);
         }
 
-        const aspectAverage = aspectAverages.reduce((acc, curr) => acc + curr, 0) / aspectAverages.length;
+        const aspectAverage = dimensionAverages.reduce((acc, curr) => acc + curr, 0) / dimensionAverages.length * 2;
 
         averages.push({
             dimension,
-            aspectColor,
+            dimensionColor: dimensionColor,
             average: aspectAverage,
-            criteriaAverage: criteriaAverages
+            sentenceAverage: sentenceAverages
         });
     }
     return averages;

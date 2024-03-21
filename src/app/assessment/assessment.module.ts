@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AssessmentCriteriaComponent } from './assessment-criteria/assessment-criteria.component';
+import {  MatTooltipModule } from '@angular/material/tooltip';
+
 
 
 
@@ -9,7 +11,8 @@ import { AssessmentCriteriaComponent } from './assessment-criteria/assessment-cr
     AssessmentCriteriaComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatTooltipModule
   ],
   exports: [
     AssessmentCriteriaComponent

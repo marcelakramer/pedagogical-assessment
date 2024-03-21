@@ -9,10 +9,10 @@
         </select>
     </div>
     <div id="buttons-section">
-        <button class="btn btn-secondary" (click)="goToReport()">
+        <button class="btn btn-secondary" (click)="goToReport()" [ngClass]="{ 'btn-disabled': !isTeacherSelected() }">
             Relatório
         </button>
-        <button class="btn btn-primary" (click)="goToAssessment()">
+        <button class="btn btn-primary" (click)="goToAssessment()" [ngClass]="{ 'btn-disabled': !isTeacherSelected() }">
             Avaliar
         </button>
     </div>

@@ -46,6 +46,7 @@ div#overall-average-title, div#specifics-average-title {
 div#specifics-average {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 10rem;
 }
