@@ -115,6 +115,15 @@ export class AssessmentCriteriaComponent implements OnInit {
     return this.currentSentenceRate !== 0;
   }
 
+  isLastSentence(): boolean {
+    let currentDimensionIndex = criteria.indexOf(this.currentDimension);
+    const currentSentenceIndex = criteria[currentDimensionIndex].sentences.indexOf(this.currentSentence);
+    if (currentSentenceIndex === this.currentDimension.sentences.length - 1) {
+      return currentDimensionIndex === criteria.length - 1;
+    }
+    return false
+  }
+
   finishAssessment(): void {
     this.teacher.assessments.push(this.assessment);
     this.teacherService.update(this.teacher).subscribe();
