@@ -1,0 +1,20 @@
+<div id="teaching-selection-section">
+    <div id="title-section" class="underline">
+        <h1>Selecione a disciplina e o ano de avaliação: </h1>
+    </div>
+    <div id="combo-box-section">    
+        <select (change)="selectSubject($event.target); updateYears()">
+            <option *ngIf="!selectedSubject" value="" disabled selected>Selecione a disciplina</option>
+            <option *ngFor="let teaching of teachings" >{{ teaching.subject.name }}</option>
+        </select>
+        <select (change)="selectSubject($event.target)">
+            <option *ngIf="!selectedSubject" value="" disabled selected>Selecione o ano</option>
+            <option *ngFor="let year of availableYears" [value]="year">{{ year }}</option>
+        </select>
+    </div>
+    <div id="buttons-section">
+        <button class="btn btn-primary" (click)="goToAssessment()"> <!-- [ngClass]="{ 'btn-disabled': !isSubjectSelected() }"> -->
+            Avaliar
+        </button>
+    </div>
+</div>

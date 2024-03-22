@@ -21,8 +21,8 @@ export class TeacherSelectionComponent implements OnInit {
       });
   }
 
-  goToAssessment(): void {
-    this.router.navigate(['/assessment', this.selectedTeacher.id]);
+  goToTeachingSelection(): void {
+    this.router.navigate(['/teaching-selection', this.selectedTeacher.id]);
   }
 
   goToReport(): void {

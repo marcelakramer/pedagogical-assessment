@@ -5,11 +5,13 @@ import { AssessmentCriteriaComponent } from './assessment/assessment-criteria/as
 import { ReportViewingComponent } from './report/report-viewing/report-viewing.component';
 import { HomePageComponent } from './home/home-page/home-page.component';
 import { ThankYouPageComponent } from './thank-you/thank-you-page/thank-you-page.component';
+import { TeachingSelectionComponent } from './teacher/teaching-selection/teaching-selection.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'teacher-selection', component: TeacherSelectionComponent },
-  { path: 'assessment/:teacherId', component: AssessmentCriteriaComponent },
+  { path: 'teaching-selection/:teacherId', component: TeachingSelectionComponent },
+  { path: 'assessment/:teacherId/:subjectId/:year', component: AssessmentCriteriaComponent },
   { path: 'report/:teacherId', component: ReportViewingComponent },
   { path: 'thank-you', component: ThankYouPageComponent }
 ];
