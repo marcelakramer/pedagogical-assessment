@@ -6,7 +6,7 @@ import { ReportViewingComponent } from './report-viewing/report-viewing.componen
 
 @NgModule({
   declarations: [
-    ReportViewingComponent
+    ReportViewingComponent,
   ],
   imports: [
     CommonModule

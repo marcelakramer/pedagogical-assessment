@@ -5,6 +5,7 @@ import { SpecificsAverages } from '../../shared/interfaces/specifics-averages';
 import criteria from '../../shared/criteria.json'
 import { TeacherService } from '../../shared/services/teacher.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AverageOptionsEnum } from '../../shared/enum/averageOptions';
 
 @Component({
   selector: 'app-report-viewing',
@@ -12,13 +13,20 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './report-viewing.component.scss'
 })
 export class ReportViewingComponent {
-  teacher!: Teacher;
+  teacher: Teacher = new Teacher('', '', '');
+  averageOptionsEnum = AverageOptionsEnum; // type
+  averageOptions: Array<string> = Object.values(AverageOptionsEnum);
+  selectedAverageOption: string = AverageOptionsEnum.overallAverage;
   overallAverage: number = 0;
   specificsAverages: Array<SpecificsAverages> = [];
 
   constructor(private teacherService: TeacherService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getTeacher();
+  }
+
+  getTeacher(): void {
     const teacherId = this.activatedRoute.snapshot.params['teacherId'];
     this.teacherService.getById(teacherId).subscribe(
       response => {
@@ -27,6 +35,13 @@ export class ReportViewingComponent {
         // this.specificsAverages = this.calcSpecificsAverages(this.teacher.assessments);
       }
     );
+  }
+
+  selectAverageOption(eventTarget: EventTarget | null): void {
+    if (eventTarget) {
+      const object = eventTarget as HTMLSelectElement;
+      this.selectedAverageOption = object.value;
+    }
   }
 
   calcOverallAverage(assessments: Array<AssessmentRating>): number {

@@ -11,7 +11,8 @@ div#report-viewing {
 div#teacher-info {
     display: flex;
     justify-content: center;
-    gap: 7rem;
+    gap: 9rem;
+    font-size: 1.125rem;
     font-weight: 500;
 
     & span {
@@ -19,6 +20,33 @@ div#teacher-info {
         font-weight: 600;
     }
 }
+
+div#average-selection {
+    width: 20%;
+
+    & select {
+        padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+        border-radius: 12px;
+        border: 2px solid #ccc;
+        color: #4d4d4d;
+        font-family: 'Nunito', sans-serif;
+        font-size: 1.25rem;
+        font-weight: 500;
+        width: 100%;
+        outline: none;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+        appearance: none;
+        background-image: url('../../../assets/icons/arrow-down.svg');
+        background-position: calc(100% - 1.5rem) center;
+        background-repeat: no-repeat;
+    
+        & option {
+            color: #adadad;
+        }
+    }
+}
+
 
 div#averages {
     display: flex;

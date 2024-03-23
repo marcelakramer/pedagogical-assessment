@@ -3,7 +3,26 @@
         <div id="teacher-name"><span class="underline">Docente:</span>{{ this.teacher.name }}</div>
         <div id="teacher-registration"><span class="underline">Matrícula:</span>{{ this.teacher.registration }}</div>
     </div>
-    <div id="averages">
+    <div id="average-selection">
+        <select (change)="selectAverageOption($event.target)">
+            <option *ngFor="let option of averageOptions">{{ option }}</option>
+        </select>
+    </div>
+    <div id="average">
+        <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.overallAverage">
+            media geral 
+          </ng-container>
+          
+          <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.dimensionAverage">
+            media dimensao
+          </ng-container>
+          
+          <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.sentenceAverage">
+            media afirmativa
+          </ng-container>
+    </div>
+
+    <!-- <div id="averages">
         <div id="overall-average-title" class="underline">Média geral:</div>
         <div id="overall-average">{{ this.overallAverage % 1 !== 0 ? this.overallAverage.toFixed(1) : this.overallAverage }}</div>
         <div id="specifics-average-title" class="underline">Média por aspecto avaliativo:</div>
@@ -11,12 +30,12 @@
             <div *ngFor="let average of this.specificsAverages" class="each-average" [ngStyle]="{ 'color': average.dimensionColor }">
                 <div class="dimension-average" [ngStyle]="{ 'border-color': average.dimensionColor }">{{ average.average % 1 !== 0 ? average.average.toFixed(1) : average.average}}</div>
                 <div class="dimension-average-title">{{ average.dimension }}</div>
-                <!-- <div class="dimension-criteria">
+                 <div class="dimension-criteria">
                     <div *ngFor="let criterion of average.sentenceAverage" class="each-criterion">
                         <div class="criterion-average-title">{{ criterion.sentence }}</div>
                         <div class="criterion-average" [ngStyle]="{ 'border-color': average.dimensionColor }">{{ criterion.average % 1 !== 0 ? criterion.average.toFixed(1) : criterion.average }}</div>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
         <div id="buttons-section">
@@ -24,5 +43,5 @@
                 Voltar
             </button>
         </div>
-    </div>
+    </div> -->
 </div>    
