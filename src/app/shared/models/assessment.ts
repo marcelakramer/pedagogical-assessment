@@ -1,12 +1,11 @@
-import { Subject } from "./subject";
-import { Teacher } from "./teacher";
+import { AssessmentRating } from "../interfaces/assessment-rating";
 
 export class Assessment {
     constructor(
         public id: string,
-        public teacher: Teacher,
-        public subject: Subject,
+        public teacherId: string,
+        public subjectId: string,
         public year: number,
-        public rating: {}
+        public rating: AssessmentRating
     ) {};
 };

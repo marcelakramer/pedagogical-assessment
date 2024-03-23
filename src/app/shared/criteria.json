@@ -5,80 +5,8 @@
     "color": "#3688A3",
     "sentences": [
       "Planeja suas aulas com antecedência, apresentando planos de ensino e de aulas.",
-      "Apresenta antecipadamente as formas e os instrumentos de avaliação de aprendizagem.",
-      "Realiza síntese ao final das aulas e revisões antes dos momentos avaliativos.",
-      "Monitora o tempo, é pontual e organizado no gerenciamento do processo ensino-aprendizagem.",
-      "Termina a aula ofertando o conteúdo planejado, sem atrasar o início ou fim da aula.",
-      "Elabora explicações detalhadas e encontra o ritmo mais adequado para fazê-las, facilitando o entendimento."
+      "Apresenta antecipadamente as formas e os instrumentos de avaliação de aprendizagem."
     ]
-  },
-  {
-    "dimension": "Comunicação",
-    "description": "Refere-se a capacidade do docente ministrar aulas claras e compreensíveis, se valendo de exemplos significativos como estratégia importante, que possibilitem os alunos fixar e recordar melhor os conteúdos apresentados.",
-    "color": "#D788DE",
-    "sentences": [
-      "Organiza as aulas, de forma que as tornem atraentes, transmitindo conteúdos em linguagem clara e compreensível.",
-      "Consegue utilizar múltiplas estratégias para explicar os conteúdos, mantendo a atenção dos estudantes e incentivando-os a participar, de forma que se mantenham atentos às aulas.",
-      "Expressa-se com desenvoltura e apresenta facilidade na tradução dos seus pensamentos em palavras, escolhendo palavras e forma de se comunicar para explicar diferentes conteúdos.",
-      "Promove debates dentro do processo formativo, de modo que auxiliem os estudantes na sua formatação de cidadãos, numa perspectiva de formação humana integral, para viver em sociedade e encarar os desafios do mundo do trabalho."
-    ]
-  },
-  {
-    "dimension": "Interação Professor/Aluno",
-    "description": "Pugna que os estudantes preferem professores que são úteis e demonstram preocupação com o processo formativo do aluno, quer seja, aqueles que se dispõem a oferecer uma ajuda extra sala de aula, se necessário, e se predispõem a ouvir as perguntas e opiniões dos estudantes, possibilitando serem melhores avaliados no processo.",
-    "color": "#B7B11D",
-    "sentences": [
-      "Dispensa tratamento cordial, ético e respeitoso aos estudantes, permitindo a interlocução, aceitando críticas, opiniões e sugestões que favoreçam à melhoria do ensino/aprendizagem.",
-      "Dispõe-se a recepcionar as necessidades dos estudantes, de maneira colaborativa e cooperativa, em sala de aula, na solução de dificuldades de aprendizagem com o componente curricular (disciplina), inclusive se colocando para atendê-los em suas particularidades de aprendizado e, se necessário, orientações extraclasse.",
-      "Demonstra paixão e empolgação por aprender, entender e explorar novas ideias, se interessando pelas perguntas e experiências dos estudantes.",
-      "Realiza suas atividades diárias com energia, entusiasmo e com atitudes positivas, se envolvendo com a atividade desempenhada, fazendo com que os estudantes se empolguem pela matéria.",
-      "Estabelece conexão com os estudantes, sentindo-se feliz e confortável com sua convivência e agindo de forma acolhedora e afetuosa."
-    ]
-  },
-  {
-    "dimension": "Avaliação de Aprendizagem",
-    "description": "Reflete a qualidade do feedback que os professores oferecem aos estudantes. As avaliações de aprendizagem devem refletir o conteúdo que foi ofertado em sala de aula e devem ser realizadas de diversas formas, com perguntas e assertivas equilibradas no que tange ao grau de dificuldade, de modo que seja capaz de verificar o real aprendizado, baseando-se em critérios de avaliação claros para determinar o quão bem os testes refletem os objetivos de ensino.",
-    "color": "#C4287C",
-    "sentences": [
-      "Elabora e aplica as avaliações de aprendizagem compatíveis e coerentes com as discussões, debates e conteúdos desenvolvidos em sala de aula.",
-      "Realiza feedback com os estudantes para análise dos resultados das avaliações de aprendizagem em prol da melhoria do ensino-aprendizagem.",
-      "Efetua as avaliações de aprendizagem diversificadas, com perguntas e assertivas equilibradas no que tange ao grau de dificuldade, de modo que seja capaz de verificar o real aprendizado, baseando-se em critérios de avaliação claros."
-    ]
-  },
-  {
-    "dimension": "Métodos e Materiais Didáticos",
-    "description": "Trata-se dos métodos suplementares e auxiliares do processo de aprendizagem, refletidos no uso de recursos didáticos/adequação pelo professor, aplicação exercícios de fixação/revisão, relacionamento entre teoria e prática, e o incentivo de atividades extraclasses.",
-    "color": "#0500FF",
-    "sentences": [
-      "Adequa os conteúdos e explicações de forma a atingir a todos, bem como é capaz incorporar diferentes realidades socioculturais em seus materiais e em suas aulas.",
-      "Aplica exercícios de fixação/revisão, que relaciona teoria e prática e incentiva o desenvolvimento de atividades extraclasses.",
-      "Relaciona, à medida do possível, os conteúdos de seu componente curricular (disciplina) com a realidade socioeconômica do contexto social em que os estudantes estão inseridos e com o mundo do trabalho.",
-      "Articula conteúdos do seu componente curricular (disciplina) com outros da mesma área do conhecimento e de outras, a exemplo da formação geral e técnica.",
-      "Utiliza metodologias ativas como técnica pedagógica, oportunizando os estudantes de pensar e interagir com o material de estudo, como estratégia para promoção de uma educação transformadora, e colocando-os como protagonista da construção do próprio conhecimento."
-      ]
-    },
-    {
-      "dimension": "Consciência Crítica",
-      "description": "Definida como pressuposto essencial para a educação, sendo esta condição primordial de transformações sociais e pessoais. Para tanto, deve-se promover conexões entre as práticas educacionais e culturais e a luta pela justiça social e econômica, de modo que possa ampliar as compreensões críticas e as práticas libertadoras.",
-      "color": "#FF9900",
-      "sentences": [
-        "Realiza diálogo franco e aberto com os estudantes, convocando-os a participar do processo educativo, pautando os debates e as discussões na formação humana e integral, que formatem cidadãos críticos e reflexivos.",
-        "Promove uma educação orientada para a tomada de decisões, contextualizada nas condições sociais, culturais e econômicas dos estudantes.",
-        "Desenvolve sua prática docente conectando os conteúdos com as questões sociais e políticas do meio que estão inseridos, visando a responsabilidade social e política dos estudantes.",
-        "Adota a sala de aula como um espaço seguro e acolhedor para todos os estudantes, independentemente da sua orientação sexual ou identidade de gênero, contribuindo para a construção de um ambiente escolar mais tolerante e receptivo.",
-        "Promove a compreensão, o respeito e a empatia entre os estudantes, auxiliando a combater o preconceito e a discriminação em todas as suas formas.",
-        "Desenvolve e possibilita, em sua prática docente, posturas, saberes e fazeres inclusivos."
-      ]
-    },
-    {
-      "dimension": "Autonomia",
-      "description": "Consiste no protagonismo da construção do conhecimento, entendendo que educar é formar cidadãos, criando condições para o estudante alargar sua visão de mundo, construir saberes e despertar sua conscientização. É oferecer os mais diversos desafios, refletir e dialogar em conjunto, para, em seguida, avaliar a ação do educando. É demonstrar e incutir, pelo diálogo e conscientização, o seu grau de importância para o todo, na condição de membro de um grupo, de uma sociedade marcada por diversidades, que merece sempre ser respeitada. Educar é oferecer perspectivas e possibilidades de transformação social e esperança.",
-      "color": "#731DB7",
-      "sentences": [
-        "Encoraja, apoia e motiva os estudantes, fazendo-os acreditar que podem ter sucesso na escola e no mundo trabalho.",
-        "Desenvolve nos estudantes a crença de que são capazes de atingir um bom desempenho.",
-        "Preocupa-se com aqueles estudantes que possuem algum grau de dificuldade, oferecendo-lhes especial atenção.",
-        "Utiliza estratégias que incentivam os estudantes na aprendizagem, de forma autônoma e participativa, por meio de problemas e situações reais, realizando tarefas que os levem a pensar, criar e debater, tornando-os protagonistas pela construção de conhecimento."
-      ]
-    }
-  ]
+  }
+]
+

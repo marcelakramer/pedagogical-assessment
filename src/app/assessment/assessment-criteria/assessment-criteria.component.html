@@ -31,10 +31,10 @@
                 <button (click)="previousSentence()" class="btn btn-secondary">
                     Voltar
                 </button>
-                <button  *ngIf="!isLastSentence()" (click)="nextSentence()" class="btn btn-primary" [ngClass]="{ 'btn-disabled': !isAnyRateSelected() }">
+                <button  *ngIf="!isLastSentence()" (click)="nextSentence()" class="btn btn-primary" [ngClass]="{ 'disabled': !isAnyRateSelected() }">
                     Próximo
                 </button>
-                <button  *ngIf="isLastSentence()" (click)="nextSentence()" class="btn btn-primary" [ngClass]="{ 'btn-disabled': !isAnyRateSelected() }">
+                <button  *ngIf="isLastSentence()" (click)="nextSentence()" class="btn btn-primary" [ngClass]="{ 'disabled': !isAnyRateSelected() }">
                     Finalizar
                 </button>
             </div>

@@ -23,8 +23,8 @@ export class ReportViewingComponent {
     this.teacherService.getById(teacherId).subscribe(
       response => {
         this.teacher = response;
-        this.overallAverage = this.calcOverallAverage(this.teacher.assessments);
-        this.specificsAverages = this.calcSpecificsAverages(this.teacher.assessments);
+        // this.overallAverage = this.calcOverallAverage(this.teacher.assessments);
+        // this.specificsAverages = this.calcSpecificsAverages(this.teacher.assessments);
       }
     );
   }

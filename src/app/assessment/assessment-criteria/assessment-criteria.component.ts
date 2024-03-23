@@ -5,6 +5,10 @@ import { Teacher } from '../../shared/models/teacher';
 import { TeacherService } from '../../shared/services/teacher.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FrequencyRatingEnum } from '../../shared/enum/frequencyRating';
+import { Assessment } from '../../shared/models/assessment';
+import { Subject } from '../../shared/models/subject';
+import { SubjectService } from '../../shared/services/subject.service';
+import { AssessmentService } from '../../shared/services/assessment.service';
 
 
 @Component({
@@ -14,26 +18,57 @@ import { FrequencyRatingEnum } from '../../shared/enum/frequencyRating';
 })
 export class AssessmentCriteriaComponent implements OnInit {
   ratingRange: Array<string> = Object.keys(FrequencyRatingEnum);
-  currentSentenceRate: number = 0;
   currentDimension = criteria[0];
   currentDimensionColor =  this.currentDimension.color;
   currentSentence = this.currentDimension.sentences[0];
-  assessment: AssessmentRating = this.transformCriteriaIntoAssessmentRating();
-  teacher!: Teacher;
+  currentSentenceRate: number = 0;
+  teacher: Teacher =  new Teacher('', '', '');
+  subject: Subject = new Subject('', '');
+  assessment: Assessment = new Assessment('', '', '', 0, {});
 
-  constructor(private teacherService: TeacherService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private teacherService: TeacherService,
+    private subjectService: SubjectService,
+    private assessmentService: AssessmentService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) { };
 
   ngOnInit(): void {
+    this.getTeacher();
+    this.getSubject();
+    this.updateAssessmentParams();
+  }
+
+  getTeacher(): void {
     const teacherId = this.activatedRoute.snapshot.params['teacherId'];
     this.teacherService.getById(teacherId).subscribe(
       response => {
         this.teacher = response;
+        this.assessment.teacherId = this.teacher.id;
       }
     );
   }
 
+  getSubject(): void {
+    const subjectId = this.activatedRoute.snapshot.params['subjectId'];
+    this.subjectService.getById(subjectId).subscribe(
+      response => {
+        this.subject = response;
+        this.assessment.subjectId = this.subject.id;
+      }
+    );
+  }
+
+  updateAssessmentParams(): void {
+    this.assessment.teacherId = this.teacher.id;
+    this.assessment.subjectId = this.subject.id;
+    this.assessment.year = parseInt(this.activatedRoute.snapshot.params['year']);
+    this.assessment.rating = this.transformCriteriaIntoAssessmentRating();
+  }
+
   transformCriteriaIntoAssessmentRating(): AssessmentRating {
-    let assessment: AssessmentRating = {};
+    let assessmentRating: AssessmentRating = {};
 
     criteria.forEach(item => {
         let dimensionName = item.dimension;
@@ -43,15 +78,15 @@ export class AssessmentCriteriaComponent implements OnInit {
             dimensionSentences[sentence] = 0;
         });
 
-        assessment[dimensionName] = dimensionSentences;
+        assessmentRating[dimensionName] = dimensionSentences;
     });
 
-    return assessment;
+    return assessmentRating;
   }
   
 
   nextSentence(): void {
-    this.assessment[this.currentDimension.dimension][this.currentSentence] = this.currentSentenceRate;
+    this.assessment.rating[this.currentDimension.dimension][this.currentSentence] = this.currentSentenceRate;
     let currentDimensionIndex = criteria.indexOf(this.currentDimension);
     const currentSentenceIndex = criteria[currentDimensionIndex].sentences.indexOf(this.currentSentence);
     if (currentSentenceIndex === this.currentDimension.sentences.length - 1) {
@@ -66,8 +101,8 @@ export class AssessmentCriteriaComponent implements OnInit {
     } else {
       this.currentSentence = criteria[currentDimensionIndex].sentences[currentSentenceIndex + 1];
     }
-    if (this.assessment[this.currentDimension.dimension][this.currentSentence] !== 0) {
-      this.currentSentenceRate = this.assessment[this.currentDimension.dimension][this.currentSentence]
+    if (this.assessment.rating[this.currentDimension.dimension][this.currentSentence] !== 0) {
+      this.currentSentenceRate = this.assessment.rating[this.currentDimension.dimension][this.currentSentence]
     } else {
       this.currentSentenceRate = 0
     }
@@ -83,12 +118,12 @@ export class AssessmentCriteriaComponent implements OnInit {
         this.currentSentence = criteria[currentDimensionIndex].sentences[criteria[currentDimensionIndex].sentences.length - 1];
         this.updateColor();
       } else {
-        this.goToTeacherSelection();
+        this.goToTeachingSelection();
       }
     } else {
       this.currentSentence = criteria[currentDimensionIndex].sentences[currentSentenceIndex - 1];
     }
-    this.currentSentenceRate = this.assessment[this.currentDimension.dimension][this.currentSentence];
+    this.currentSentenceRate = this.assessment.rating[this.currentDimension.dimension][this.currentSentence];
   }
 
   updateColor(): void {
@@ -125,12 +160,11 @@ export class AssessmentCriteriaComponent implements OnInit {
   }
 
   finishAssessment(): void {
-    this.teacher.assessments.push(this.assessment);
-    this.teacherService.update(this.teacher).subscribe();
+    this.assessmentService.create(this.assessment).subscribe();
     this.router.navigate(['/thank-you']);
   }
 
-  goToTeacherSelection(): void {
-    this.router.navigate(['/teacher-selection']);
+  goToTeachingSelection(): void {
+    this.router.navigate(['/teaching-selection', this.teacher.id]);
   }
 }
