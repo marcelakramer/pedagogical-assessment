@@ -7,6 +7,8 @@ import { TeacherService } from '../../shared/services/teacher.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AverageOptionsEnum } from '../../shared/enum/averageOptions';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
+import { AssessmentService } from '../../shared/services/assessment.service';
+import { Assessment } from '../../shared/models/assessment';
 
 @Component({
   selector: 'app-report-viewing',
@@ -16,13 +18,19 @@ import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 export class ReportViewingComponent {
   mode: ProgressSpinnerMode = 'determinate';
   teacher: Teacher = new Teacher('', '', '');
+  assessments: Array<Assessment> = [];
   averageOptionsEnum = AverageOptionsEnum; // type
   averageOptions: Array<string> = Object.values(AverageOptionsEnum);
-  selectedAverageOption: string = AverageOptionsEnum.overallAverage;
+  selectedAverageOption: string = AverageOptionsEnum.dimensionAverage;
   overallAverage: number = 7.5;
   specificsAverages: Array<SpecificsAverages> = [];
 
-  constructor(private teacherService: TeacherService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private teacherService: TeacherService,
+    private assessmentService: AssessmentService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) { };
 
   ngOnInit(): void {
     this.getTeacher();
@@ -33,10 +41,19 @@ export class ReportViewingComponent {
     this.teacherService.getById(teacherId).subscribe(
       response => {
         this.teacher = response;
-        // this.overallAverage = this.calcOverallAverage(this.teacher.assessments);
-        // this.specificsAverages = this.calcSpecificsAverages(this.teacher.assessments);
+        this.getAssessments();
       }
     );
+  }
+
+  getAssessments(): void {
+    this.assessmentService.getByTeacherId(this.teacher.id).subscribe(
+      response => {
+        this.assessments = response;
+        this.overallAverage = this.calcOverallAverage(this.assessments);
+        this.specificsAverages = this.calcSpecificsAverages(this.assessments);
+      }
+    )
   }
 
   selectAverageOption(eventTarget: EventTarget | null): void {
@@ -46,12 +63,12 @@ export class ReportViewingComponent {
     }
   }
 
-  calcOverallAverage(assessments: Array<AssessmentRating>): number {
+  calcOverallAverage(assessments: Array<Assessment>): number {
     let ratingTotal = 0;
     let criterionsQuantity = 0;
 
     assessments.forEach(item => {
-      Object.values(item).forEach(dimension => {
+      Object.values(item.rating).forEach(dimension => {
         Object.values(dimension).forEach(sentenceRate => {
             ratingTotal += sentenceRate;
             criterionsQuantity++;
@@ -63,10 +80,10 @@ export class ReportViewingComponent {
     return overallAverage;
   }
 
-  calcSpecificsAverages(assessments: Array<AssessmentRating>): Array<SpecificsAverages> {
+  calcSpecificsAverages(assessments: Array<Assessment>): Array<SpecificsAverages> {
     const averages: SpecificsAverages[] = [];
 
-    for (const dimension in assessments[0]) {
+    for (const dimension in assessments[0].rating) {
         let dimensionColor = ''
         criteria.some(item => {
           if (dimension == item.dimension) {
@@ -76,11 +93,11 @@ export class ReportViewingComponent {
         const dimensionAverages: number[] = [];
         const sentenceAverages: { sentence: string, average: number }[] = [];
 
-        for (const sentence in assessments[0][dimension]) {
+        for (const sentence in assessments[0].rating[dimension]) {
             let total = 0;
 
             assessments.forEach(assessment => {
-                total += assessment[dimension][sentence];
+                total += assessment.rating[dimension][sentence];
             });
 
             sentenceAverages.push({ sentence: sentence, average: (total / assessments.length) * 2 });

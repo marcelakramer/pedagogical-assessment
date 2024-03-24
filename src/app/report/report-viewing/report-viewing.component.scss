@@ -59,6 +59,7 @@ div#spinner {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 div#spinner-text {
@@ -69,29 +70,41 @@ div#spinner-text {
     font-size: 6rem;
     font-weight: 700;
     height: 2rem;
+    text-align: center;
 }
 
 div#situation {
-    margin-top: 1rem;
+    margin: 1rem 0 4.5rem 0;
     font-size: 2rem;
     color: #3fa14c;
     font-weight: 700;
 }
 
-div#overall-average-title, div#specifics-average-title {
-    font-weight: 600;
-}
-
 div#specifics-average {
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10rem;
+    width: 80%;
+    gap: 5rem;
 }
 
 div.each-average {
-    width: 12rem;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.dimension-spinner-text {
+    position:relative;
+    top: -5.25rem; 
+    left: 0.25rem;
+    color: #3fa14c;
+    font-size: 2.5rem;
+    font-weight: 700;
+    height: 1rem;
 }
 
 div.dimension-average {
@@ -107,7 +120,7 @@ div.dimension-average {
 }
 
 div.dimension-average-title {
-    margin: 1.5rem 0;
+    margin:  0;
     font-size: 1.5rem;
     font-weight: 700;
 }
@@ -150,8 +163,6 @@ div.criterion-average {
 }
 
 div#buttons-section {
-    padding-top: 3rem;
-
     & button {
         width: 7.5rem;
         height: 2.5rem;

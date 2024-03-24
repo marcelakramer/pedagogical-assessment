@@ -10,11 +10,11 @@
     </div>
     <div id="averages">
         <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.overallAverage">
-            <div id="spinner" class="custom-spinner-color">
+            <div id="spinner">
                 <mat-spinner
                     [mode]="mode"
                     [diameter]="300"
-                    [strokeWidth]="25"
+                    [strokeWidth]="20"
                     [value]="overallAverage*10">
                 </mat-spinner>
                 <div id="spinner-text">{{ this.overallAverage % 1 !== 0 ? this.overallAverage.toFixed(1) : this.overallAverage }}</div>
@@ -23,7 +23,19 @@
           </ng-container>
           
           <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.dimensionAverage">
-            media dimensao
+            <div id="specifics-average">
+                <div *ngFor="let average of this.specificsAverages" class="each-average" [ngStyle]="{ 'color': average.dimensionColor }">
+                    <mat-spinner
+                        [mode]="mode"
+                        [diameter]="110"
+                        [strokeWidth]="7"
+                        [value]="average.average*10">
+                    </mat-spinner>
+                    <div class="dimension-spinner-text" [ngStyle]="{ 'color': average.dimensionColor }">{{ average.average % 1 !== 0 ? average.average.toFixed(1) : average.average}}</div>
+                    <!-- <div class="dimension-average" [ngStyle]="{ 'border-color': average.dimensionColor }">{{ average.average % 1 !== 0 ? average.average.toFixed(1) : average.average}}</div> -->
+                    <div class="dimension-average-title">{{ average.dimension }}</div>
+                </div>
+            </div>
           </ng-container>
           
           <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.sentenceAverage">

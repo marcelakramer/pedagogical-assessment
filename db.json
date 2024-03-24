@@ -84,93 +84,57 @@
   ],
   "assessments": [
     {
-      "id": "8ab0",
-      "teacherId": "3",
-      "subjectId": "5",
-      "year": 2014,
+      "id": "7b7f",
+      "teacherId": "1",
+      "subjectId": "2",
+      "year": 2016,
       "rating": {
         "Organização e Planejamento": {
           "Planeja suas aulas com antecedência, apresentando planos de ensino e de aulas.": 2,
-          "Apresenta antecipadamente as formas e os instrumentos de avaliação de aprendizagem.": 3
-        }
-      }
-    },
-    {
-      "id": "2c05",
-      "teacherId": "1",
-      "subjectId": "1",
-      "year": 2013,
-      "rating": {
-        "Organização e Planejamento": {
-          "Planeja suas aulas com antecedência, apresentando planos de ensino e de aulas.": 2,
-          "Apresenta antecipadamente as formas e os instrumentos de avaliação de aprendizagem.": 3
-        }
-      }
-    },
-    {
-      "id": "e318",
-      "teacherId": "2",
-      "subjectId": "3",
-      "year": 2013,
-      "rating": {
-        "Organização e Planejamento": {
-          "Planeja suas aulas com antecedência, apresentando planos de ensino e de aulas.": 1,
-          "Apresenta antecipadamente as formas e os instrumentos de avaliação de aprendizagem.": 3
-        }
-      }
-    },
-    {
-      "id": "6e63",
-      "teacherId": "1",
-      "subjectId": "1",
-      "year": 2012,
-      "rating": {
-        "Organização e Planejamento": {
-          "Planeja suas aulas com antecedência, apresentando planos de ensino e de aulas.": 1,
-          "Apresenta antecipadamente as formas e os instrumentos de avaliação de aprendizagem.": 5,
-          "Realiza síntese ao final das aulas e revisões antes dos momentos avaliativos.": 1,
+          "Apresenta antecipadamente as formas e os instrumentos de avaliação de aprendizagem.": 3,
+          "Realiza síntese ao final das aulas e revisões antes dos momentos avaliativos.": 4,
           "Monitora o tempo, é pontual e organizado no gerenciamento do processo ensino-aprendizagem.": 3,
-          "Termina a aula ofertando o conteúdo planejado, sem atrasar o início ou fim da aula.": 4,
-          "Elabora explicações detalhadas e encontra o ritmo mais adequado para fazê-las, facilitando o entendimento.": 2
+          "Termina a aula ofertando o conteúdo planejado, sem atrasar o início ou fim da aula.": 2,
+          "Elabora explicações detalhadas e encontra o ritmo mais adequado para fazê-las, facilitando o entendimento.": 5
         },
         "Comunicação": {
-          "Organiza as aulas, de forma que as tornem atraentes, transmitindo conteúdos em linguagem clara e compreensível.": 1,
-          "Consegue utilizar múltiplas estratégias para explicar os conteúdos, mantendo a atenção dos estudantes e incentivando-os a participar, de forma que se mantenham atentos às aulas.": 3,
-          "Expressa-se com desenvoltura e apresenta facilidade na tradução dos seus pensamentos em palavras, escolhendo palavras e forma de se comunicar para explicar diferentes conteúdos.": 4,
-          "Promove debates dentro do processo formativo, de modo que auxiliem os estudantes na sua formatação de cidadãos, numa perspectiva de formação humana integral, para viver em sociedade e encarar os desafios do mundo do trabalho.": 3
+          "Organiza as aulas, de forma que as tornem atraentes, transmitindo conteúdos em linguagem clara e compreensível.": 3,
+          "Consegue utilizar múltiplas estratégias para explicar os conteúdos, mantendo a atenção dos estudantes e incentivando-os a participar, de forma que se mantenham atentos às aulas.": 2,
+          "Expressa-se com desenvoltura e apresenta facilidade na tradução dos seus pensamentos em palavras, escolhendo palavras e forma de se comunicar para explicar diferentes conteúdos.": 3,
+          "Promove debates dentro do processo formativo, de modo que auxiliem os estudantes na sua formatação de cidadãos, numa perspectiva de formação humana integral, para viver em sociedade e encarar os desafios do mundo do trabalho.": 4
         },
         "Interação Professor/Aluno": {
-          "Dispensa tratamento cordial, ético e respeitoso aos estudantes, permitindo a interlocução, aceitando críticas, opiniões e sugestões que favoreçam à melhoria do ensino/aprendizagem.": 4,
-          "Dispõe-se a recepcionar as necessidades dos estudantes, de maneira colaborativa e cooperativa, em sala de aula, na solução de dificuldades de aprendizagem com o componente curricular (disciplina), inclusive se colocando para atendê-los em suas particularidades de aprendizado e, se necessário, orientações extraclasse.": 1,
-          "Demonstra paixão e empolgação por aprender, entender e explorar novas ideias, se interessando pelas perguntas e experiências dos estudantes.": 2,
+          "Dispensa tratamento cordial, ético e respeitoso aos estudantes, permitindo a interlocução, aceitando críticas, opiniões e sugestões que favoreçam à melhoria do ensino/aprendizagem.": 3,
+          "Dispõe-se a recepcionar as necessidades dos estudantes, de maneira colaborativa e cooperativa, em sala de aula, na solução de dificuldades de aprendizagem com o componente curricular (disciplina), inclusive se colocando para atendê-los em suas particularidades de aprendizado e, se necessário, orientações extraclasse.": 2,
+          "Demonstra paixão e empolgação por aprender, entender e explorar novas ideias, se interessando pelas perguntas e experiências dos estudantes.": 3,
           "Realiza suas atividades diárias com energia, entusiasmo e com atitudes positivas, se envolvendo com a atividade desempenhada, fazendo com que os estudantes se empolguem pela matéria.": 3,
           "Estabelece conexão com os estudantes, sentindo-se feliz e confortável com sua convivência e agindo de forma acolhedora e afetuosa.": 4
         },
         "Avaliação de Aprendizagem": {
-          "Elabora e aplica as avaliações de aprendizagem compatíveis e coerentes com as discussões, debates e conteúdos desenvolvidos em sala de aula.": 5,
-          "Realiza feedback com os estudantes para análise dos resultados das avaliações de aprendizagem em prol da melhoria do ensino-aprendizagem.": 1,
-          "Efetua as avaliações de aprendizagem diversificadas, com perguntas e assertivas equilibradas no que tange ao grau de dificuldade, de modo que seja capaz de verificar o real aprendizado, baseando-se em critérios de avaliação claros.": 2
+          "Elabora e aplica as avaliações de aprendizagem compatíveis e coerentes com as discussões, debates e conteúdos desenvolvidos em sala de aula.": 4,
+          "Realiza feedback com os estudantes para análise dos resultados das avaliações de aprendizagem em prol da melhoria do ensino-aprendizagem.": 4,
+          "Efetua as avaliações de aprendizagem diversificadas, com perguntas e assertivas equilibradas no que tange ao grau de dificuldade, de modo que seja capaz de verificar o real aprendizado, baseando-se em critérios de avaliação claros.": 4
         },
         "Métodos e Materiais Didáticos": {
-          "Adequa os conteúdos e explicações de forma a atingir a todos, bem como é capaz incorporar diferentes realidades socioculturais em seus materiais e em suas aulas.": 3,
-          "Aplica exercícios de fixação/revisão, que relaciona teoria e prática e incentiva o desenvolvimento de atividades extraclasses.": 3,
-          "Relaciona, à medida do possível, os conteúdos de seu componente curricular (disciplina) com a realidade socioeconômica do contexto social em que os estudantes estão inseridos e com o mundo do trabalho.": 4,
-          "Articula conteúdos do seu componente curricular (disciplina) com outros da mesma área do conhecimento e de outras, a exemplo da formação geral e técnica.": 5,
-          "Utiliza metodologias ativas como técnica pedagógica, oportunizando os estudantes de pensar e interagir com o material de estudo, como estratégia para promoção de uma educação transformadora, e colocando-os como protagonista da construção do próprio conhecimento.": 3
+          "Adequa os conteúdos e explicações de forma a atingir a todos, bem como é capaz incorporar diferentes realidades socioculturais em seus materiais e em suas aulas.": 4,
+          "Aplica exercícios de fixação/revisão, que relaciona teoria e prática e incentiva o desenvolvimento de atividades extraclasses.": 2,
+          "Relaciona, à medida do possível, os conteúdos de seu componente curricular (disciplina) com a realidade socioeconômica do contexto social em que os estudantes estão inseridos e com o mundo do trabalho.": 1,
+          "Articula conteúdos do seu componente curricular (disciplina) com outros da mesma área do conhecimento e de outras, a exemplo da formação geral e técnica.": 3,
+          "Utiliza metodologias ativas como técnica pedagógica, oportunizando os estudantes de pensar e interagir com o material de estudo, como estratégia para promoção de uma educação transformadora, e colocando-os como protagonista da construção do próprio conhecimento.": 4
         },
         "Consciência Crítica": {
-          "Realiza diálogo franco e aberto com os estudantes, convocando-os a participar do processo educativo, pautando os debates e as discussões na formação humana e integral, que formatem cidadãos críticos e reflexivos.": 3,
+          "Realiza diálogo franco e aberto com os estudantes, convocando-os a participar do processo educativo, pautando os debates e as discussões na formação humana e integral, que formatem cidadãos críticos e reflexivos.": 5,
           "Promove uma educação orientada para a tomada de decisões, contextualizada nas condições sociais, culturais e econômicas dos estudantes.": 3,
-          "Desenvolve sua prática docente conectando os conteúdos com as questões sociais e políticas do meio que estão inseridos, visando a responsabilidade social e política dos estudantes.": 3,
-          "Adota a sala de aula como um espaço seguro e acolhedor para todos os estudantes, independentemente da sua orientação sexual ou identidade de gênero, contribuindo para a construção de um ambiente escolar mais tolerante e receptivo.": 4,
-          "Promove a compreensão, o respeito e a empatia entre os estudantes, auxiliando a combater o preconceito e a discriminação em todas as suas formas.": 5,
-          "Desenvolve e possibilita, em sua prática docente, posturas, saberes e fazeres inclusivos.": 4
+          "Desenvolve sua prática docente conectando os conteúdos com as questões sociais e políticas do meio que estão inseridos, visando a responsabilidade social e política dos estudantes.": 4,
+          "Adota a sala de aula como um espaço seguro e acolhedor para todos os estudantes, independentemente da sua orientação sexual ou identidade de gênero, contribuindo para a construção de um ambiente escolar mais tolerante e receptivo.": 1,
+          "Promove a compreensão, o respeito e a empatia entre os estudantes, auxiliando a combater o preconceito e a discriminação em todas as suas formas.": 2,
+          "Desenvolve e possibilita, em sua prática docente, posturas, saberes e fazeres inclusivos.": 3
         },
         "Autonomia": {
-          "Encoraja, apoia e motiva os estudantes, fazendo-os acreditar que podem ter sucesso na escola e no mundo trabalho.": 1,
-          "Desenvolve nos estudantes a crença de que são capazes de atingir um bom desempenho.": 2,
-          "Preocupa-se com aqueles estudantes que possuem algum grau de dificuldade, oferecendo-lhes especial atenção.": 3,
-          "Utiliza estratégias que incentivam os estudantes na aprendizagem, de forma autônoma e participativa, por meio de problemas e situações reais, realizando tarefas que os levem a pensar, criar e debater, tornando-os protagonistas pela construção de conhecimento.": 5
+          "Encoraja, apoia e motiva os estudantes, fazendo-os acreditar que podem ter sucesso na escola e no mundo trabalho.": 4,
+          "Desenvolve nos estudantes a crença de que são capazes de atingir um bom desempenho.": 3,
+          "Preocupa-se com aqueles estudantes que possuem algum grau de dificuldade, oferecendo-lhes especial atenção.": 2,
+          "Utiliza estratégias que incentivam os estudantes na aprendizagem, de forma autônoma e participativa, por meio de problemas e situações reais, realizando tarefas que os levem a pensar, criar e debater, tornando-os protagonistas pela construção de conhecimento.": 4
         }
       }
     }

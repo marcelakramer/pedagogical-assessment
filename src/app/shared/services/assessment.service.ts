@@ -19,6 +19,10 @@ export class AssessmentService {
     return this.http.get<Assessment>(`${this.baseUrl}/${id}`);
   }
 
+  getByTeacherId(teacherId: string): Observable<Assessment[]> {
+    return this.http.get<Assessment[]>(`${this.baseUrl}?teacherId=${teacherId}`);
+  }
+
   create(assessment: Assessment): Observable<Assessment> {
     const { id, ...assessmentWithoutId } = assessment;
     return this.http.post<Assessment>(`${this.baseUrl}`, assessmentWithoutId);
