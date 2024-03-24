@@ -21,9 +21,10 @@ export class ReportViewingComponent {
   assessments: Array<Assessment> = [];
   averageOptionsEnum = AverageOptionsEnum; // type
   averageOptions: Array<string> = Object.values(AverageOptionsEnum);
-  selectedAverageOption: string = AverageOptionsEnum.dimensionAverage;
+  selectedAverageOption: string = AverageOptionsEnum.overallAverage;
   overallAverage: number = 7.5;
   specificsAverages: Array<SpecificsAverages> = [];
+  selectedSpecificAverage: SpecificsAverages = {"average": 0, "dimension": '', "dimensionColor": '', "sentenceAverage": []};
 
   constructor(
     private teacherService: TeacherService,
@@ -52,6 +53,7 @@ export class ReportViewingComponent {
         this.assessments = response;
         this.overallAverage = this.calcOverallAverage(this.assessments);
         this.specificsAverages = this.calcSpecificsAverages(this.assessments);
+        this.selectedSpecificAverage = this.specificsAverages[0];
       }
     )
   }
@@ -114,6 +116,15 @@ export class ReportViewingComponent {
         });
     }
     return averages;
+  }
+
+  selectSpecificAverage(eventTarget: EventTarget | null): void {
+    if (eventTarget) {
+      const object = eventTarget as HTMLSelectElement;
+      const selectedDimension = object.value;
+      this.selectedSpecificAverage = this.specificsAverages.find(specificAverage => specificAverage.dimension === selectedDimension)!;
+      console.log(this.selectedSpecificAverage)
+    }
   }
 
   goToTeacherSelection(): void {

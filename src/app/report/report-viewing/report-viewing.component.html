@@ -10,7 +10,7 @@
     </div>
     <div id="averages">
         <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.overallAverage">
-            <div id="spinner">
+            <div class="spinner">
                 <mat-spinner
                     [mode]="mode"
                     [diameter]="300"
@@ -23,23 +23,40 @@
           </ng-container>
           
           <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.dimensionAverage">
-            <div id="specifics-average">
-                <div *ngFor="let average of this.specificsAverages" class="each-average" [ngStyle]="{ 'color': average.dimensionColor }">
-                    <mat-spinner
-                        [mode]="mode"
-                        [diameter]="110"
-                        [strokeWidth]="7"
-                        [value]="average.average*10">
-                    </mat-spinner>
-                    <div class="dimension-spinner-text" [ngStyle]="{ 'color': average.dimensionColor }">{{ average.average % 1 !== 0 ? average.average.toFixed(1) : average.average}}</div>
-                    <!-- <div class="dimension-average" [ngStyle]="{ 'border-color': average.dimensionColor }">{{ average.average % 1 !== 0 ? average.average.toFixed(1) : average.average}}</div> -->
-                    <div class="dimension-average-title">{{ average.dimension }}</div>
+            <div id="dimension-average">
+                <div *ngFor="let average of this.specificsAverages" class="each-dimension" [ngStyle]="{ 'color': average.dimensionColor }">
+                    <div class="spinner">
+                        <mat-spinner
+                            [mode]="mode"
+                            [diameter]="110"
+                            [strokeWidth]="7"
+                            [value]="average.average*10">
+                        </mat-spinner>
+                        <div class="dimension-spinner-text" [ngStyle]="{ 'color': average.dimensionColor }">{{ average.average % 1 !== 0 ? average.average.toFixed(1) : average.average}}</div>
+                        </div>
+                    <div class="dimension-title">{{ average.dimension }}</div>
                 </div>
             </div>
           </ng-container>
           
           <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.sentenceAverage">
-            media afirmativa
+            <div id="sentencesAverages">
+                <select (change)="selectSpecificAverage($event.target)">
+                    <option *ngFor="let average of this.specificsAverages">{{ average.dimension }}</option>
+                </select>
+                <div *ngFor="let sentence of selectedSpecificAverage.sentenceAverage" class="each-sentence">
+                    <div class="sentence-text" [ngStyle]="{ 'color': selectedSpecificAverage.dimensionColor }">{{ sentence.sentence }}</div>
+                    <div class="spinner">
+                        <mat-spinner
+                            [mode]="mode"
+                            [diameter]="80"
+                            [strokeWidth]="5"
+                            [value]="sentence.average*10">
+                        </mat-spinner>
+                        <div class="sentence-average" [ngStyle]="{ 'color': selectedSpecificAverage.dimensionColor }">{{ sentence.average % 1 !== 0 ? sentence.average.toFixed(1) : sentence.average}}</div>  
+                    </div>
+              </div>
+            </div>
           </ng-container>
     </div>
     <div id="buttons-section">
@@ -47,22 +64,4 @@
             Voltar
         </button>
     </div>
-</div> 
-
-    <!-- <div id="averages">
-        <div id="overall-average-title" class="underline">Média geral:</div>
-        <div id="overall-average">{{ this.overallAverage % 1 !== 0 ? this.overallAverage.toFixed(1) : this.overallAverage }}</div>
-        <div id="specifics-average-title" class="underline">Média por aspecto avaliativo:</div>
-        <div id="specifics-average">
-            <div *ngFor="let average of this.specificsAverages" class="each-average" [ngStyle]="{ 'color': average.dimensionColor }">
-                <div class="dimension-average" [ngStyle]="{ 'border-color': average.dimensionColor }">{{ average.average % 1 !== 0 ? average.average.toFixed(1) : average.average}}</div>
-                <div class="dimension-average-title">{{ average.dimension }}</div>
-                 <div class="dimension-criteria">
-                    <div *ngFor="let criterion of average.sentenceAverage" class="each-criterion">
-                        <div class="criterion-average-title">{{ criterion.sentence }}</div>
-                        <div class="criterion-average" [ngStyle]="{ 'border-color': average.dimensionColor }">{{ criterion.average % 1 !== 0 ? criterion.average.toFixed(1) : criterion.average }}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->   
+</div>

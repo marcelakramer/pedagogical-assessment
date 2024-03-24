@@ -8,6 +8,28 @@ div#report-viewing {
     font-family: 'Nunito', sans-serif;
 }
 
+select {
+    padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+    border-radius: 12px;
+    border: 2px solid #ccc;
+    color: #000;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    width: 100%;
+    outline: none;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    appearance: none;
+    background-image: url('../../../assets/icons/arrow-down.svg');
+    background-position: calc(100% - 1.5rem) center;
+    background-repeat: no-repeat;
+
+    & option {
+        color: #adadad;
+    }
+}
+
 div#teacher-info {
     display: flex;
     justify-content: center;
@@ -24,28 +46,6 @@ div#teacher-info {
 
 div#average-selection {
     width: 20%;
-
-    & select {
-        padding: 1.25rem 1.25rem 1.25rem 1.25rem;
-        border-radius: 12px;
-        border: 2px solid #ccc;
-        color: #4d4d4d;
-        font-family: 'Nunito', sans-serif;
-        font-size: 1.25rem;
-        font-weight: 500;
-        width: 100%;
-        outline: none;
-        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
-        cursor: pointer;
-        appearance: none;
-        background-image: url('../../../assets/icons/arrow-down.svg');
-        background-position: calc(100% - 1.5rem) center;
-        background-repeat: no-repeat;
-    
-        & option {
-            color: #adadad;
-        }
-    }
 }
 
 
@@ -55,7 +55,7 @@ div#averages {
     flex-direction: column;
 }
 
-div#spinner {
+div.spinner {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,7 +80,7 @@ div#situation {
     font-weight: 700;
 }
 
-div#specifics-average {
+div#dimension-average {
     margin: 0 auto;
     display: flex;
     flex-direction: row;
@@ -90,7 +90,7 @@ div#specifics-average {
     gap: 5rem;
 }
 
-div.each-average {
+div.each-dimension {
     width: 20%;
     display: flex;
     flex-direction: column;
@@ -100,69 +100,66 @@ div.each-average {
 div.dimension-spinner-text {
     position:relative;
     top: -5.25rem; 
-    left: 0.25rem;
+    left: 0rem;
     color: #3fa14c;
     font-size: 2.5rem;
     font-weight: 700;
     height: 1rem;
 }
 
-div.dimension-average {
-    margin: auto;
-    font-size: 2.5rem;
-    font-weight: 700;
-    border: 8px solid black;
-    border-radius: 50%;
-    width: 8rem;
-    height: 8rem;
-    text-align: center;
-    line-height: 3.2;
-}
-
-div.dimension-average-title {
+div.dimension-title {
     margin:  0;
     font-size: 1.5rem;
     font-weight: 700;
 }
 
-div.dimension-criteria {
+div#sentencesAverages {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    gap: 5rem;
+}
+
+div.dimension-sentences {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
     text-align: center;
 }
 
-
-div.each-criterion {
+div.each-sentence {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    height: 3rem;
+    justify-content: center;
     align-items: center;
-    position: relative;
+    gap: 2rem;
 }
 
-div.criterion-average-title {
-    max-width: 70%;
-    position: absolute;
-    margin-right: 2rem ;
+div.sentence-text {
+    border: 1px solid;
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: 1.25rem;
     font-weight: 600;
+    width: 17.5rem;
 }
 
-div.criterion-average {
-    font-size: 1rem;
+div.sentence-average {
+    position:relative;
+    top: -3.75rem; 
+    left: 0;
+    color: #3fa14c;
+    font-size: 2rem;
     font-weight: 700;
-    border: 2px solid;
-    border-radius: 50%;
-    width: 2.3rem;
-    height: 2.3rem;
-    text-align: center;
-    line-height: 2.4;
-    position: absolute;
-    right: 0;
+    height: 0;
 }
 
 div#buttons-section {
+    padding-bottom: 2rem;
+    
     & button {
         width: 7.5rem;
         height: 2.5rem;
