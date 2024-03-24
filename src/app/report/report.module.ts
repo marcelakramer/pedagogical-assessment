@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReportViewingComponent } from './report-viewing/report-viewing.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -9,7 +10,8 @@ import { ReportViewingComponent } from './report-viewing/report-viewing.componen
     ReportViewingComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     ReportViewingComponent

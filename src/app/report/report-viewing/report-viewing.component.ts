@@ -6,6 +6,7 @@ import criteria from '../../shared/criteria.json'
 import { TeacherService } from '../../shared/services/teacher.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AverageOptionsEnum } from '../../shared/enum/averageOptions';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-report-viewing',
@@ -13,11 +14,12 @@ import { AverageOptionsEnum } from '../../shared/enum/averageOptions';
   styleUrl: './report-viewing.component.scss'
 })
 export class ReportViewingComponent {
+  mode: ProgressSpinnerMode = 'determinate';
   teacher: Teacher = new Teacher('', '', '');
   averageOptionsEnum = AverageOptionsEnum; // type
   averageOptions: Array<string> = Object.values(AverageOptionsEnum);
   selectedAverageOption: string = AverageOptionsEnum.overallAverage;
-  overallAverage: number = 0;
+  overallAverage: number = 7.5;
   specificsAverages: Array<SpecificsAverages> = [];
 
   constructor(private teacherService: TeacherService, private router: Router, private activatedRoute: ActivatedRoute) { }

@@ -1,7 +1,7 @@
 div#report-viewing {
     display: flex;
     flex-direction: column;
-    margin: 2rem auto;
+    padding: 2rem auto;
     align-items: center;
     text-align: center;
     gap: 3rem;
@@ -14,6 +14,7 @@ div#teacher-info {
     gap: 9rem;
     font-size: 1.125rem;
     font-weight: 500;
+    margin-top: 2rem;
 
     & span {
         margin-right: 1rem;
@@ -49,22 +50,32 @@ div#average-selection {
 
 
 div#averages {
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
 }
 
-div#overall-average {
-    margin: 1.5rem auto;
+div#spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div#spinner-text {
+    position:relative;
+    top: -13.5rem; 
+    left: 0.25rem;
     color: #3fa14c;
-    font-size: 5rem;
+    font-size: 6rem;
     font-weight: 700;
-    border: 12px solid #3fa14c;
-    border-radius: 50%;
-    width: 12rem;
-    height: 12rem;
-    text-align: center;
-    line-height: 2.4;
+    height: 2rem;
+}
+
+div#situation {
+    margin-top: 1rem;
+    font-size: 2rem;
+    color: #3fa14c;
+    font-weight: 700;
 }
 
 div#overall-average-title, div#specifics-average-title {
@@ -139,7 +150,7 @@ div.criterion-average {
 }
 
 div#buttons-section {
-    margin-top: 3rem;
+    padding-top: 3rem;
 
     & button {
         width: 7.5rem;

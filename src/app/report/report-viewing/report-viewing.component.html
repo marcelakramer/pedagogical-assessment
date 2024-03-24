@@ -8,9 +8,18 @@
             <option *ngFor="let option of averageOptions">{{ option }}</option>
         </select>
     </div>
-    <div id="average">
+    <div id="averages">
         <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.overallAverage">
-            media geral 
+            <div id="spinner" class="custom-spinner-color">
+                <mat-spinner
+                    [mode]="mode"
+                    [diameter]="300"
+                    [strokeWidth]="25"
+                    [value]="overallAverage*10">
+                </mat-spinner>
+                <div id="spinner-text">{{ this.overallAverage % 1 !== 0 ? this.overallAverage.toFixed(1) : this.overallAverage }}</div>
+            </div>
+            <div id="situation">Apto a exercer função docente</div>
           </ng-container>
           
           <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.dimensionAverage">
@@ -21,6 +30,12 @@
             media afirmativa
           </ng-container>
     </div>
+    <div id="buttons-section">
+        <button class="btn btn-secondary" (click)="goToTeacherSelection()">
+            Voltar
+        </button>
+    </div>
+</div> 
 
     <!-- <div id="averages">
         <div id="overall-average-title" class="underline">Média geral:</div>
@@ -38,10 +53,4 @@
                 </div>
             </div>
         </div>
-        <div id="buttons-section">
-            <button class="btn btn-secondary" (click)="goToTeacherSelection()">
-                Voltar
-            </button>
-        </div>
-    </div> -->
-</div>    
+    </div> -->   
