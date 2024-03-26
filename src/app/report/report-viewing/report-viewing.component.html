@@ -11,12 +11,13 @@
     <div id="averages">
         <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.overallAverage">
             <div class="spinner">
-                <mat-spinner
+                <mat-progress-spinner
                     [mode]="mode"
                     [diameter]="300"
                     [strokeWidth]="20"
-                    [value]="overallAverage*10">
-                </mat-spinner>
+                    [value]="overallAverage*10"
+                    [ngStyle]="{'stroke': '#3fa14c' }">
+                </mat-progress-spinner>
                 <div id="spinner-text">{{ this.overallAverage % 1 !== 0 ? this.overallAverage.toFixed(1) : this.overallAverage }}</div>
             </div>
             <div id="situation">Apto a exercer função docente</div>
@@ -26,12 +27,13 @@
             <div id="dimension-average">
                 <div *ngFor="let average of this.specificsAverages" class="each-dimension" [ngStyle]="{ 'color': average.dimensionColor }">
                     <div class="spinner">
-                        <mat-spinner
+                        <mat-progress-spinner
                             [mode]="mode"
                             [diameter]="110"
                             [strokeWidth]="7"
-                            [value]="average.average*10">
-                        </mat-spinner>
+                            [value]="average.average*10"
+                            [ngStyle]="{'stroke': average.dimensionColor }">
+                        </mat-progress-spinner>
                         <div class="dimension-spinner-text" [ngStyle]="{ 'color': average.dimensionColor }">{{ average.average % 1 !== 0 ? average.average.toFixed(1) : average.average}}</div>
                         </div>
                     <div class="dimension-title">{{ average.dimension }}</div>
@@ -47,12 +49,13 @@
                 <div *ngFor="let sentence of selectedSpecificAverage.sentenceAverage" class="each-sentence">
                     <div class="sentence-text" [ngStyle]="{ 'color': selectedSpecificAverage.dimensionColor }">{{ sentence.sentence }}</div>
                     <div class="spinner">
-                        <mat-spinner
+                        <mat-progress-spinner
                             [mode]="mode"
                             [diameter]="80"
                             [strokeWidth]="5"
-                            [value]="sentence.average*10">
-                        </mat-spinner>
+                            [value]="sentence.average*10"
+                            [ngStyle]="{'stroke': selectedSpecificAverage.dimensionColor }">
+                        </mat-progress-spinner>
                         <div class="sentence-average" [ngStyle]="{ 'color': selectedSpecificAverage.dimensionColor }">{{ sentence.average % 1 !== 0 ? sentence.average.toFixed(1) : sentence.average}}</div>  
                     </div>
               </div>

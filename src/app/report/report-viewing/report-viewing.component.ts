@@ -19,10 +19,10 @@ export class ReportViewingComponent {
   mode: ProgressSpinnerMode = 'determinate';
   teacher: Teacher = new Teacher('', '', '');
   assessments: Array<Assessment> = [];
-  averageOptionsEnum = AverageOptionsEnum; // type
+  averageOptionsEnum: typeof AverageOptionsEnum = AverageOptionsEnum;
   averageOptions: Array<string> = Object.values(AverageOptionsEnum);
   selectedAverageOption: string = AverageOptionsEnum.overallAverage;
-  overallAverage: number = 7.5;
+  overallAverage: number = 0;
   specificsAverages: Array<SpecificsAverages> = [];
   selectedSpecificAverage: SpecificsAverages = {"average": 0, "dimension": '', "dimensionColor": '', "sentenceAverage": []};
 
