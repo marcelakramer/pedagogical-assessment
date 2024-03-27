@@ -1,43 +1,40 @@
-<div id="assessment-Sentence">
-    <div id="header">
+<div id="assessment-rating">
+    <div id="dimension">
         <div id="dimension-title" class="underline">
             Dimensão:
         </div>
-        <div id="sentence-title" class="underline">
-            Afirmativa:
+        <div id="dimension-info" [ngStyle]="{ 'color': this.currentDimensionColor }">
+            <div id="dimension-name">
+                {{this.currentDimension.dimension}}
+            </div>
+            <div id="dimension-description">
+                {{this.currentDimension.description}}
+            </div>
         </div>
     </div>
-    <div id="main">
-        <div id="dimension">
-            <div id="dimension-info" [ngStyle]="{ 'color': this.currentDimensionColor, 'border-color': this.currentDimensionColor }">
-                <div id="dimension-name">
-                    {{this.currentDimension.dimension}}
-                </div>
-                <div id="dimension-description">
-                    {{this.currentDimension.description}}
-                </div>
-            </div>
+    <div id="sentence-rating">
+        <div id="sentence-title" class="underline">
+            Afirmativas:
         </div>
-        <div id="sentence-rating">
-            <div id="sentence">
-                <div id="sentence-description" [ngStyle]="{ 'color': this.currentDimensionColor, 'border-color': this.currentDimensionColor }">
-                    {{this.currentSentence}}
-                </div>
+        <div *ngFor="let sentence of this.currentDimension.sentences" id="each-sentence-rating">
+            <div id="sentence-description" [ngStyle]="{ 'color': this.currentDimensionColor }">
+                {{ sentence }}
             </div>
-            <div id="rating-section">
+            <div id="rating">
                 <div  matTooltip="{{getFrequencyByRate(rate)}}" (click)="changeCurrentRate(rate)" class="rate" *ngFor="let rate of ratingRange" [ngClass]="{ 'rate-selected': isRateCurrent(rate) }" [ngStyle]="{ 'color': !isRateCurrent(rate) ? this.currentDimensionColor : '#fff', 'background-color': isRateCurrent(rate) ? this.currentDimensionColor : 'inherit' }">{{rate}}</div>
             </div>
-            <div id="buttons-section">
-                <button (click)="previousSentence()" class="btn btn-secondary">
-                    Voltar
-                </button>
-                <button  *ngIf="!isLastSentence()" (click)="nextSentence()" class="btn btn-primary" [ngClass]="{ 'disabled': !isAnyRateSelected() }">
-                    Próximo
-                </button>
-                <button  *ngIf="isLastSentence()" (click)="nextSentence()" class="btn btn-primary" [ngClass]="{ 'disabled': !isAnyRateSelected() }">
-                    Finalizar
-                </button>
-            </div>
+            <div id="division-line"></div>
         </div>
+    </div>
+    <div id="buttons-section">
+        <button (click)="previousSentence()" class="btn btn-secondary">
+            Voltar
+        </button>
+        <button  *ngIf="!isLastSentence()" (click)="nextSentence()" class="btn btn-primary" [ngClass]="{ 'disabled': !isAnyRateSelected() }">
+            Próximo
+        </button>
+        <button  *ngIf="isLastSentence()" (click)="nextSentence()" class="btn btn-primary" [ngClass]="{ 'disabled': !isAnyRateSelected() }">
+            Finalizar
+        </button>
     </div>
 </div>
