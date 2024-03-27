@@ -86,44 +86,25 @@ export class AssessmentCriteriaComponent implements OnInit {
   
 
   nextSentence(): void {
-    this.assessment.rating[this.currentDimension.dimension][this.currentSentence] = this.currentSentenceRate;
     let currentDimensionIndex = criteria.indexOf(this.currentDimension);
-    const currentSentenceIndex = criteria[currentDimensionIndex].sentences.indexOf(this.currentSentence);
-    if (currentSentenceIndex === this.currentDimension.sentences.length - 1) {
-      if (currentDimensionIndex !== criteria.length - 1) {
-        currentDimensionIndex++;
-        this.currentDimension = criteria[currentDimensionIndex];
-        this.currentSentence = criteria[currentDimensionIndex].sentences[0];
-        this.updateColor();
-      } else {
-        this.finishAssessment();
-      }
+    if (currentDimensionIndex !== criteria.length - 1) {
+      currentDimensionIndex++;
+      this.currentDimension = criteria[currentDimensionIndex];
+      this.updateColor();
     } else {
-      this.currentSentence = criteria[currentDimensionIndex].sentences[currentSentenceIndex + 1];
-    }
-    if (this.assessment.rating[this.currentDimension.dimension][this.currentSentence] !== 0) {
-      this.currentSentenceRate = this.assessment.rating[this.currentDimension.dimension][this.currentSentence]
-    } else {
-      this.currentSentenceRate = 0
+      this.finishAssessment();
     }
   }
 
   previousSentence(): void {
     let currentDimensionIndex = criteria.indexOf(this.currentDimension);
-    const currentSentenceIndex = criteria[currentDimensionIndex].sentences.indexOf(this.currentSentence);
-    if (currentSentenceIndex === 0) {
-      if (currentDimensionIndex !== 0) {
-        currentDimensionIndex--;
-        this.currentDimension = criteria[currentDimensionIndex];
-        this.currentSentence = criteria[currentDimensionIndex].sentences[criteria[currentDimensionIndex].sentences.length - 1];
-        this.updateColor();
-      } else {
-        this.goToTeachingSelection();
-      }
+    if (currentDimensionIndex !== 0) {
+      currentDimensionIndex--;
+      this.currentDimension = criteria[currentDimensionIndex];
+      this.updateColor();
     } else {
-      this.currentSentence = criteria[currentDimensionIndex].sentences[currentSentenceIndex - 1];
+      this.goToTeachingSelection();
     }
-    this.currentSentenceRate = this.assessment.rating[this.currentDimension.dimension][this.currentSentence];
   }
 
   updateColor(): void {
@@ -134,29 +115,22 @@ export class AssessmentCriteriaComponent implements OnInit {
     return FrequencyRatingEnum[rate as keyof typeof FrequencyRatingEnum];
   }
 
-  changeCurrentRate(rate: string): void {
-    if (this.isRateCurrent(rate)) {
-      this.currentSentenceRate = 0;
-    } else {
-      this.currentSentenceRate = parseInt(rate);
-    }
+  changeCurrentRate(rate: string, sentence: string): void {
+    this.assessment.rating[this.currentDimension.dimension][sentence] = parseInt(rate);
+    console.log(this.assessment.rating[this.currentDimension.dimension])
   }
 
-  isRateCurrent(rate: string): boolean {
-    return parseInt(rate) === this.currentSentenceRate;
+  isRateCurrent(rate: string, sentence: string): boolean {
+    return parseInt(rate) === this.assessment.rating[this.currentDimension.dimension][sentence];
   }
 
-  isAnyRateSelected(): boolean {
-    return this.currentSentenceRate !== 0;
+  isAllRateSelected(): boolean {
+    return !Object.values(this.assessment.rating[this.currentDimension.dimension]).some(value => value === 0);
   }
 
-  isLastSentence(): boolean {
+  isLastDimension(): boolean {
     let currentDimensionIndex = criteria.indexOf(this.currentDimension);
-    const currentSentenceIndex = criteria[currentDimensionIndex].sentences.indexOf(this.currentSentence);
-    if (currentSentenceIndex === this.currentDimension.sentences.length - 1) {
-      return currentDimensionIndex === criteria.length - 1;
-    }
-    return false
+    return currentDimensionIndex === criteria.length - 1
   }
 
   finishAssessment(): void {
