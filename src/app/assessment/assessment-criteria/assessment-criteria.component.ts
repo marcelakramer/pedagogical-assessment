@@ -32,7 +32,7 @@ export class AssessmentCriteriaComponent implements OnInit {
     private assessmentService: AssessmentService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) { };
+  ) { }
 
   ngOnInit(): void {
     this.getTeacher();
@@ -68,11 +68,11 @@ export class AssessmentCriteriaComponent implements OnInit {
   }
 
   transformCriteriaIntoAssessmentRating(): AssessmentRating {
-    let assessmentRating: AssessmentRating = {};
+    const assessmentRating: AssessmentRating = {};
 
     criteria.forEach(item => {
-        let dimensionName = item.dimension;
-        let dimensionSentences: { [sentence: string]: number } = {};
+        const dimensionName = item.dimension;
+        const dimensionSentences: { [sentence: string]: number } = {};
 
         item.sentences.forEach(sentence => {
             dimensionSentences[sentence] = 0;
@@ -117,7 +117,6 @@ export class AssessmentCriteriaComponent implements OnInit {
 
   changeCurrentRate(rate: string, sentence: string): void {
     this.assessment.rating[this.currentDimension.dimension][sentence] = parseInt(rate);
-    console.log(this.assessment.rating[this.currentDimension.dimension])
   }
 
   isRateCurrent(rate: string, sentence: string): boolean {
@@ -129,8 +128,8 @@ export class AssessmentCriteriaComponent implements OnInit {
   }
 
   isLastDimension(): boolean {
-    let currentDimensionIndex = criteria.indexOf(this.currentDimension);
-    return currentDimensionIndex === criteria.length - 1
+    const currentDimensionIndex = criteria.indexOf(this.currentDimension);
+    return currentDimensionIndex === criteria.length - 1;
   }
 
   finishAssessment(): void {
@@ -140,5 +139,9 @@ export class AssessmentCriteriaComponent implements OnInit {
 
   goToTeachingSelection(): void {
     this.router.navigate(['/teaching-selection', this.teacher.id]);
+  }
+
+  scrollToTop(): void {
+    window.scrollTo(0, 0);
   }
 }

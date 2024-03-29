@@ -33,7 +33,7 @@ export class TeacherSelectionComponent implements OnInit {
     if (eventTarget) {
       const object = eventTarget as HTMLSelectElement;
       const selectedTeacherName = object.value;
-      this.selectedTeacher = this.teachers.find(teacher => teacher.name === selectedTeacherName)!!;
+      this.selectedTeacher = this.teachers.find(teacher => teacher.name === selectedTeacherName)!;
     }
   }
 

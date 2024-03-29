@@ -4,7 +4,7 @@
     </div>
     <div id="combo-box-section">    
         <select (change)="selectSubject($event.target); updateYears()">
-            <option *ngIf="selectedSubject.id == ''" value="" disabled selected>Selecione a disciplina</option>
+            <option *ngIf="selectedSubject.id === ''" value="" disabled selected>Selecione a disciplina</option>
             <option *ngFor="let subject of availableSubjects" >{{ subject.name }}</option>
         </select>
         <select (change)="selectYear($event.target)" [ngClass]="{ 'disabled': !isSubjectSelected() }">

@@ -3,6 +3,6 @@ export class Report {
         public id: string,
         public teacherid: string,
         public overallAverage: number,
-        public specificAverages: {}
-    ) {};
-};
+        public specificAverages: object
+    ) {}
+}

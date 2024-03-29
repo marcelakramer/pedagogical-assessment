@@ -5,5 +5,5 @@ export class Teaching {
         public subjectId: string,
         public firstYear: number,
         public lastYear: number
-    ) {};
+    ) {}
 }

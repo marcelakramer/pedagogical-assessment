@@ -26,7 +26,7 @@ export class TeachingSelectionComponent implements OnInit {
     private subjectService: SubjectService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) { };
+  ) { }
 
   ngOnInit(): void {
     this.getTeacher();
@@ -80,7 +80,7 @@ export class TeachingSelectionComponent implements OnInit {
     if (this.selectedSubject) {
       const selectedTeaching = this.teachings.find(teaching => teaching.subjectId === this.selectedSubject.id);
       if (selectedTeaching) {
-        this.availableYears = Array.from({ length: selectedTeaching.lastYear - selectedTeaching.firstYear + 1 }, (_, i) => selectedTeaching.firstYear + i).sort((a, b) => b - a);;
+        this.availableYears = Array.from({ length: selectedTeaching.lastYear - selectedTeaching.firstYear + 1 }, (_, i) => selectedTeaching.firstYear + i).sort((a, b) => b - a);
       }
     } else {
       this.availableYears = [];

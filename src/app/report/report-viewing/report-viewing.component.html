@@ -12,7 +12,7 @@
         <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.overallAverage">
             <div class="spinner">
                 <mat-progress-spinner
-                    [mode]="mode"
+                    [mode]="'determinate'"
                     [diameter]="300"
                     [strokeWidth]="20"
                     [value]="overallAverage*10"
@@ -28,7 +28,7 @@
                 <div *ngFor="let average of this.specificsAverages" class="each-dimension" [ngStyle]="{ 'color': average.dimensionColor }">
                     <div class="spinner">
                         <mat-progress-spinner
-                            [mode]="mode"
+                            [mode]="'determinate'"
                             [diameter]="110"
                             [strokeWidth]="7"
                             [value]="average.average*10"
@@ -50,7 +50,7 @@
                     <div class="sentence-text" [ngStyle]="{ 'color': selectedSpecificAverage.dimensionColor }">{{ sentence.sentence }}</div>
                     <div class="spinner">
                         <mat-progress-spinner
-                            [mode]="mode"
+                            [mode]="'determinate'"
                             [diameter]="80"
                             [strokeWidth]="5"
                             [value]="sentence.average*10"

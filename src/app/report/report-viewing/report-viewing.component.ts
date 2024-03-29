@@ -1,12 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Teacher } from '../../shared/models/teacher';
-import { AssessmentRating } from '../../shared/interfaces/assessment-rating';
 import { SpecificsAverages } from '../../shared/interfaces/specifics-averages';
 import criteria from '../../shared/criteria.json'
 import { TeacherService } from '../../shared/services/teacher.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AverageOptionsEnum } from '../../shared/enum/averageOptions';
-import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { AssessmentService } from '../../shared/services/assessment.service';
 import { Assessment } from '../../shared/models/assessment';
 
@@ -15,8 +13,7 @@ import { Assessment } from '../../shared/models/assessment';
   templateUrl: './report-viewing.component.html',
   styleUrl: './report-viewing.component.scss'
 })
-export class ReportViewingComponent {
-  mode: ProgressSpinnerMode = 'determinate';
+export class ReportViewingComponent implements OnInit {
   teacher: Teacher = new Teacher('', '', '');
   assessments: Array<Assessment> = [];
   averageOptionsEnum: typeof AverageOptionsEnum = AverageOptionsEnum;
@@ -31,7 +28,7 @@ export class ReportViewingComponent {
     private assessmentService: AssessmentService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) { };
+  ) { }
 
   ngOnInit(): void {
     this.getTeacher();

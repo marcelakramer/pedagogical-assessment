@@ -3,5 +3,5 @@ export class Teacher {
         public id: string,
         public registration: string,
         public name: string
-    ) {};
-};
+    ) {}
+}

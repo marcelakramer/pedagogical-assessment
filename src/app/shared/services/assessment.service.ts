@@ -24,8 +24,7 @@ export class AssessmentService {
   }
 
   create(assessment: Assessment): Observable<Assessment> {
-    const { id, ...assessmentWithoutId } = assessment;
-    return this.http.post<Assessment>(`${this.baseUrl}`, assessmentWithoutId);
+    return this.http.post<Assessment>(`${this.baseUrl}`, assessment);
   }
 
   update(assessment: Assessment): Observable<Assessment> {

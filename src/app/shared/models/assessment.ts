@@ -7,5 +7,5 @@ export class Assessment {
         public subjectId: string,
         public year: number,
         public rating: AssessmentRating
-    ) {};
-};
+    ) {}
+}
