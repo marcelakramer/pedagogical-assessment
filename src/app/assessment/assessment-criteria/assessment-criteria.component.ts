@@ -17,7 +17,7 @@ import { AssessmentService } from '../../shared/services/assessment.service';
   styleUrl: './assessment-criteria.component.scss'
 })
 export class AssessmentCriteriaComponent implements OnInit {
-  ratingRange: Array<string> = Object.keys(FrequencyRatingEnum);
+  ratingRange: Array<string> = Object.values(FrequencyRatingEnum);
   currentDimension = criteria[0];
   currentDimensionColor =  this.currentDimension.color;
   currentSentence = this.currentDimension.sentences[0];
@@ -112,7 +112,7 @@ export class AssessmentCriteriaComponent implements OnInit {
   }
   
   getFrequencyByRate(rate: string): string {
-    return FrequencyRatingEnum[rate as keyof typeof FrequencyRatingEnum];
+    return Object.keys(FrequencyRatingEnum).find(frequency => FrequencyRatingEnum[frequency as keyof typeof FrequencyRatingEnum] === rate)!;
   }
 
   changeCurrentRate(rate: string, sentence: string): void {

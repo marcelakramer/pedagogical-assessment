@@ -1,7 +1,7 @@
-export const FrequencyRatingEnum = {
-    "1": "Nunca",
-    "2": "Raramente",
-    "3": "Às vezes",
-    "4": "Frequentemente",
-    "5": "Sempre"
-};
+export enum FrequencyRatingEnum {
+    "Nunca" = "1",
+    "Raramente" = "2",
+    "Às vezes" = "3",
+    "Frequentemente" = "4",
+    "Sempre" = "5"
+}
