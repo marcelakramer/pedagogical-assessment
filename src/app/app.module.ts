@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './home/home.module';
 import { ThankYouModule } from './thank-you/thank-you.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     ReportModule,
     HomeModule,
     ThankYouModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule
   ],
   providers: [
     provideAnimationsAsync()
