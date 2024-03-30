@@ -12,5 +12,6 @@ export class HomePageComponent {
 
   goToTeacherSelection(): void {
     this.router.navigate(['/teacher-selection']);
+    window.scrollTo(0, 0);
   }
 }

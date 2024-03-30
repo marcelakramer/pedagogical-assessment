@@ -97,10 +97,12 @@ export class TeachingSelectionComponent implements OnInit {
 
   goToTeacherSelection(): void {
     this.router.navigate(['/teacher-selection']);
+    window.scrollTo(0, 0);
   }
 
   goToAssessment() {
     this.router.navigate(['/assessment', this.teacher.id, this.selectedSubject.id, this.selectedYear]);
+    window.scrollTo(0, 0);
   }
 
 }

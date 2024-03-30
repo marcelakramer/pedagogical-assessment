@@ -11,6 +11,7 @@ export class ThankYouPageComponent {
   constructor(private router: Router) { }
 
   goToHome(): void {
-    this.router.navigate(['/']);  
+    this.router.navigate(['/']);
+    window.scrollTo(0, 0);
   }
 }

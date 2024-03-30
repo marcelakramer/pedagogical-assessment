@@ -23,10 +23,12 @@ export class TeacherSelectionComponent implements OnInit {
 
   goToTeachingSelection(): void {
     this.router.navigate(['/teaching-selection', this.selectedTeacher.id]);
+    window.scrollTo(0, 0);
   }
 
   goToReport(): void {
     this.router.navigate(['/report', this.selectedTeacher.id]);
+    window.scrollTo(0, 0);
   }
 
   selectTeacher(eventTarget: EventTarget | null): void {

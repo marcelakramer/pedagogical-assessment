@@ -7,6 +7,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AverageOptionsEnum } from '../../shared/enum/averageOptions';
 import { AssessmentService } from '../../shared/services/assessment.service';
 import { Assessment } from '../../shared/models/assessment';
+import { OverallAverageStatusEnum } from '../../shared/enum/overallAverageStatus';
+import { OverallAverageColorEnum } from '../../shared/enum/overallAverageColor';
 
 @Component({
   selector: 'app-report-viewing',
@@ -20,6 +22,8 @@ export class ReportViewingComponent implements OnInit {
   averageOptions: Array<string> = Object.values(AverageOptionsEnum);
   selectedAverageOption: string = AverageOptionsEnum.overallAverage;
   overallAverage: number = 0;
+  overallStatus: string = "";
+  overallColor: string = "";
   specificsAverages: Array<SpecificsAverages> = [];
   selectedSpecificAverage: SpecificsAverages = {"average": 0, "dimension": '', "dimensionColor": '', "sentenceAverage": []};
 
@@ -49,6 +53,7 @@ export class ReportViewingComponent implements OnInit {
       response => {
         this.assessments = response;
         this.overallAverage = this.calcOverallAverage(this.assessments);
+        this.updateOverallStatus();
         this.specificsAverages = this.calcSpecificsAverages(this.assessments);
         this.selectedSpecificAverage = this.specificsAverages[0];
       }
@@ -77,6 +82,32 @@ export class ReportViewingComponent implements OnInit {
 
     const overallAverage = (ratingTotal / criterionsQuantity) * 2;
     return overallAverage;
+  }
+
+  updateOverallStatus(): void {
+    if (this.overallAverage >= 7) {
+      this.overallStatus = OverallAverageStatusEnum.fit;
+    } else if (this.overallAverage > 4) {
+      this.overallStatus = OverallAverageStatusEnum.monitoring;
+    } else {
+      this.overallStatus = OverallAverageStatusEnum.intervention;
+    }
+    this.updateOverallColor();
+  }
+
+  updateOverallColor(): void {
+    switch(this.overallStatus) {
+      case OverallAverageStatusEnum.fit:
+        this.overallColor = OverallAverageColorEnum.fit;
+        break
+
+      case OverallAverageStatusEnum.monitoring:
+        this.overallColor = OverallAverageColorEnum.monitoring;
+        break
+      
+      case OverallAverageStatusEnum.intervention:
+        this.overallColor = OverallAverageColorEnum.intervention
+    }
   }
 
   calcSpecificsAverages(assessments: Array<Assessment>): Array<SpecificsAverages> {
@@ -126,6 +157,7 @@ export class ReportViewingComponent implements OnInit {
 
   goToTeacherSelection(): void {
     this.router.navigate(['/teacher-selection']);
+    window.scrollTo(0, 0);
   }
   
 }
