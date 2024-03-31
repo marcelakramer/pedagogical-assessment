@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class TeacherSelectionComponent implements OnInit {
   teachers: Array<Teacher> = [];
-  selectedTeacher!: Teacher;
+  selectedTeacher: Teacher = new Teacher('', '', '');
 
   constructor(private teacherService: TeacherService, private router: Router) { }
 
@@ -40,6 +40,6 @@ export class TeacherSelectionComponent implements OnInit {
   }
 
   isTeacherSelected(): boolean {
-    return this.selectedTeacher != null;
+    return this.selectedTeacher.id != '';
   }
 }
