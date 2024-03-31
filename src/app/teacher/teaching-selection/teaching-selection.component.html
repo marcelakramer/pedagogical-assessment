@@ -7,7 +7,7 @@
             <option *ngIf="selectedSubject.id === ''" value="" disabled selected>Selecione a disciplina</option>
             <option *ngFor="let subject of availableSubjects" >{{ subject.name }}</option>
         </select>
-        <select (change)="selectYear($event.target)" [ngClass]="{ 'disabled': !isSubjectSelected() }">
+        <select (change)="selectYear($event.target)" [disabled]="!isSubjectSelected()">
             <option *ngIf="!selectedYear" value="" disabled selected>Selecione o ano</option>
             <option *ngFor="let year of availableYears" [value]="year">{{ year }}</option>
         </select>
@@ -16,7 +16,7 @@
         <button (click)="goToTeacherSelection()" class="btn btn-secondary">
             Voltar
         </button>
-        <button class="btn btn-primary" (click)="goToAssessment()" [ngClass]="{ 'disabled': !isYearSelected() }">
+        <button class="btn btn-primary" (click)="goToAssessment()" [disabled]="!isYearSelected()">
             Avaliar
         </button>
     </div>

@@ -7,7 +7,7 @@
         </div>
         <div id="card-buttons">
             <button class="btn btn-secondary" (click)="goToTeacherSelection()">Voltar</button>
-            <button class="btn btn-primary" (click)="authenticate()" [ngClass]="{ 'disabled': !this.form.valid }">Confirmar</button>
+            <button class="btn btn-primary" (click)="authenticate()" [disabled]="!this.form.valid">Confirmar</button>
         </div>
     </div>
 </div>

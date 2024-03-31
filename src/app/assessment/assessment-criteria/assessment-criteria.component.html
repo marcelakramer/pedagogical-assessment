@@ -34,11 +34,11 @@
             Voltar
         </button>
         <button *ngIf="!isLastDimension()" (click)="scrollToTop(); nextSentence()" class="btn btn-primary"
-            [ngClass]="{ 'disabled': !isAllRateSelected() }">
+        [disabled]="!isAllRateSelected()">
             Próximo
         </button>
         <button *ngIf="isLastDimension()" (click)="nextSentence()" class="btn btn-primary"
-            [ngClass]="{ 'disabled': !isAllRateSelected() }">
+        [disabled]="!isAllRateSelected()">
             Finalizar
         </button>
     </div>
