@@ -6,12 +6,13 @@ import { AppComponent } from './app.component';
 import { TeacherModule } from './teacher/teacher.module';
 import { AssessmentModule } from './assessment/assessment.module';
 import { ReportModule } from './report/report.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './home/home.module';
 import { ThankYouModule } from './thank-you/thank-you.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AuthModule } from './auth/auth.module';
 import { ModalModule } from './modal/modal.module';
+import { ErrorInterceptor } from './shared/interceptors/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ModalModule } from './modal/modal.module';
     ModalModule
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,8 @@
 <router-outlet></router-outlet>
-<!-- <app-teacher-selection></app-teacher-selection> -->
-<!-- <app-assessment-criteria></app-assessment-criteria> -->
-<!-- <app-report-viewing></app-report-viewing> -->
-<!-- <app-home-page></app-home-page> -->
-<!-- <app-thank-you-page></app-thank-you-page> -->
-<!-- <app-auth></app-auth> -->
+
+
+<!-- adapted from https://jasonwatmore.com/post/2023/01/03/angular-14-modal-popup-dialog-tutorial-with-example -->
+<app-modal id="server-error-modal">
+    <img src="../../../assets/icons/error.svg" alt="auth-fail">
+    <h1>Não foi possível concluir a solicitação. Erro na conexão com o servidor.</h1>
+</app-modal>
