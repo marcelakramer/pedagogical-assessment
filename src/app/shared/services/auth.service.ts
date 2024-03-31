@@ -28,5 +28,5 @@ export class AuthService {
         return this.validateAdminCredentials(credentials.username, credentials.password);
     }
     return false;
-}
+  }
 }

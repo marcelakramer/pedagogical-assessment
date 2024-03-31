@@ -11,6 +11,7 @@ import { HomeModule } from './home/home.module';
 import { ThankYouModule } from './thank-you/thank-you.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AuthModule } from './auth/auth.module';
+import { ModalModule } from './modal/modal.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AuthModule } from './auth/auth.module';
     HomeModule,
     ThankYouModule,
     HttpClientModule,
-    AuthModule
+    AuthModule,
+    ModalModule
   ],
   providers: [
     provideAnimationsAsync()

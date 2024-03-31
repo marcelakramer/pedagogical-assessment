@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../shared/services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ModalService } from '../../shared/services/modal.service';
 
 
 @Component({
@@ -15,19 +16,33 @@ export class AuthComponent {
     password: ['', Validators.required]
   })
 
-  constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private modalService: ModalService
+  ) { }
 
   authenticate(): void {
     if (this.authService.validateAdminCredentials(this.form.value.username, this.form.value.password)) {
-      alert('sucesso')
-      this.goToTeacherSelection();
+      this.modalService.open('auth-success-modal');
     } else {
-      alert('erro')
+      this.modalService.open('auth-fail-modal');
+      this.form.reset();
     }
   }
 
   goToTeacherSelection(): void {
-    this.router.navigate(['/teacher-selection'])
+    this.router.navigate(['/teacher-selection']);
+  }
+
+  closeModal(): void {
+    this.modalService.close();
+  }
+
+  closeAndGoToTeacherSelection(): void {
+    this.closeModal();
+    this.goToTeacherSelection();
   }
 
 }
