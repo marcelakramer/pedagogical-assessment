@@ -3,11 +3,11 @@
         <div id="card-title" class="underline">Faça o login de administrador:</div>
         <div id="card-input" [formGroup]="form">
             <input type="text" formControlName="username" placeholder="Usuário">
-            <input type="password" formControlName="password" placeholder="Senha">
+            <input type="password" formControlName="password" placeholder="Senha" (keydown.enter)="authenticate()">
         </div>
         <div id="card-buttons">
             <button class="btn btn-secondary" (click)="goToTeacherSelection()">Voltar</button>
-            <button class="btn btn-primary" (keyup)="authenticate()" (click)="authenticate()" [ngClass]="{ 'disabled': !this.form.valid }">Confirmar</button>
+            <button class="btn btn-primary" (click)="authenticate()" [ngClass]="{ 'disabled': !this.form.valid }">Confirmar</button>
         </div>
     </div>
 </div>

@@ -21,7 +21,7 @@
                 {{ sentence }}
             </div>
             <div id="rating">
-                <div tabindex="0" matTooltip="{{getFrequencyByRate(rate)}}" (click)="changeCurrentRate(rate, sentence)" (keyup)="changeCurrentRate(rate, sentence)" class="rate"
+                <div tabindex="0" matTooltip="{{getFrequencyByRate(rate)}}" (click)="changeCurrentRate(rate, sentence)" (keydown.enter)="changeCurrentRate(rate, sentence)" class="rate"
                     *ngFor="let rate of ratingRange" [ngClass]="{ 'rate-selected': isRateCurrent(rate, sentence) }"
                     [ngStyle]="{ 'color': !isRateCurrent(rate, sentence) ? this.currentDimensionColor : '#fff', 'background-color': isRateCurrent(rate, sentence) ? this.currentDimensionColor : 'inherit' }">
                     {{rate}}</div>
