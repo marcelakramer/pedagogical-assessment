@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Subject } from '../../shared/models/subject';
 import { Teaching } from '../../shared/models/teaching';
 import { Teacher } from '../../shared/models/teacher';
-import { TeacherService } from '../../shared/services/teacher.service';
+import { TeacherService } from '../../shared/services/teacher/teacher.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TeachingService } from '../../shared/services/teaching.service';
-import { SubjectService } from '../../shared/services/subject.service';
+import { TeachingService } from '../../shared/services/teaching/teaching.service';
+import { SubjectService } from '../../shared/services/subject/subject.service';
 
 @Component({
   selector: 'app-teaching-selection',

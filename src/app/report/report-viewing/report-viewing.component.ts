@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Teacher } from '../../shared/models/teacher';
 import { SpecificsAverages } from '../../shared/interfaces/specifics-averages';
 import criteria from '../../shared/criteria.json'
-import { TeacherService } from '../../shared/services/teacher.service';
+import { TeacherService } from '../../shared/services/teacher/teacher.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AverageOptionsEnum } from '../../shared/enum/averageOptions';
-import { AssessmentService } from '../../shared/services/assessment.service';
+import { AssessmentService } from '../../shared/services/assessment/assessment.service';
 import { Assessment } from '../../shared/models/assessment';
 import { OverallAverageStatusEnum } from '../../shared/enum/overallAverageStatus';
 import { OverallAverageColorEnum } from '../../shared/enum/overallAverageColor';

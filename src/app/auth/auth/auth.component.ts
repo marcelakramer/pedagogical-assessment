@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../../shared/services/auth/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ModalService } from '../../shared/services/modal.service';
+import { ModalService } from '../../shared/services/modal/modal.service';
 
 
 @Component({

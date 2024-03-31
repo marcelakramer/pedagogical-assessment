@@ -1,6 +1,6 @@
 // adapted from https://jasonwatmore.com/post/2023/01/03/angular-14-modal-popup-dialog-tutorial-with-example
 import { Injectable } from '@angular/core';
-import { ModalComponent } from '../../modal/modal/modal.component';
+import { ModalComponent } from '../../../modal/modal/modal.component';
 
 @Injectable({ providedIn: 'root' })
 export class ModalService {

@@ -1,6 +1,6 @@
 // adapted from https://jasonwatmore.com/post/2023/01/03/angular-14-modal-popup-dialog-tutorial-with-example
 import { Component, ViewEncapsulation, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
-import { ModalService } from '../../shared/services/modal.service';
+import { ModalService } from '../../shared/services/modal/modal.service';
 
 @Component({
   selector: 'app-modal',

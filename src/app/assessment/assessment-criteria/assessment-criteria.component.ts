@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import criteria from '../../shared/criteria.json'
 import { AssessmentRating } from '../../shared/interfaces/assessment-rating';
 import { Teacher } from '../../shared/models/teacher';
-import { TeacherService } from '../../shared/services/teacher.service';
+import { TeacherService } from '../../shared/services/teacher/teacher.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FrequencyRatingEnum } from '../../shared/enum/frequencyRating';
 import { Assessment } from '../../shared/models/assessment';
 import { Subject } from '../../shared/models/subject';
-import { SubjectService } from '../../shared/services/subject.service';
-import { AssessmentService } from '../../shared/services/assessment.service';
+import { SubjectService } from '../../shared/services/subject/subject.service';
+import { AssessmentService } from '../../shared/services/assessment/assessment.service';
 
 
 @Component({
