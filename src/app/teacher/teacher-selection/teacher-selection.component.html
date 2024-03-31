@@ -4,7 +4,7 @@
     </div>
     <div id="combo-box-section">    
         <select (change)="selectTeacher($event.target)">
-            <option *ngIf="!selectedTeacher" value="" disabled selected>Selecione um docente</option>
+            <option *ngIf="selectedTeacher.id === ''" value="" disabled selected>Selecione um docente</option>
             <option *ngFor="let teacher of teachers" [ngValue]="teacher">{{ teacher.name }}</option>
         </select>
     </div>
