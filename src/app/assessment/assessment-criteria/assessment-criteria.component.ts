@@ -134,12 +134,12 @@ export class AssessmentCriteriaComponent implements OnInit {
 
   finishAssessment(): void {
     this.assessmentService.create(this.assessment).subscribe();
-    this.router.navigate(['/thank-you']);
+    this.router.navigate(['/thankyou']);
     window.scrollTo(0, 0);
   }
 
   goToTeachingSelection(): void {
-    this.router.navigate(['/teaching-selection', this.teacher.id]);
+    this.router.navigate(['/teaching', this.teacher.id]);
     window.scrollTo(0, 0);
   }
 

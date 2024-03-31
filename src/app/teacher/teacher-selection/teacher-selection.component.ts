@@ -22,7 +22,7 @@ export class TeacherSelectionComponent implements OnInit {
   }
 
   goToTeachingSelection(): void {
-    this.router.navigate(['/teaching-selection', this.selectedTeacher.id]);
+    this.router.navigate(['/teaching', this.selectedTeacher.id]);
     window.scrollTo(0, 0);
   }
 

@@ -11,7 +11,7 @@ export class HomePageComponent {
   constructor(private router: Router) { }
 
   goToTeacherSelection(): void {
-    this.router.navigate(['/teacher-selection']);
+    this.router.navigate(['/teacher']);
     window.scrollTo(0, 0);
   }
 }

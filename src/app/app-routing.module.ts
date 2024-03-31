@@ -12,11 +12,11 @@ import { authGuard } from './shared/guards/auth.guard';
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'auth', component: AuthComponent},
-  { path: 'teacher-selection', component: TeacherSelectionComponent },
-  { path: 'teaching-selection/:teacherId', component: TeachingSelectionComponent },
+  { path: 'teacher', component: TeacherSelectionComponent },
+  { path: 'teaching/:teacherId', component: TeachingSelectionComponent },
   { path: 'assessment/:teacherId/:subjectId/:year', component: AssessmentCriteriaComponent },
   { path: 'report/:teacherId', component: ReportViewingComponent, canActivate: [authGuard] },
-  { path: 'thank-you', component: ThankYouPageComponent }
+  { path: 'thankyou', component: ThankYouPageComponent }
 ];
 
 @NgModule({
