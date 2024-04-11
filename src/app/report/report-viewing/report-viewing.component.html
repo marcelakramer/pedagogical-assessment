@@ -4,9 +4,28 @@
         <div id="teacher-registration"><span class="underline">Matrícula:</span>{{ this.teacher.registration }}</div>
     </div>
     <div id="average-selection">
-        <select (change)="selectAverageOption($event.target)">
-            <option *ngFor="let option of averageOptions">{{ option }}</option>
-        </select>
+        <div class="fields">
+            <p class="underline"><span>Média:</span></p>
+            <select (change)="selectAverageOption($event.target)">
+                <option *ngFor="let option of averageOptions">{{ option }}</option>
+            </select>
+        </div>
+        <div class="fields">
+            <p class="underline"><span>Filtros:</span></p>
+            <p *ngIf="this.filterSelected.subject !== undefined">{{ this.filterSelected.subject.name }}</p>
+            <p *ngIf="this.filterSelected.year !== undefined">{{ this.filterSelected.year }}</p>
+            <div id="filter-buttons">
+                <button *ngIf="!isFilterSelected()" class="btn btn-primary" (click)="openFilterModal()">
+                    Adicionar
+                </button>
+                <button *ngIf="isFilterSelected()" class="btn btn-primary" (click)="openFilterModal()">
+                    Alterar
+                </button>
+                <button class="btn btn-secondary" [disabled]="!isFilterSelected()" (click)="removeFilters()">
+                    Remover 
+                </button>
+            </div>
+        </div>
     </div>
     <div id="averages">
         <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.overallAverage">
@@ -68,3 +87,30 @@
         </button>
     </div>
 </div>
+
+<!-- adapted from https://jasonwatmore.com/post/2023/01/03/angular-14-modal-popup-dialog-tutorial-with-example -->
+    
+<app-modal id="filter-modal">
+    <div id="filter">
+        <div class="underline">Selecione uma disciplina:</div>
+        <select #subjectFilterSelect (change)="selectSubjectToFilter($event.target)">
+            <option>Todas</option>
+            <option *ngFor="let subject of filteredSubjects">{{ subject.name }}</option>
+        </select>
+        <div class="underline">Selecione um ano:</div>
+        <select #yearFilterSelect (change)="selectYearToFilter($event.target)">
+            <option>Todos</option>
+            <option *ngFor="let year of filteredYears">{{ year }}</option>
+        </select>
+        <div id="filter-buttons">
+            <button class="btn btn-secondary" (click)="closeModal()">Cancelar</button>
+            <button class="btn btn-primary" (click)="applyFilters()">Aplicar</button>
+        </div>
+    </div>
+</app-modal>
+
+<app-modal id="filter-error-modal">
+    <img src="../../../assets/icons/error.svg" alt="filter-error">
+    <h1>Não existem avaliações com os filtros selecionados.</h1>
+    <button class="btn btn-primary" (click)="closeModal()">Ok</button>
+</app-modal>

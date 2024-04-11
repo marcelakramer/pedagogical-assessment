@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReportViewingComponent } from './report-viewing/report-viewing.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ModalModule } from '../modal/modal.module';
 
 
 
@@ -11,7 +12,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   ],
   imports: [
     CommonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ModalModule
   ],
   exports: [
     ReportViewingComponent

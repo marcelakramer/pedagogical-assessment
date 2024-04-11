@@ -17,12 +17,12 @@
 <app-modal id="auth-fail-modal">
     <img src="../../../assets/icons/error.svg" alt="auth-fail">
     <h1>Falha na autenticação.</h1>
-    <button (click)="closeModal()">Ok</button>
+    <button class="btn btn-primary" (click)="closeModal()">Ok</button>
 </app-modal>
 
 
 <app-modal id="auth-success-modal">
     <img src="../../../assets/icons/success.svg" alt="auth-success">
     <h1>Login realizado com sucesso!</h1>
-    <button (click)="closeAndGoToTeacherSelection()">Ok</button>
+    <button  class="btn btn-primary" (click)="closeAndGoToTeacherSelection()">Ok</button>
 </app-modal>
