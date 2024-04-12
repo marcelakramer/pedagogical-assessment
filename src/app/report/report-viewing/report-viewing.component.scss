@@ -61,6 +61,13 @@ div.fields {
     align-items: center;
     gap: 2rem;
     width: 25%;
+
+    & p.filters {
+        border: 2px solid #3fa14c;
+        border-radius: 15px;
+        padding: 0.125rem 0.5rem;
+        opacity: 0.9;
+    }
 }
 
 div#filter {

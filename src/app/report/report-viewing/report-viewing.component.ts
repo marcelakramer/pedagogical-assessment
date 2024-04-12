@@ -34,11 +34,12 @@ export class ReportViewingComponent implements OnInit {
   specificsAverages: Array<SpecificsAverages> = [];
   selectedSpecificAverage: SpecificsAverages = {"average": 0, "dimension": '', "dimensionColor": '', "sentenceAverage": []};
   filteredAssessments: Array<Assessment> = this.assessments;
-  filterSelected: Filter = {subject: undefined, year: undefined};
+  filterSelected: Filter = {subject: undefined, year: undefined, applied: false};
   subjects: Array<Subject> = [];
   filteredSubjects: Array<Subject> = [];
   years: Array<number> = [];
   filteredYears: Array<number> = [];
+  @ViewChild('dimensionSelect') dimensionSelect?: ElementRef;
   @ViewChild('subjectFilterSelect') subjectFilterSelect?: ElementRef;
   @ViewChild('yearFilterSelect') yearFilterSelect?: ElementRef;
   
@@ -273,6 +274,14 @@ export class ReportViewingComponent implements OnInit {
       this.updateOverallStatus();
       this.specificsAverages = this.calcSpecificsAverages(this.filteredAssessments);
       this.selectedSpecificAverage = this.specificsAverages.find(specificsAverage => specificsAverage.dimension === this.selectedSpecificAverage.dimension)!;
+      const index = this.specificsAverages.findIndex(specificAverage => specificAverage.dimension === this.selectedSpecificAverage.dimension);
+      const dimensionSelectElement = this.dimensionSelect?.nativeElement;
+      if (dimensionSelectElement !== undefined && index !== -1) {
+        setTimeout(() => {
+          dimensionSelectElement.selectedIndex = index;
+      });
+      }
+      this.filterSelected.applied = true;
       this.closeModal();
     } else {
       this.closeModal();
@@ -286,6 +295,7 @@ export class ReportViewingComponent implements OnInit {
     this.filteredSubjects = this.subjects;
     this.filterSelected.year = undefined;
     this.filteredYears = this.years;
+    this.filterSelected.applied = false;
     this.clearFilterSelectFields();
     this.resetAverages();
   }
@@ -303,6 +313,13 @@ export class ReportViewingComponent implements OnInit {
     this.updateOverallStatus();
     this.specificsAverages = this.calcSpecificsAverages(this.assessments);
     this.selectedSpecificAverage = this.specificsAverages.find(specificsAverage => specificsAverage.dimension === this.selectedSpecificAverage.dimension)!;
+    const index = this.specificsAverages.findIndex(specificAverage => specificAverage.dimension === this.selectedSpecificAverage.dimension);
+    const dimensionSelectElement = this.dimensionSelect?.nativeElement;
+    if (dimensionSelectElement !== undefined && index !== -1) {
+      setTimeout(() => {
+        dimensionSelectElement.selectedIndex = index;
+      });
+    }
   }
   
   isFilterSelected(): boolean {
