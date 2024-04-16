@@ -1,0 +1,28 @@
+div#invite-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p {
+    font-weight: 500;
+}
+
+div#invite-text {
+    margin: 0 15%;
+    text-align: justify;
+    font-size: 1.4rem;
+}
+
+div#buttons-section {
+    margin: 1rem 0 2rem 0;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    & button {
+        width: 7.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+}

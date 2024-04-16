@@ -13,10 +13,11 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { AuthModule } from './auth/auth.module';
 import { ModalModule } from './modal/modal.module';
 import { ErrorInterceptor } from './shared/interceptors/error.interceptor';
+import { IntroModule } from './intro/intro.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +29,8 @@ import { ErrorInterceptor } from './shared/interceptors/error.interceptor';
     ThankYouModule,
     HttpClientModule,
     AuthModule,
-    ModalModule
+    ModalModule,
+    IntroModule
   ],
   providers: [
     provideAnimationsAsync(),

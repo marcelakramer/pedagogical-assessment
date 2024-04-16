@@ -8,9 +8,11 @@ import { ThankYouPageComponent } from './thank-you/thank-you-page/thank-you-page
 import { TeachingSelectionComponent } from './teacher/teaching-selection/teaching-selection.component';
 import { AuthComponent } from './auth/auth/auth.component';
 import { authGuard } from './shared/guards/auth.guard';
+import { InviteComponent } from './intro/invite/invite.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
+  { path: 'invite', component: InviteComponent },
   { path: 'auth', component: AuthComponent},
   { path: 'teacher', component: TeacherSelectionComponent },
   { path: 'teaching/:teacherId', component: TeachingSelectionComponent },
