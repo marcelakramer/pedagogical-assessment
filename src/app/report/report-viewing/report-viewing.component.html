@@ -92,7 +92,7 @@
     
 <app-modal id="filter-modal">
     <div id="filter">
-        <div class="underline">Selecione uma disciplina:</div>
+        <div class="underline">Selecione um componente:</div>
         <select #subjectFilterSelect (change)="selectSubjectToFilter($event.target)">
             <option>Todas</option>
             <option *ngFor="let subject of filteredSubjects">{{ subject.name }}</option>

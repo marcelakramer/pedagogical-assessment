@@ -1,10 +1,10 @@
 <div id="teaching-selection-section">
     <div id="title-section" class="underline">
-        <h1>Selecione a disciplina e o ano de avaliação: </h1>
+        <h1>Selecione o componente curricular e o ano: </h1>
     </div>
     <div id="combo-box-section">    
         <select (change)="selectSubject($event.target); updateYears()">
-            <option *ngIf="selectedSubject.id === ''" value="" disabled selected>Selecione a disciplina</option>
+            <option *ngIf="selectedSubject.id === ''" value="" disabled selected>Selecione o componente</option>
             <option *ngFor="let subject of availableSubjects" >{{ subject.name }}</option>
         </select>
         <select (change)="selectYear($event.target)" [disabled]="!isSubjectSelected()">

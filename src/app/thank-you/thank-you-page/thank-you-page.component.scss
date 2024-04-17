@@ -26,3 +26,22 @@ div#buttons-section button {
     height: 3.25rem;
     font-size: 1.25rem;
 }
+
+@media (max-width: 75rem) {
+    div#thank-you-main-section {
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    div#thank-you-image img {
+        margin-left: 25%;
+        width: 50%;
+    }
+
+    div#thank-you-text {
+        padding-top: 4rem;
+        max-width: 100%;
+        font-size: 10.2vw;
+    }
+}

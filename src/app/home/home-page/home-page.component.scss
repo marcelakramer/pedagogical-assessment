@@ -25,3 +25,21 @@ div#buttons-section button {
     height: 3.25rem;
     font-size: 1.25rem;
 }
+
+@media (max-width: 75rem) {
+    div#home-main-section {
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    div#home-image img {
+        margin-left: 25%;
+        width: 50%;
+    }
+
+    div#home-text {
+        max-width: 100%;
+        font-size: 10.2vw;
+    }
+}
