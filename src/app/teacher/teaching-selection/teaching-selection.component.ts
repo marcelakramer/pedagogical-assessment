@@ -78,9 +78,16 @@ export class TeachingSelectionComponent implements OnInit {
 
   updateYears(): void {
     if (this.selectedSubject) {
-      const selectedTeaching = this.teachings.find(teaching => teaching.subjectId === this.selectedSubject.id);
-      if (selectedTeaching) {
-        this.availableYears = Array.from({ length: selectedTeaching.lastYear - selectedTeaching.firstYear + 1 }, (_, i) => selectedTeaching.firstYear + i).sort((a, b) => b - a);
+      const selectedTeachings = this.teachings.filter(teaching => teaching.subjectId === this.selectedSubject.id);
+      if (selectedTeachings.length > 0) {
+        const years = selectedTeachings.reduce((acc, teaching) => {
+          const teachingYears = Array.from({ length: teaching.lastYear - teaching.firstYear + 1 }, (_, i) => teaching.firstYear + i);
+          return acc.concat(teachingYears);
+        }, [] as number[]);
+        
+        this.availableYears = Array.from(new Set(years)).sort((a, b) => b - a);
+      } else {
+        this.availableYears = [];
       }
     } else {
       this.availableYears = [];

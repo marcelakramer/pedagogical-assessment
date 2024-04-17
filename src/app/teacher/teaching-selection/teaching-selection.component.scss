@@ -45,6 +45,8 @@ h1 {
 #buttons-section {
     margin-top: 5rem;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     flex-direction: row;
     gap: 1rem;
 

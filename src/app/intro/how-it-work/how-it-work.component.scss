@@ -18,6 +18,8 @@ div#how-it-work-text {
 div#buttons-section {
     margin: 1rem 0 2rem 0;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     flex-direction: row;
     gap: 1rem;
 

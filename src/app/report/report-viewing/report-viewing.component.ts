@@ -226,15 +226,21 @@ export class ReportViewingComponent implements OnInit {
 
   updateYears(): void {
     if (this.filterSelected.subject !== undefined) {
-      const selectedTeaching = this.teachings.find(teaching => teaching.subjectId === this.filterSelected.subject!.id);
-      if (selectedTeaching) {
-        this.filteredYears = Array.from({ length: selectedTeaching.lastYear - selectedTeaching.firstYear + 1 }, (_, i) => selectedTeaching.firstYear + i).sort((a, b) => b - a);
+      const selectedTeachings = this.teachings.filter(teaching => teaching.subjectId === this.filterSelected.subject!.id);
+      if (selectedTeachings.length > 0) {
+        const years = selectedTeachings.reduce((acc, teaching) => {
+          const teachingYears = Array.from({ length: teaching.lastYear - teaching.firstYear + 1 }, (_, i) => teaching.firstYear + i);
+          return acc.concat(teachingYears);
+        }, [] as number[]);
+        this.filteredYears = Array.from(new Set(years)).sort((a, b) => b - a);
+      } else {
+        this.filteredYears = [];
       }
     } else {
       this.filteredYears = this.years;
     }
   }
-
+  
   selectYearToFilter(eventTarget: EventTarget | null): void {
     if (eventTarget) {
       const object = eventTarget as HTMLSelectElement;
