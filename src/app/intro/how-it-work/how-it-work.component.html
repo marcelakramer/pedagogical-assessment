@@ -1,0 +1,31 @@
+<div id="how-it-work-section">
+    <div id="how-it-work-title" class="underline">
+        <h1>Como a avaliação funciona?</h1>
+    </div>
+    <div id="how-it-work-text">
+        <p>A presente avaliação é composta por um conjunto de <b>dimensões</b>. As dimensões, mostradas abaixo, referem-se a esferas pedagógicas que se fazem pertinentes no contexto da avaliação docente pelos discentes.</p>
+        <div id="dimensions-explain">
+            <div *ngFor="let dimension of this.dimensions" class="each-dimension" [ngStyle]="{ 'color': dimension.color }">
+                <div class="dimension-title">{{ dimension.name }}</div>
+            </div>
+        </div>
+        <p>Cada dimensão apresentada possui uma série de <b>afirmativas</b>. Essas afirmativas correspondem a ações realizadas pelos docentes e estão dispostas por meio da Escala Likert, em cinco pontos, que representam, em ordem crescente, <b>o nível de frequência com a qual o docente avaliado realiza cada ação</b>.</p>
+        <p>A seguir, é possível observar a relação entre o valor na escala e a frequência ao qual ele se refere.</p>
+            <div id="rate-explain">
+                <div *ngFor="let rate of ratingExplaining" class="each-rate">
+                    <div class="rate-value">{{ rate.value }}</div>
+                    <div class="rate-keyWord">{{ rate.keyWord }}</div>
+                    <!-- <div class="rate-description">{{ rate.description }}</div> -->
+                </div>
+            </div>
+        <p>O tempo estimado para conclusão do processo é de aproximadamente 20 minutos.</p>
+    </div>
+    <div id="buttons-section">
+        <button class="btn btn-secondary" (click)="goToInvite()">
+            Voltar
+        </button>
+        <button class="btn btn-primary" (click)="goToTeacherSelection()">
+            Iniciar
+        </button>
+    </div>
+</div>

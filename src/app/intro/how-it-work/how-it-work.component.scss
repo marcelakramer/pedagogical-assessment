@@ -1,0 +1,101 @@
+div#how-it-work-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+div#how-it-work-text {
+    margin: 0 15%;
+    text-align: justify;
+    font-size: 1.4rem;
+}
+
+div#buttons-section {
+    margin: 1rem 0 2rem 0;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    & button {
+        width: 7.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+}
+
+div#dimensions-explain, div#rate-explain {
+    margin: 5rem 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 2rem;
+}
+
+div.each-dimension {
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    font-size: 1.55rem;
+    font-weight: 700;
+    padding: 1rem;
+}
+
+div#rate-explain {
+    gap: 1rem;
+}
+
+div.each-rate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    // max-width: 20%;
+    gap: 0.5rem;
+}
+
+div.rate-value {
+    border: 3px solid #3fa14c;
+    border-radius: 50%;
+    display: inline-block;
+    width: 6rem;
+    height: 6rem;
+    line-height: 6rem;
+    text-align: center;
+    color: #3fa14c;
+    font-size: 2.75rem;
+    font-weight: 700;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+    &:hover {
+        background-color: #3fa14c;
+        color: #ffffff;
+        cursor: pointer;
+        transition: 0.25s;
+    }
+}
+
+div.rate-keyWord {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+// div.rate-description {
+//     font-size: 1rem;
+//     font-weight: 700;
+//     text-align: center;
+// }

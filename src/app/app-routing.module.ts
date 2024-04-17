@@ -9,10 +9,12 @@ import { TeachingSelectionComponent } from './teacher/teaching-selection/teachin
 import { AuthComponent } from './auth/auth/auth.component';
 import { authGuard } from './shared/guards/auth.guard';
 import { InviteComponent } from './intro/invite/invite.component';
+import { HowItWorkComponent } from './intro/how-it-work/how-it-work.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'invite', component: InviteComponent },
+  { path: 'how', component: HowItWorkComponent },
   { path: 'auth', component: AuthComponent},
   { path: 'teacher', component: TeacherSelectionComponent },
   { path: 'teaching/:teacherId', component: TeachingSelectionComponent },

@@ -11,7 +11,8 @@ export class InviteComponent {
   constructor(private router: Router) { }
 
   goToHowItWork() {
-    this.router.navigate(['/how-it-work']);
+    this.router.navigate(['/how']);
+    window.scrollTo(0, 0);
   }
 
   goToHome() {
