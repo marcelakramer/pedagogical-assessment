@@ -16,7 +16,7 @@
             <p class="filters" *ngIf="this.filterSelected.year !== undefined && filterSelected.applied">{{ this.filterSelected.year }}</p>
             <div id="filter-buttons">
                 <button *ngIf="!filterSelected.applied" class="btn btn-primary" (click)="openFilterModal()">
-                    Adicionar
+                    Selecionar
                 </button>
                 <button *ngIf="filterSelected.applied" class="btn btn-primary" (click)="openFilterModal()">
                     Alterar
