@@ -55,4 +55,10 @@ h1 {
     }
 }
 
+@media (max-width: 42rem) {
+    button#report {
+        opacity: 0.3;
+        pointer-events: none;
+    }
+}
 
