@@ -1,0 +1,19 @@
+<div id="identification-section">
+    <div id="identification-title" class="underline">
+        <h1>Selecione o tipo de usuário:</h1>
+    </div>
+    <div id="user-types">
+        <div *ngFor="let userType of getUserTypes()" class="user-type" [ngClass]="{'selected' : isUserTypeSelected(userType)}" tabindex="0" (click)="selectUserType(userType)" (keyup.enter)="selectUserType(userType)">
+            <img [src]="'../../../assets/images/' + userType + '.svg'" [alt]="userTypesEnum[userType]">
+            <div id="user-type-title">{{ userTypesEnum[userType] }}</div>
+        </div>
+    </div>
+    <div id="buttons-section">
+        <button class="btn btn-secondary">
+            Voltar
+        </button>
+        <button class="btn btn-primary" [disabled]="!isAnyUserTypeSelected()" (click)="goToNextPage()">
+            Avançar
+        </button>
+    </div>
+</div>

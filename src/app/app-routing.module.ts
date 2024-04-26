@@ -10,9 +10,11 @@ import { AuthComponent } from './auth/auth/auth.component';
 import { authGuard } from './shared/guards/auth.guard';
 import { InviteComponent } from './intro/invite/invite.component';
 import { HowItWorkComponent } from './intro/how-it-work/how-it-work.component';
+import { IdentificationComponent } from './intro/identification/identification.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
+  { path: 'identification', component: IdentificationComponent },
   { path: 'invite', component: InviteComponent },
   { path: 'how', component: HowItWorkComponent },
   { path: 'auth', component: AuthComponent},
