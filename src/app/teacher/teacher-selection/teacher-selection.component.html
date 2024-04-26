@@ -9,7 +9,7 @@
         </select>
     </div>
     <div id="buttons-section">
-        <button class="btn btn-secondary" (click)="goToHowItWork()">
+        <button class="btn btn-secondary" (click)="goBack()">
             Voltar
         </button>
         <button *ngIf="isAdmin" id="report" class="btn btn-primary" (click)="goToReport()" [disabled]="!isTeacherSelected()">

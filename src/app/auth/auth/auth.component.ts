@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../shared/services/auth/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { ModalService } from '../../shared/services/modal/modal.service';
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.scss'
 })
-export class AuthComponent {
+export class AuthComponent implements OnInit {
   form: FormGroup = this.formBuilder.group({
     username: ['', Validators.required],
     password: ['', Validators.required]
@@ -22,6 +22,12 @@ export class AuthComponent {
     private router: Router,
     private modalService: ModalService
   ) { }
+
+  ngOnInit(): void {
+      if (this.authService.validateSessionCredentials()) {
+       this.goToTeacherSelection();
+      }
+  }
 
   authenticate(): void {
     if (this.authService.validateAdminCredentials(this.form.value.username, this.form.value.password)) {

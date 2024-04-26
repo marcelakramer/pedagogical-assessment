@@ -24,9 +24,12 @@ export class TeacherSelectionComponent implements OnInit {
     this.isAdmin = this.activatedRoute.snapshot.routeConfig?.path === "teacher/admin";
   }
 
+  goToIdentification(): void {
+    this.router.navigate(['/identification']);
+  }
+
   goToHowItWork(): void {
     this.router.navigate(['/how']);
-    window.scrollTo(0, 0);
   }
 
   goToTeachingSelection(): void {
@@ -37,6 +40,14 @@ export class TeacherSelectionComponent implements OnInit {
   goToReport(): void {
     this.router.navigate(['/report', this.selectedTeacher.id]);
     window.scrollTo(0, 0);
+  }
+
+  goBack(): void {
+    if(this.isAdmin) {
+      this.goToIdentification();
+    } else {
+      this.goToHowItWork();
+    }
   }
 
   selectTeacher(eventTarget: EventTarget | null): void {

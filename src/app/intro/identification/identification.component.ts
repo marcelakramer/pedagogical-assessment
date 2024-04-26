@@ -17,7 +17,7 @@ export class IdentificationComponent {
     return Object.keys(this.userTypesEnum) as (keyof typeof UserTypesEnum)[];
   }
 
-  selectUserType(userType: keyof typeof UserTypesEnum) {
+  selectUserType(userType: keyof typeof UserTypesEnum): void {
     this.selectedUserType = this.userTypesEnum[userType];
   }
 
@@ -29,15 +29,21 @@ export class IdentificationComponent {
     return Object.keys(this.userTypesEnum).some(key => this.userTypesEnum[key as keyof typeof UserTypesEnum] === this.selectedUserType);
   }
 
-  goToNextPage() {
+  goToNextPage(): void {
     switch(this.selectedUserType) {
       case this.userTypesEnum.admin:
-        this.router.navigate(['/']);
+        this.router.navigate(['/auth']);
         break
 
       case this.userTypesEnum.student:
-        this.router.navigate(['/']);
+        this.router.navigate(['/invite']);
         break
     }
+    window.scrollTo(0, 0);
+  }
+
+  goToHome(): void {
+    this.router.navigate(['/']);
+    window.scrollTo(0, 0);
   }
 }

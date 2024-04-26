@@ -10,8 +10,8 @@ export class HomePageComponent {
 
   constructor(private router: Router) { }
 
-  goToInvite(): void {
-    this.router.navigate(['/invite']);
+  goToUserIdentification(): void {
+    this.router.navigate(['/identification']);
     window.scrollTo(0, 0);
   }
 }
