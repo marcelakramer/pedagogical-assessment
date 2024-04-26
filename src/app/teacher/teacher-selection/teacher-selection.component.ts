@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Teacher } from '../../shared/models/teacher';
 import { TeacherService } from '../../shared/services/teacher/teacher.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-teacher-selection',
@@ -11,14 +11,17 @@ import { Router } from '@angular/router';
 export class TeacherSelectionComponent implements OnInit {
   teachers: Array<Teacher> = [];
   selectedTeacher: Teacher = new Teacher('', '', '');
+  isAdmin: boolean = false;
 
-  constructor(private teacherService: TeacherService, private router: Router) { }
+  constructor(private teacherService: TeacherService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.teacherService.getAll().subscribe(
       response => {
         this.teachers = response;
       });
+    
+    this.isAdmin = this.activatedRoute.snapshot.routeConfig?.path === "teacher/admin";
   }
 
   goToHowItWork(): void {

@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'how', component: HowItWorkComponent },
   { path: 'auth', component: AuthComponent},
   { path: 'teacher', component: TeacherSelectionComponent },
+  { path: 'teacher/admin', component: TeacherSelectionComponent,canActivate: [authGuard] },
   { path: 'teaching/:teacherId', component: TeachingSelectionComponent },
   { path: 'assessment/:teacherId/:subjectId/:year', component: AssessmentCriteriaComponent },
   { path: 'report/:teacherId', component: ReportViewingComponent, canActivate: [authGuard] },

@@ -33,7 +33,7 @@ export class AuthComponent {
   }
 
   goToTeacherSelection(): void {
-    this.router.navigate(['/teacher']);
+    this.router.navigate(['/teacher/admin']);
   }
 
   closeModal(): void {

@@ -12,10 +12,10 @@
         <button class="btn btn-secondary" (click)="goToHowItWork()">
             Voltar
         </button>
-        <button id="report" class="btn btn-primary" (click)="goToReport()" [disabled]="!isTeacherSelected()">
+        <button *ngIf="isAdmin" id="report" class="btn btn-primary" (click)="goToReport()" [disabled]="!isTeacherSelected()">
             Relatório
         </button>
-        <button class="btn btn-primary" (click)="goToTeachingSelection()" [disabled]="!isTeacherSelected()">
+        <button *ngIf="!isAdmin" class="btn btn-primary" (click)="goToTeachingSelection()" [disabled]="!isTeacherSelected()">
             Avaliar
         </button>
     </div>
