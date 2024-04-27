@@ -2,6 +2,7 @@ div#how-it-work-section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 p {
@@ -42,7 +43,6 @@ div#dimensions-explain, div#rate-explain {
 div.each-dimension {
     margin: 0 1rem;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 1px solid #ccc;
@@ -52,6 +52,8 @@ div.each-dimension {
     font-size: 1.55rem;
     font-weight: 700;
     padding: 1rem;
+    width: 12rem;
+    height: 5rem;
 }
 
 div#rate-explain {
@@ -74,7 +76,8 @@ div.rate-value {
     height: 6rem;
     line-height: 6rem;
     text-align: center;
-    color: #3fa14c;
+    color: #ffffff;
+    background-color: #3fa14c;
     font-size: 2.75rem;
     font-weight: 700;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -92,6 +95,7 @@ div.rate-keyWord {
     font-weight: 700;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
     text-align: center;
+    color: #3fa14c;
 }
 
 // div.rate-description {

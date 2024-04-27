@@ -40,8 +40,8 @@ export class HowItWorkComponent {
 
   constructor(private router: Router) { }
 
-  goToInvite() {
-    this.router.navigate(['/invite']);
+  goToIdentification() {
+    this.router.navigate(['/identification']);
     window.scrollTo(0, 0);
   }
 

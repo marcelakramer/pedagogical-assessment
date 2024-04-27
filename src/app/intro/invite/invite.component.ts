@@ -15,8 +15,8 @@ export class InviteComponent {
     window.scrollTo(0, 0);
   }
 
-  goToIdentification() {
-    this.router.navigate(['/identification']);
+  goToHome() {
+    this.router.navigate(['/']);
     window.scrollTo(0, 0);
   }
 }

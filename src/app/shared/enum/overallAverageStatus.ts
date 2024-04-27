@@ -1,5 +1,5 @@
 export enum OverallAverageStatusEnum {
-    fit = "Apto a exercer função docente",
-    monitoring = "Sob estado de monitoramento",
-    intervention = "Necessita de intervenção"
+    fit = "Não requer Assistência Pedagógica",
+    monitoring = "Em observação pedagógica",
+    intervention = "Atenção! Requer Assistência Pedagógica"
 }

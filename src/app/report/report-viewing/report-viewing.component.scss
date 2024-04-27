@@ -4,8 +4,8 @@ div#report-viewing {
     padding: 2rem auto;
     align-items: center;
     text-align: center;
-    gap: 3rem;
-    font-family: 'Nunito', sans-serif;
+    gap: 2.25rem;
+    font-family: 'Open Sans', sans-serif;
 }
 
 select {
@@ -13,7 +13,7 @@ select {
     border-radius: 12px;
     border: 2px solid #ccc;
     color: #000;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     font-weight: 400;
     width: 100%;
@@ -118,7 +118,7 @@ div#spinner-text {
 }
 
 div#situation {
-    margin: 1rem 0 4.5rem 0;
+    margin: 1rem 0 2rem 0;
     font-size: 2rem;
     color: #3fa14c;
     font-weight: 700;
@@ -157,20 +157,28 @@ div.dimension-title {
     font-weight: 700;
 }
 
-div#sentencesAverages {
+div#dimension-sentences {
     margin: 0 auto;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    width: 80%;
     gap: 5rem;
+    width: 80%;
+
+    & select {
+        font-size: 1.25rem;
+        font-weight: 700;
+        width: 60%;
+    }
 }
 
-div.dimension-sentences {
+div#sentences-averages {
     display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4rem;
     text-align: center;
 }
 
@@ -189,7 +197,7 @@ div.sentence-text {
     padding: 1.25rem;
     font-size: 1.25rem;
     font-weight: 600;
-    width: 17.5rem;
+    width: 25rem;
 }
 
 div.sentence-average {

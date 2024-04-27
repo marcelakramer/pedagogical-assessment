@@ -42,6 +42,10 @@ export class AuthComponent implements OnInit {
     this.router.navigate(['/teacher/admin']);
   }
 
+  goToIdentification(): void {
+    this.router.navigate(['/identification']);
+  }
+
   closeModal(): void {
     this.modalService.close();
   }

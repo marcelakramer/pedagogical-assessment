@@ -12,16 +12,16 @@
         </div>
         <div class="fields">
             <p class="underline"><span>Filtros:</span></p>
-            <p class="filters" *ngIf="this.filterSelected.subject !== undefined && filterSelected.applied">{{ this.filterSelected.subject.name }}</p>
-            <p class="filters" *ngIf="this.filterSelected.year !== undefined && filterSelected.applied">{{ this.filterSelected.year }}</p>
+            <p class="filters" *ngIf="this.filterApplied.subject !== undefined">{{ this.filterApplied.subject.name }}</p>
+            <p class="filters" *ngIf="this.filterApplied.year !== undefined">{{ this.filterApplied.year }}</p>
             <div id="filter-buttons">
-                <button *ngIf="!filterSelected.applied" class="btn btn-primary" (click)="openFilterModal()">
+                <button *ngIf="!isFilterSelected()" class="btn btn-primary" (click)="openFilterModal()">
                     Selecionar
                 </button>
-                <button *ngIf="filterSelected.applied" class="btn btn-primary" (click)="openFilterModal()">
+                <button *ngIf="isFilterSelected()" class="btn btn-primary" (click)="openFilterModal()">
                     Alterar
                 </button>
-                <button class="btn btn-secondary" [disabled]="!filterSelected.applied" (click)="removeFilters()">
+                <button class="btn btn-secondary" [disabled]="!isFilterSelected()" (click)="removeFilters()">
                     Remover 
                 </button>
             </div>
@@ -61,23 +61,25 @@
           </ng-container>
           
           <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.sentenceAverage">
-            <div id="sentencesAverages">
-                <select #dimensionSelect (change)="selectSpecificAverage($event.target)">
+            <div id="dimension-sentences">
+                <select #dimensionSelect (change)="selectSpecificAverage($event.target)" [ngStyle]="{ 'color': selectedSpecificAverage.dimensionColor }">
                     <option *ngFor="let average of this.specificsAverages">{{ average.dimension }}</option>
                 </select>
-                <div *ngFor="let sentence of selectedSpecificAverage.sentenceAverage" class="each-sentence">
-                    <div class="sentence-text" [ngStyle]="{ 'color': selectedSpecificAverage.dimensionColor }">{{ sentence.sentence }}</div>
-                    <div class="spinner">
-                        <mat-progress-spinner
-                            [mode]="'determinate'"
-                            [diameter]="80"
-                            [strokeWidth]="5"
-                            [value]="sentence.average*10"
-                            [ngStyle]="{'stroke': selectedSpecificAverage.dimensionColor }">
-                        </mat-progress-spinner>
-                        <div class="sentence-average" [ngStyle]="{ 'color': selectedSpecificAverage.dimensionColor }">{{ sentence.average % 1 !== 0 ? sentence.average.toFixed(1) : sentence.average}}</div>  
-                    </div>
-              </div>
+                <div id="sentences-averages">
+                    <div *ngFor="let sentence of selectedSpecificAverage.sentenceAverage" class="each-sentence">
+                        <div class="sentence-text" [ngStyle]="{ 'color': selectedSpecificAverage.dimensionColor }">{{ sentence.sentence }}</div>
+                        <div class="spinner">
+                            <mat-progress-spinner
+                                [mode]="'determinate'"
+                                [diameter]="80"
+                                [strokeWidth]="5"
+                                [value]="sentence.average*10"
+                                [ngStyle]="{'stroke': selectedSpecificAverage.dimensionColor }">
+                            </mat-progress-spinner>
+                            <div class="sentence-average" [ngStyle]="{ 'color': selectedSpecificAverage.dimensionColor }">{{ sentence.average % 1 !== 0 ? sentence.average.toFixed(1) : sentence.average}}</div>  
+                        </div>
+                  </div>
+                </div>
             </div>
           </ng-container>
     </div>
