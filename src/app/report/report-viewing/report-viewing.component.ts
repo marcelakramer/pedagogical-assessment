@@ -122,12 +122,10 @@ export class ReportViewingComponent implements OnInit {
   };
     
   updateOverallStatus = (): void => {
-    if (this.overallAverage >= 7) {
-      this.overallStatus = OverallAverageStatusEnum.fit;
-    } else if (this.overallAverage > 4) {
-      this.overallStatus = OverallAverageStatusEnum.monitoring;
-    } else {
+    if (this.overallAverage < 6) {
       this.overallStatus = OverallAverageStatusEnum.intervention;
+    } else {
+      this.overallStatus = OverallAverageStatusEnum.fit;
     }
     this.updateOverallColor();
   };
@@ -136,9 +134,6 @@ export class ReportViewingComponent implements OnInit {
     switch(this.overallStatus) {
       case OverallAverageStatusEnum.fit:
         this.overallColor = OverallAverageColorEnum.fit;
-        break;
-      case OverallAverageStatusEnum.monitoring:
-        this.overallColor = OverallAverageColorEnum.monitoring;
         break;
       case OverallAverageStatusEnum.intervention:
         this.overallColor = OverallAverageColorEnum.intervention;
