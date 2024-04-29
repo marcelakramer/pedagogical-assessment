@@ -31,6 +31,8 @@ export class ReportViewingComponent implements OnInit {
   overallAverage: number = 0;
   overallStatus: string = "";
   overallColor: string = "";
+  specificsStatusWarning = OverallAverageStatusEnum.intervention;
+  specificsStatusWarningColor = OverallAverageColorEnum.intervention;
   specificsAverages: Array<SpecificsAverages> = [];
   selectedSpecificAverage: SpecificsAverages = {"average": 0, "dimension": '', "dimensionColor": '', "sentenceAverage": []};
   filteredAssessments: Array<Assessment> = [...this.assessments];
@@ -191,6 +193,16 @@ export class ReportViewingComponent implements OnInit {
       this.selectedSpecificAverage = this.specificsAverages.find(specificAverage => specificAverage.dimension === selectedDimension)!;
     } 
   };
+
+  hasWarningDimension = (): boolean => {
+    console.log(this.specificsAverages)
+    return this.specificsAverages.some(dimension => dimension.average < 6);
+  }
+
+  hasWarningSentence = (): boolean => {
+    return this.selectedSpecificAverage.sentenceAverage.some(sentence => sentence.average < 6);
+  }
+
 
   openFilterModal = (): void => {
     this.modalService.open('filter-modal');

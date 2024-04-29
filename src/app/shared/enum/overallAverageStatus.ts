@@ -1,4 +1,4 @@
 export enum OverallAverageStatusEnum {
-    fit = "Não requer Assistência Pedagógica",
-    intervention = "Atenção! Requer Assistência Pedagógica"
+    fit = "Atende às expectativas",
+    intervention = "Atenção! Não atende às expectativas"
 }

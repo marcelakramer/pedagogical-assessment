@@ -3,86 +3,93 @@
         <div id="teacher-name"><span class="underline">Docente:</span>{{ this.teacher.name }}</div>
         <div id="teacher-registration"><span class="underline">Matrícula:</span>{{ this.teacher.registration }}</div>
     </div>
-    <div id="average-selection">
-        <div class="fields">
-            <p class="underline"><span>Média:</span></p>
-            <select (change)="selectAverageOption($event.target)">
-                <option *ngFor="let option of averageOptions">{{ option }}</option>
-            </select>
-        </div>
-        <div class="fields">
-            <p class="underline"><span>Filtros:</span></p>
-            <p class="filters" *ngIf="this.filterApplied.subject !== undefined">{{ this.filterApplied.subject.name }}</p>
-            <p class="filters" *ngIf="this.filterApplied.year !== undefined">{{ this.filterApplied.year }}</p>
-            <div id="filter-buttons">
-                <button *ngIf="!isFilterSelected()" class="btn btn-primary" (click)="openFilterModal()">
-                    Selecionar
-                </button>
-                <button *ngIf="isFilterSelected()" class="btn btn-primary" (click)="openFilterModal()">
-                    Alterar
-                </button>
-                <button class="btn btn-secondary" [disabled]="!isFilterSelected()" (click)="removeFilters()">
-                    Remover 
-                </button>
+    <ng-container *ngIf="this.overallAverage > 0">
+        <div id="average-selection">
+            <div class="fields">
+                <p class="underline"><span>Média:</span></p>
+                <select (change)="selectAverageOption($event.target)">
+                    <option *ngFor="let option of averageOptions">{{ option }}</option>
+                </select>
             </div>
-        </div>
-    </div>
-    <div id="averages">
-        <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.overallAverage">
-            <div class="spinner">
-                <mat-progress-spinner
-                    [mode]="'determinate'"
-                    [diameter]="300"
-                    [strokeWidth]="20"
-                    [value]="overallAverage*10"
-                    [ngStyle]="{'stroke': this.overallColor }">
-                </mat-progress-spinner>
-                <div id="spinner-text" [ngStyle]="{ 'color': this.overallColor}">{{ this.overallAverage % 1 !== 0 ? this.overallAverage.toFixed(1) : this.overallAverage }}</div>
-            </div>
-            <div id="situation" [ngStyle]="{ 'color': this.overallColor}">{{ this.overallStatus }}</div>
-          </ng-container>
-          
-          <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.dimensionAverage">
-            <div id="dimension-average">
-                <div *ngFor="let average of this.specificsAverages" class="each-dimension" [ngStyle]="{ 'color': average.dimensionColor }">
-                    <div class="spinner">
-                        <mat-progress-spinner
-                            [mode]="'determinate'"
-                            [diameter]="110"
-                            [strokeWidth]="7"
-                            [value]="average.average*10"
-                            [ngStyle]="{'stroke': average.dimensionColor }">
-                        </mat-progress-spinner>
-                        <div class="dimension-spinner-text" [ngStyle]="{ 'color': average.dimensionColor }">{{ average.average % 1 !== 0 ? average.average.toFixed(1) : average.average}}</div>
-                        </div>
-                    <div class="dimension-title">{{ average.dimension }}</div>
+            <div class="fields">
+                <p class="underline"><span>Filtros:</span></p>
+                <p class="filters" *ngIf="this.filterApplied.subject !== undefined">{{ this.filterApplied.subject.name }}</p>
+                <p class="filters" *ngIf="this.filterApplied.year !== undefined">{{ this.filterApplied.year }}</p>
+                <div id="filter-buttons">
+                    <button *ngIf="!isFilterSelected()" class="btn btn-primary" (click)="openFilterModal()">
+                        Selecionar
+                    </button>
+                    <button *ngIf="isFilterSelected()" class="btn btn-primary" (click)="openFilterModal()">
+                        Alterar
+                    </button>
+                    <button class="btn btn-secondary" [disabled]="!isFilterSelected()" (click)="removeFilters()">
+                        Remover 
+                    </button>
                 </div>
             </div>
-          </ng-container>
-          
-          <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.sentenceAverage">
-            <div id="dimension-sentences">
-                <select #dimensionSelect (change)="selectSpecificAverage($event.target)" [ngStyle]="{ 'color': selectedSpecificAverage.dimensionColor }">
-                    <option *ngFor="let average of this.specificsAverages">{{ average.dimension }}</option>
-                </select>
-                <div id="sentences-averages">
-                    <div *ngFor="let sentence of selectedSpecificAverage.sentenceAverage" class="each-sentence">
-                        <div class="sentence-text" [ngStyle]="{ 'color': selectedSpecificAverage.dimensionColor }">{{ sentence.sentence }}</div>
+        </div>
+        <div id="averages">
+            <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.overallAverage">
+                <div class="spinner">
+                    <mat-progress-spinner
+                        [mode]="'determinate'"
+                        [diameter]="300"
+                        [strokeWidth]="20"
+                        [value]="overallAverage*10"
+                        [ngStyle]="{'stroke': this.overallColor }">
+                    </mat-progress-spinner>
+                    <div id="spinner-text" [ngStyle]="{ 'color': this.overallColor }">{{ this.overallAverage % 1 !== 0 ? this.overallAverage.toFixed(1) : this.overallAverage }}</div>
+                </div>
+                <div id="situation" [ngStyle]="{ 'color': this.overallColor}">{{ this.overallStatus }}</div>
+              </ng-container>
+              
+              <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.dimensionAverage">
+                <div *ngIf="hasWarningDimension()" class="warning-label" [ngStyle]="{'color': specificsStatusWarningColor}"><div class="square"></div>{{ specificsStatusWarning }} na dimensão</div>
+                <div id="dimension-average">
+                    <div *ngFor="let average of this.specificsAverages" class="each-dimension" [ngStyle]="{'color': average.average < 6 ? specificsStatusWarningColor : average.dimensionColor }">
                         <div class="spinner">
                             <mat-progress-spinner
                                 [mode]="'determinate'"
-                                [diameter]="80"
-                                [strokeWidth]="5"
-                                [value]="sentence.average*10"
-                                [ngStyle]="{'stroke': selectedSpecificAverage.dimensionColor }">
+                                [diameter]="110"
+                                [strokeWidth]="7"
+                                [value]="average.average*10"
+                                [ngStyle]="{'stroke': average.average < 6 ? specificsStatusWarningColor : average.dimensionColor }">
                             </mat-progress-spinner>
-                            <div class="sentence-average" [ngStyle]="{ 'color': selectedSpecificAverage.dimensionColor }">{{ sentence.average % 1 !== 0 ? sentence.average.toFixed(1) : sentence.average}}</div>  
-                        </div>
-                  </div>
+                            <div class="dimension-spinner-text" [ngStyle]="{'color': average.average < 6 ? specificsStatusWarningColor : average.dimensionColor }">{{ average.average % 1 !== 0 ? average.average.toFixed(1) : average.average}}</div>
+                            </div>
+                        <div class="dimension-title">{{ average.dimension }}</div>
+                    </div>
                 </div>
-            </div>
-          </ng-container>
-    </div>
+              </ng-container>
+              
+              <ng-container *ngIf="selectedAverageOption === averageOptionsEnum.sentenceAverage">
+                <div *ngIf="hasWarningSentence()" class="warning-label" [ngStyle]="{'color': specificsStatusWarningColor}"><div class="square"></div>{{ specificsStatusWarning }} na afirmativa</div>
+                <div id="dimension-sentences">
+                    <select #dimensionSelect (change)="selectSpecificAverage($event.target)" [ngStyle]="{ 'color': selectedSpecificAverage.dimensionColor }">
+                        <option *ngFor="let average of this.specificsAverages">{{ average.dimension }}</option>
+                    </select>
+                    <div id="sentences-averages">
+                        <div *ngFor="let sentence of selectedSpecificAverage.sentenceAverage" class="each-sentence">
+                            <div class="sentence-text" [ngStyle]="{ 'color': sentence.average < 6 ? specificsStatusWarningColor : selectedSpecificAverage.dimensionColor }">{{ sentence.sentence }}</div>
+                            <div class="spinner">
+                                <mat-progress-spinner
+                                    [mode]="'determinate'"
+                                    [diameter]="80"
+                                    [strokeWidth]="5"
+                                    [value]="sentence.average*10"
+                                    [ngStyle]="{'stroke': sentence.average < 6 ? specificsStatusWarningColor : selectedSpecificAverage.dimensionColor }">
+                                </mat-progress-spinner>
+                                <div class="sentence-average" [ngStyle]="{ 'color': sentence.average < 6 ? specificsStatusWarningColor : selectedSpecificAverage.dimensionColor }">{{ sentence.average % 1 !== 0 ? sentence.average.toFixed(1) : sentence.average}}</div>  
+                            </div>
+                      </div>
+                    </div>
+                </div>
+              </ng-container>
+        </div>
+    </ng-container>
+    <ng-template #noAverages>
+        <h1>O docente não possui avaliações.</h1>
+    </ng-template>
     <div id="buttons-section">
         <button class="btn btn-secondary" (click)="goToTeacherSelection()">
             Voltar
