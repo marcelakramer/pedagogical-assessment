@@ -3,7 +3,7 @@
         <div id="teacher-name"><span class="underline">Docente:</span>{{ this.teacher.name }}</div>
         <div id="teacher-registration"><span class="underline">Matrícula:</span>{{ this.teacher.registration }}</div>
     </div>
-    <ng-container *ngIf="this.overallAverage > 0">
+    <ng-container *ngIf="hasAssessments(); else noAverages">
         <div id="average-selection">
             <div class="fields">
                 <p class="underline"><span>Média:</span></p>
