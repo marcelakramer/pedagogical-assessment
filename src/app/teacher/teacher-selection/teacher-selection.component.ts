@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Teacher } from '../../shared/models/teacher';
-import { TeacherService } from '../../shared/services/teacher/teacher.service';
+import { TeacherFirestoreService } from '../../shared/services/teacher/teacher-firestore.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ export class TeacherSelectionComponent implements OnInit {
   selectedTeacher: Teacher = new Teacher('', '', '');
   isAdmin: boolean = false;
 
-  constructor(private teacherService: TeacherService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private teacherService: TeacherFirestoreService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.teacherService.getAll().subscribe(
