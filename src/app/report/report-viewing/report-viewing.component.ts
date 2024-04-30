@@ -182,7 +182,6 @@ export class ReportViewingComponent implements OnInit {
   }
 
   hasAssessments = () => {
-    console.log(this.assessments.length > 0)
     return this.assessments.length > 0;
   }
 
@@ -190,6 +189,9 @@ export class ReportViewingComponent implements OnInit {
     if (eventTarget) {
       const object = eventTarget as HTMLSelectElement;
       this.selectedAverageOption = object.value;
+      if (this.selectedAverageOption === this.averageOptionsEnum.sentenceAverage) {
+        this.selectedSpecificAverage = this.specificsAverages[0];
+      } 
     }
   }
 
@@ -263,21 +265,8 @@ export class ReportViewingComponent implements OnInit {
       this.overallAverage = this.calcOverallAverage(this.filteredAssessments);
       this.updateOverallStatus();
       this.specificsAverages = this.calcSpecificsAverages(this.filteredAssessments);
-      
-      this.selectedSpecificAverage = this.specificsAverages.find(specificsAverage =>
-          specificsAverage.dimension === this.selectedSpecificAverage.dimension
-      )!;
-      
-      const index = this.specificsAverages.findIndex(specificAverage =>
-          specificAverage.dimension === this.selectedSpecificAverage.dimension
-      );
-      
-      const dimensionSelectElement = this.dimensionSelect?.nativeElement;
-      if (dimensionSelectElement !== undefined && index !== -1) {
-          setTimeout(() => {
-              dimensionSelectElement.selectedIndex = index;
-          });
-      }
+      this.selectedSpecificAverage = this.specificsAverages.find(specificsAverage => specificsAverage.dimension === this.selectedSpecificAverage.dimension)!;
+      this.changeDimensionInSelect();
       this.closeModal();
     } else {
       this.closeModal();
@@ -310,14 +299,21 @@ export class ReportViewingComponent implements OnInit {
     this.updateOverallStatus();
     this.specificsAverages = this.calcSpecificsAverages(this.assessments);
     this.selectedSpecificAverage = this.specificsAverages.find(specificsAverage => specificsAverage.dimension === this.selectedSpecificAverage.dimension)!;
-    const index = this.specificsAverages.findIndex(specificAverage => specificAverage.dimension === this.selectedSpecificAverage.dimension);
+    this.changeDimensionInSelect();
+  };
+
+  changeDimensionInSelect = (): void => {
+    const index = this.specificsAverages.findIndex(specificAverage =>
+        specificAverage.dimension === this.selectedSpecificAverage.dimension
+    );
+    
     const dimensionSelectElement = this.dimensionSelect?.nativeElement;
     if (dimensionSelectElement !== undefined && index !== -1) {
-      setTimeout(() => {
-        dimensionSelectElement.selectedIndex = index;
-      });
+        setTimeout(() => {
+            dimensionSelectElement.selectedIndex = index;
+        });
     }
-  };
+  }
   
   isFilterSelected = (): boolean => {
     return this.filterApplied.subject !== undefined || this.filterApplied.year !== undefined;
