@@ -14,6 +14,7 @@ import { AuthModule } from './auth/auth.module';
 import { ModalModule } from './modal/modal.module';
 import { ErrorInterceptor } from './shared/interceptors/error.interceptor';
 import { IntroModule } from './intro/intro.module';
+import { FirebaseModule } from './firebase/firebase.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { IntroModule } from './intro/intro.module';
     HttpClientModule,
     AuthModule,
     ModalModule,
-    IntroModule
+    IntroModule,
+    FirebaseModule
   ],
   providers: [
     provideAnimationsAsync(),
