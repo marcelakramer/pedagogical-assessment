@@ -3,9 +3,9 @@ import { Subject } from '../../shared/models/subject';
 import { Teaching } from '../../shared/models/teaching';
 import { Teacher } from '../../shared/models/teacher';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TeachingService } from '../../shared/services/teaching/teaching.service';
 import { SubjectService } from '../../shared/services/subject/subject.service';
 import { TeacherFirestoreService } from '../../shared/services/teacher/teacher-firestore.service';
+import { TeachingFirestoreService } from '../../shared/services/teaching/teaching-firestore.service';
 
 @Component({
   selector: 'app-teaching-selection',
@@ -22,7 +22,7 @@ export class TeachingSelectionComponent implements OnInit {
 
   constructor(
     private teacherService: TeacherFirestoreService,
-    private teachingService: TeachingService,
+    private teachingService: TeachingFirestoreService,
     private subjectService: SubjectService,
     private router: Router,
     private activatedRoute: ActivatedRoute
