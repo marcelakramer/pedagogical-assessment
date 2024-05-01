@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Subject } from '../../shared/models/subject';
 import { Teaching } from '../../shared/models/teaching';
 import { Teacher } from '../../shared/models/teacher';
-import { TeacherService } from '../../shared/services/teacher/teacher.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TeachingService } from '../../shared/services/teaching/teaching.service';
 import { SubjectService } from '../../shared/services/subject/subject.service';
+import { TeacherFirestoreService } from '../../shared/services/teacher/teacher-firestore.service';
 
 @Component({
   selector: 'app-teaching-selection',
@@ -21,7 +21,7 @@ export class TeachingSelectionComponent implements OnInit {
   selectedYear: number = 0;
 
   constructor(
-    private teacherService: TeacherService,
+    private teacherService: TeacherFirestoreService,
     private teachingService: TeachingService,
     private subjectService: SubjectService,
     private router: Router,

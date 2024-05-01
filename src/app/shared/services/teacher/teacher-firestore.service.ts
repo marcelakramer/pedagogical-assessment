@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { Observable, filter, map } from 'rxjs';
 import { Teacher } from '../../models/teacher';
 
 @Injectable({
@@ -16,5 +16,14 @@ export class TeacherFirestoreService {
 
   getAll(): Observable<Teacher[]> {
     return this.teachersCollection.valueChanges({idField: 'id'});
+  }
+
+  getById(id: string): Observable<Teacher> {
+    const teacherDoc: AngularFirestoreDocument<Teacher> = this.afs.doc(`${this.COLLECTION_NAME}/${id}`);
+
+    return teacherDoc.valueChanges({ idField: 'id' }).pipe(
+      filter(teacher => !!teacher),
+      map(teacher => teacher as Teacher)
+    );
   }
 }
