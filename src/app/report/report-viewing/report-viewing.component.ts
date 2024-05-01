@@ -45,6 +45,7 @@ export class ReportViewingComponent implements OnInit {
   @ViewChild('dimensionSelect') dimensionSelect?: ElementRef;
   @ViewChild('subjectFilterSelect') subjectFilterSelect?: ElementRef;
   @ViewChild('yearFilterSelect') yearFilterSelect?: ElementRef;
+  isLoading: boolean = true;
   
   constructor(
     private teacherService: TeacherFirestoreService,
@@ -66,6 +67,7 @@ export class ReportViewingComponent implements OnInit {
       this.teacher = response;
       this.getAssessments();
       this.getTeachings();
+      this.isLoading = false;
     });
   };
 
@@ -201,6 +203,12 @@ export class ReportViewingComponent implements OnInit {
       }
   
       return orderA - orderB;
+    });
+
+    this.specificsAverages.forEach(specific => {
+      specific.sentenceAverage.sort((a, b) => {
+        return a.average - b.average;
+      });
     });
   };
 
