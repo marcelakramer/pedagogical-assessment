@@ -32,7 +32,7 @@ export class SubjectService {
     return this.http.delete<void>(`${this.baseUrl}/${subject.id}`);
   }
 
-  getSubjectsByIds(ids: string[]): Observable<Subject[]> {
+  getManyByIds(ids: string[]): Observable<Subject[]> {
     return this.getAll().pipe(
       map(subjects => subjects.filter(subject => ids.includes(subject.id)))
     );

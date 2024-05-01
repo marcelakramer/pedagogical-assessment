@@ -2,7 +2,6 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Teacher } from '../../shared/models/teacher';
 import { SpecificsAverages } from '../../shared/interfaces/specifics-averages';
 import criteria from '../../shared/criteria.json';
-import { TeacherService } from '../../shared/services/teacher/teacher.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AverageOptionsEnum } from '../../shared/enum/averageOptions';
 import { AssessmentService } from '../../shared/services/assessment/assessment.service';
@@ -11,10 +10,11 @@ import { OverallAverageStatusEnum } from '../../shared/enum/overallAverageStatus
 import { OverallAverageColorEnum } from '../../shared/enum/overallAverageColor';
 import { ModalService } from '../../shared/services/modal/modal.service';
 import { Filter } from '../../shared/interfaces/filter';
-import { TeachingService } from '../../shared/services/teaching/teaching.service';
-import { SubjectService } from '../../shared/services/subject/subject.service';
 import { Subject } from '../../shared/models/subject';
 import { Teaching } from '../../shared/models/teaching';
+import { TeacherFirestoreService } from '../../shared/services/teacher/teacher-firestore.service';
+import { TeachingFirestoreService } from '../../shared/services/teaching/teaching-firestore.service';
+import { SubjectFirestoreService } from '../../shared/services/subject/subject-firestore.service';
 
 @Component({
   selector: 'app-report-viewing',
@@ -47,9 +47,9 @@ export class ReportViewingComponent implements OnInit {
   @ViewChild('yearFilterSelect') yearFilterSelect?: ElementRef;
   
   constructor(
-    private teacherService: TeacherService,
-    private teachingService: TeachingService,
-    private subjectService: SubjectService,
+    private teacherService: TeacherFirestoreService,
+    private teachingService: TeachingFirestoreService,
+    private subjectService: SubjectFirestoreService,
     private assessmentService: AssessmentService,
     private modalService: ModalService,
     private router: Router,
@@ -90,7 +90,7 @@ export class ReportViewingComponent implements OnInit {
 
   getSubjects = (): void => {
     const subjectsIds = this.teachings.map(teaching => teaching.subjectId);
-    this.subjectService.getSubjectsByIds(subjectsIds).subscribe(response => {
+    this.subjectService.getManyByIds(subjectsIds).subscribe(response => {
       this.subjects = response;
       this.filteredSubjects = this.subjects;
     });

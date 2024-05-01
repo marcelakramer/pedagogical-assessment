@@ -3,9 +3,9 @@ import { Subject } from '../../shared/models/subject';
 import { Teaching } from '../../shared/models/teaching';
 import { Teacher } from '../../shared/models/teacher';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SubjectService } from '../../shared/services/subject/subject.service';
 import { TeacherFirestoreService } from '../../shared/services/teacher/teacher-firestore.service';
 import { TeachingFirestoreService } from '../../shared/services/teaching/teaching-firestore.service';
+import { SubjectFirestoreService } from '../../shared/services/subject/subject-firestore.service';
 
 @Component({
   selector: 'app-teaching-selection',
@@ -23,7 +23,7 @@ export class TeachingSelectionComponent implements OnInit {
   constructor(
     private teacherService: TeacherFirestoreService,
     private teachingService: TeachingFirestoreService,
-    private subjectService: SubjectService,
+    private subjectService:SubjectFirestoreService,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) { }
@@ -54,7 +54,7 @@ export class TeachingSelectionComponent implements OnInit {
 
   getAvailableSubjects(): void {
     const subjectsIds: Array<string> = this.teachings.map(teaching => teaching.subjectId);
-    this.subjectService.getSubjectsByIds(subjectsIds).subscribe(
+    this.subjectService.getManyByIds(subjectsIds).subscribe(
       response => {
         this.availableSubjects = response;
       }
