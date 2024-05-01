@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  admin: {username: string, password: string} = {
-    username: 'admin',
-    password: '123'
-  }
+  ADMIN_USERNAME: string = environment.ADMIN_USERNAME;
+  ADMIN_PASSWORD: string = environment.ADMIN_PASSWORD;
 
   validateAdminCredentials(username: string, password: string): boolean {
-    if (username === this.admin.username && password === this.admin.password) {
-      sessionStorage.setItem('session', JSON.stringify(this.admin));
+    if (username === this.ADMIN_USERNAME && password === this.ADMIN_PASSWORD) {
+      sessionStorage.setItem('session', JSON.stringify({username: this.ADMIN_USERNAME, password: this.ADMIN_PASSWORD}));
       return true
     }
     return false

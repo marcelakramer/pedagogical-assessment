@@ -3,6 +3,8 @@ const path = require('path');
 const dotenv = require('dotenv').config({ path: 'src/.env' });
 
 const envFile = `export const environment = {
+    ADMIN_USERNAME: '${process.env['ADMIN_USERNAME']}',
+    ADMIN_PASSWORD: '${process.env['ADMIN_PASSWORD']}',
     FIREBASE_API_KEY: '${process.env['FIREBASE_API_KEY']}',
     FIREBASE_AUTH_DOMAIN: '${process.env['FIREBASE_AUTH_DOMAIN']}',
     FIREBASE_PROJECT_ID: '${process.env['FIREBASE_PROJECT_ID']}',
