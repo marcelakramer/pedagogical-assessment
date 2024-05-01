@@ -15,12 +15,10 @@ export class SubjectFirestoreService {
   }
 
   getAll(): Observable<Subject[]> {
-    console.log('testei 1')
     return this.subjectsCollection.valueChanges({idField: 'id'});
   }
 
   getById(id: string): Observable<Subject> {
-    console.log('testei 2')
     const subjectDoc: AngularFirestoreDocument<Subject> = this.afs.doc(`${this.COLLECTION_NAME}/${id}`);
 
     return subjectDoc.valueChanges({ idField: 'id' }).pipe(
@@ -30,7 +28,6 @@ export class SubjectFirestoreService {
   }
 
   getManyByIds(ids: string[]): Observable<Subject[]> {
-    console.log('testei 3')
     return this.getAll().pipe(
       map(subjects => subjects.filter(subject => ids.includes(subject.id)))
     );

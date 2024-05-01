@@ -76,6 +76,7 @@ export class ReportViewingComponent implements OnInit {
       this.overallAverage = this.calcOverallAverage(this.assessments);
       this.updateOverallStatus();
       this.specificsAverages = this.calcSpecificsAverages(this.assessments);
+      this.orderSpecificsAverages();
       this.selectedSpecificAverage = this.specificsAverages[0];
     });
   };
@@ -180,6 +181,28 @@ export class ReportViewingComponent implements OnInit {
     }
     return averages;
   }
+
+  orderSpecificsAverages = (): void => {
+    const criteriaOrderMap = new Map<string, number>();
+    criteria.forEach((criterion, index) => {
+      criteriaOrderMap.set(criterion.dimension, index);
+    });
+  
+    this.specificsAverages.sort((a, b) => {
+      const orderA = criteriaOrderMap.get(a.dimension);
+      const orderB = criteriaOrderMap.get(b.dimension);
+
+      if (orderA === undefined && orderB === undefined) {
+        return a.dimension.localeCompare(b.dimension);
+      } else if (orderA === undefined) {
+        return 1;
+      } else if (orderB === undefined) {
+        return -1;
+      }
+  
+      return orderA - orderB;
+    });
+  };
 
   hasAssessments = () => {
     return this.assessments.length > 0;
