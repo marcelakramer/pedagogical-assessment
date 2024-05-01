@@ -1,7 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# firebase
-firebase.config.ts
+# env
+.env
 
 # json-server
 db.json
