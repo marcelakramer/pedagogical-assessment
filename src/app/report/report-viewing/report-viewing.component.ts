@@ -4,7 +4,6 @@ import { SpecificsAverages } from '../../shared/interfaces/specifics-averages';
 import criteria from '../../shared/criteria.json';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AverageOptionsEnum } from '../../shared/enum/averageOptions';
-import { AssessmentService } from '../../shared/services/assessment/assessment.service';
 import { Assessment } from '../../shared/models/assessment';
 import { OverallAverageStatusEnum } from '../../shared/enum/overallAverageStatus';
 import { OverallAverageColorEnum } from '../../shared/enum/overallAverageColor';
@@ -15,6 +14,7 @@ import { Teaching } from '../../shared/models/teaching';
 import { TeacherFirestoreService } from '../../shared/services/teacher/teacher-firestore.service';
 import { TeachingFirestoreService } from '../../shared/services/teaching/teaching-firestore.service';
 import { SubjectFirestoreService } from '../../shared/services/subject/subject-firestore.service';
+import { AssessmentFirestoreService } from '../../shared/services/assessment/assessment-firestore.service';
 
 @Component({
   selector: 'app-report-viewing',
@@ -50,7 +50,7 @@ export class ReportViewingComponent implements OnInit {
     private teacherService: TeacherFirestoreService,
     private teachingService: TeachingFirestoreService,
     private subjectService: SubjectFirestoreService,
-    private assessmentService: AssessmentService,
+    private assessmentService: AssessmentFirestoreService,
     private modalService: ModalService,
     private router: Router,
     private activatedRoute: ActivatedRoute

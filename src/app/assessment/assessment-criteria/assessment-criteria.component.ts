@@ -6,9 +6,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FrequencyRatingEnum } from '../../shared/enum/frequencyRating';
 import { Assessment } from '../../shared/models/assessment';
 import { Subject } from '../../shared/models/subject';
-import { AssessmentService } from '../../shared/services/assessment/assessment.service';
 import { TeacherFirestoreService } from '../../shared/services/teacher/teacher-firestore.service';
 import { SubjectFirestoreService } from '../../shared/services/subject/subject-firestore.service';
+import { AssessmentFirestoreService } from '../../shared/services/assessment/assessment-firestore.service';
 
 
 @Component({
@@ -29,7 +29,7 @@ export class AssessmentCriteriaComponent implements OnInit {
   constructor(
     private teacherService: TeacherFirestoreService,
     private subjectService: SubjectFirestoreService,
-    private assessmentService: AssessmentService,
+    private assessmentService: AssessmentFirestoreService,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) { }
