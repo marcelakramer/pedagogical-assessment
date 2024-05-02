@@ -42,12 +42,6 @@ div#dimension-name {
     font-weight: bold;
 }
 
-div#dimension-description {
-    text-align: justify;
-    font-weight: 500;
-    font-size: 1.25rem;
-}
-
 div#sentence-rating {
     display: flex;
     flex-direction: column;
@@ -132,5 +126,22 @@ div.rate-selected {
         width: 7.5rem;
         height: 2.5rem;
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 40rem) {
+
+    div#sentence-rating {
+        width: 90%;
+    }
+
+    div#dimension-name {
+        font-size: 1.75rem;
+    }
+
+    div#sentence-description {
+        font-size: 1.25rem;
+        padding: 1rem;
+        width: 95%;
     }
 }

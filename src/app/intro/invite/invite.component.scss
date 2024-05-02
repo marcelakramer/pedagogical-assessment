@@ -29,3 +29,15 @@ div#buttons-section {
         font-size: 1rem;
     }
 }
+
+@media (max-width: 40rem) {
+    
+    div#invite-text {
+        margin: 0 15%;
+        text-align: center;
+    }
+
+    p {
+        font-size: 1.25rem;
+    }
+}

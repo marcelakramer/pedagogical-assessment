@@ -97,3 +97,15 @@ div.rate-keyWord {
     text-align: center;
     color: #3fa14c;
 }
+
+@media (max-width: 40rem) {
+    
+    div#how-it-work-text {
+        margin: 0 15%;
+        text-align: center;
+    }
+
+    p {
+        font-size: 1.25rem;
+    }
+}

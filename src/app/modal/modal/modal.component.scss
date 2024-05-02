@@ -44,3 +44,9 @@ app-modal {
 body.modal-open {
     overflow: hidden;
 }
+
+@media (max-width: 40rem) {
+    app-modal .modal-body {
+        width: 75%;
+    }
+}

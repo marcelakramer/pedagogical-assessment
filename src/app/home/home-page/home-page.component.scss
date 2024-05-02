@@ -7,14 +7,24 @@ div#home {
     padding-top: 2rem;
 }
 
+div#logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+        font-size: 70%;
+        font-weight: bold;
+    }
+}
+
 div#home-main-section {
-    max-width: 80%;
     display: flex;
     justify-content: space-around;
 }
 
 div#home-text {
-    max-width: 50%;
+    max-width: 40%;
     text-align: center;
     font-size: 5rem;
     font-weight: 700;
@@ -35,8 +45,8 @@ div#buttons-section button {
     }
 
     div#home-image img {
-        margin-left: 25%;
-        width: 50%;
+        margin-left: 12.5%;
+        width: 75%;
     }
 
     div#home-text {

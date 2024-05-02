@@ -62,3 +62,16 @@ div#buttons-section {
         font-size: 1rem;
     }
 }
+
+@media (max-width: 40rem) {
+
+    div.user-type {
+        width: 100%;
+        padding: 1.5rem;
+    
+        & img {
+            width: 5rem;
+            height: 6rem;
+        }
+    }
+}

@@ -12,6 +12,7 @@ div, select {
 
 h1 {
     text-align: center;
+    padding: 1rem;
 }
 
 #combo-box-section {
@@ -55,10 +56,14 @@ h1 {
     }
 }
 
-@media (max-width: 42rem) {
+@media (max-width: 40rem) {
+    
+    div#combo-box-section {
+        width: 90%;
+    }
+    
     button#report {
         opacity: 0.3;
         pointer-events: none;
     }
 }
-

@@ -11,13 +11,15 @@ div, select {
 }
 
 h1 {
+    padding: 0 1rem;
     text-align: center;
 }
 
 #combo-box-section {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
-    width: 50%;
+    width: 40%;
     position: relative;
 
     select {
@@ -54,6 +56,13 @@ h1 {
         width: 7.5rem;
         height: 2.5rem;
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 40rem) {
+
+    div#combo-box-section {
+        width: 90%;
     }
 }
 
