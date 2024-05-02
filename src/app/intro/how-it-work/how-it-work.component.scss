@@ -62,7 +62,6 @@ div.each-dimension {
 }
 
 div#rate-explain {
-    margin: 0 2rem;;
     column-gap: 7rem;
 }
 
@@ -113,5 +112,9 @@ div.rate-keyWord {
 
     p {
         font-size: 1.25rem;
+    }
+
+    div#rate-explain {
+        margin: 5rem 2rem;
     }
 }
