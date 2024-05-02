@@ -4,6 +4,11 @@ div#invite-section {
     align-items: center;
 }
 
+h1 {
+    text-align: center;
+    padding: 1rem;
+}
+
 p {
     font-weight: 500;
     font-size: 1.5rem;
@@ -33,7 +38,7 @@ div#buttons-section {
 @media (max-width: 40rem) {
     
     div#invite-text {
-        margin: 0 15%;
+        margin: 0 7.5%;
         text-align: center;
     }
 

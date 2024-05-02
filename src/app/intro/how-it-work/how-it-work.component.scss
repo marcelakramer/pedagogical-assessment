@@ -5,6 +5,11 @@ div#how-it-work-section {
     text-align: center;
 }
 
+h1 {
+    text-align: center;
+    padding: 1rem;
+}
+
 p {
     font-weight: 500;
     font-size: 1.5rem;
@@ -57,6 +62,7 @@ div.each-dimension {
 }
 
 div#rate-explain {
+    margin: 0 2rem;;
     column-gap: 7rem;
 }
 
@@ -99,9 +105,9 @@ div.rate-keyWord {
 }
 
 @media (max-width: 40rem) {
-    
+
     div#how-it-work-text {
-        margin: 0 15%;
+        margin: 0 7.5%;
         text-align: center;
     }
 
