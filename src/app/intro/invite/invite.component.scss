@@ -36,6 +36,10 @@ div#buttons-section {
 }
 
 @media (max-width: 40rem) {
+
+    h1 {
+        font-size: 1.5rem;
+    }
     
     div#invite-text {
         margin: 0 7.5%;
