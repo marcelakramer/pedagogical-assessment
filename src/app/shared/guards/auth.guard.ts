@@ -6,6 +6,6 @@ import { inject } from '@angular/core';
 export const authGuard: CanActivateFn = (route, state) => {
   if (inject(AuthService).validateSessionCredentials())
     return true;
-  inject(Router).navigate(['auth']);
+  inject(Router).navigate(['auth/admin']);
   return false;
 };

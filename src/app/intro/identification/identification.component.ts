@@ -32,11 +32,11 @@ export class IdentificationComponent {
   goToNextPage(): void {
     switch(this.selectedUserType) {
       case this.userTypesEnum.admin:
-        this.router.navigate(['/auth']);
+        this.router.navigate(['/auth/admin']);
         break
 
       case this.userTypesEnum.student:
-        this.router.navigate(['/invite']);
+        this.router.navigate(['/auth/student']);
         break
     }
     window.scrollTo(0, 0);

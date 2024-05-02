@@ -1,6 +1,6 @@
 <div id="auth">
     <div id="auth-card">
-        <div id="card-title" class="underline">Administrador</div>
+        <div id="card-title" class="underline">{{ userType }}</div>
         <div id="card-input" [formGroup]="form">
             <input type="text" formControlName="username" placeholder="Usuário">
             <input type="password" formControlName="password" placeholder="Senha" (keydown.enter)="authenticate()">
@@ -24,5 +24,5 @@
 <app-modal id="auth-success-modal">
     <img src="../../../assets/icons/success.svg" alt="auth-success">
     <h1>Login realizado com sucesso!</h1>
-    <button  class="btn btn-primary" (click)="closeAndGoToTeacherSelection()">Ok</button>
+    <button  class="btn btn-primary" (click)="closeAndGoToNextPage()">Ok</button>
 </app-modal>

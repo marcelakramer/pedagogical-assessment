@@ -16,6 +16,19 @@ export class AuthService {
     return false
   }
 
+  // simulation purposes: to be removed
+  validateStudentCredentials(username: string, password: string): boolean {
+    if (username && password === '123') {
+      sessionStorage.setItem('logged', 'true');
+      return true
+    }
+    return false
+  }
+  // simulation purposes: to be removed
+  hasStudentLogged(): boolean {
+    return sessionStorage.getItem('logged') === 'true';
+  }
+
   getSessionCredentials(): object | void {
     const sessionCredentials = sessionStorage.getItem('session');
     if (sessionCredentials) return JSON.parse(sessionCredentials);

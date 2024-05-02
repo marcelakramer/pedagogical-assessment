@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../shared/services/auth/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModalService } from '../../shared/services/modal/modal.service';
+import { UserTypesEnum } from '../../shared/enum/userTypes';
 
 
 @Component({
@@ -11,6 +12,8 @@ import { ModalService } from '../../shared/services/modal/modal.service';
   styleUrl: './auth.component.scss'
 })
 export class AuthComponent implements OnInit {
+  userType: string = '';
+  isAdmin: boolean = false;
   form: FormGroup = this.formBuilder.group({
     username: ['', Validators.required],
     password: ['', Validators.required]
@@ -19,27 +22,57 @@ export class AuthComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
+    private modalService: ModalService,
     private router: Router,
-    private modalService: ModalService
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-      if (this.authService.validateSessionCredentials()) {
-       this.goToTeacherSelection();
+      const routeUserType = this.activatedRoute.snapshot.params['userType'];
+      
+      if (routeUserType === 'admin') {
+        this.userType = UserTypesEnum.admin;
+        this.isAdmin = true;
+      } else if (routeUserType === 'student') {
+        this.userType = UserTypesEnum.student;
       }
+      this.checkCredentials();
   }
 
   authenticate(): void {
-    if (this.authService.validateAdminCredentials(this.form.value.username, this.form.value.password)) {
-      this.modalService.open('auth-success-modal');
+    let authentication = false;
+    if (this.isAdmin) {
+      authentication = this.authService.validateAdminCredentials(this.form.value.username, this.form.value.password);
+    } else {
+      authentication = this.authService.validateStudentCredentials(this.form.value.username, this.form.value.password);
+    }
+
+    if (authentication) {
+      this.modalService.open('auth-success-modal')
     } else {
       this.modalService.open('auth-fail-modal');
       this.form.reset();
     }
   }
 
+  checkCredentials(): void {
+    if (this.isAdmin) {
+      if (this.authService.validateSessionCredentials()) {
+        this.goToTeacherSelection();
+      }
+    } else {
+      if (this.authService.hasStudentLogged()) {
+        this.goToInvite();
+      }
+    }
+  }
+
   goToTeacherSelection(): void {
     this.router.navigate(['/teacher/admin']);
+  }
+
+  goToInvite(): void {
+    this.router.navigate(['/invite']);
   }
 
   goToIdentification(): void {
@@ -50,9 +83,13 @@ export class AuthComponent implements OnInit {
     this.modalService.close();
   }
 
-  closeAndGoToTeacherSelection(): void {
+  closeAndGoToNextPage(): void {
     this.closeModal();
-    this.goToTeacherSelection();
+    if (this.isAdmin) {
+      this.goToTeacherSelection();
+    } else {
+      this.goToInvite();
+    }
   }
 
 }
