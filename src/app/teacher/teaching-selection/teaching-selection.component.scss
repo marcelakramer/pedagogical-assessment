@@ -23,7 +23,7 @@ h1 {
     position: relative;
 
     select {
-        padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+        padding: 1.25rem 3rem 1.25rem 1.25rem;
         border-radius: 12px;
         border: 2px solid #ccc;
         color: #4d4d4d;
@@ -35,8 +35,9 @@ h1 {
         cursor: pointer;
         appearance: none;
         background-image: url('../../../assets/icons/arrow-down.svg');
-        background-position: calc(100% - 1.5rem) center;;
+        background-position: calc(100% + 1.5rem) center;
         background-repeat: no-repeat;
+        background-origin: content-box;
 
         & option {
             color: #adadad;
