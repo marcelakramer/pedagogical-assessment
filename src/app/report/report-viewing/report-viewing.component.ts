@@ -289,7 +289,7 @@ export class ReportViewingComponent implements OnInit {
 
     this.filteredAssessments = this.assessments.filter(assessment => {
       return (this.filterApplied.subject === undefined || assessment.subjectId === this.filterApplied.subject.id) &&
-             (this.filterApplied.year === undefined || assessment.year === this.filterApplied.year);
+             (this.filterApplied.year === undefined || assessment.referenceYear === this.filterApplied.year);
     });
 
     if (this.filteredAssessments.length !== 0) {

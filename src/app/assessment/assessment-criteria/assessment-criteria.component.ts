@@ -24,7 +24,7 @@ export class AssessmentCriteriaComponent implements OnInit {
   currentSentenceRate: number = 0;
   teacher: Teacher =  new Teacher('', '', '');
   subject: Subject = new Subject('', '');
-  assessment: Assessment = new Assessment('', '', '', 0, {});
+  assessment: Assessment = new Assessment('', '', '', new Date(), 0, {});
 
   constructor(
     private teacherService: TeacherFirestoreService,
@@ -63,7 +63,7 @@ export class AssessmentCriteriaComponent implements OnInit {
   updateAssessmentParams(): void {
     this.assessment.teacherId = this.teacher.id;
     this.assessment.subjectId = this.subject.id;
-    this.assessment.year = parseInt(this.activatedRoute.snapshot.params['year']);
+    this.assessment.referenceYear = parseInt(this.activatedRoute.snapshot.params['year']);
     this.assessment.rating = this.transformCriteriaIntoAssessmentRating();
   }
 
@@ -133,6 +133,7 @@ export class AssessmentCriteriaComponent implements OnInit {
   }
 
   finishAssessment(): void {
+    this.assessment.datetime = new Date();
     this.assessmentService.create(this.assessment).subscribe(
       () => {
         this.router.navigate(['/thankyou']);

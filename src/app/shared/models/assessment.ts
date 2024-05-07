@@ -5,7 +5,8 @@ export class Assessment {
         public id: string,
         public teacherId: string,
         public subjectId: string,
-        public year: number,
+        public datetime: Date,
+        public referenceYear: number,
         public rating: AssessmentRating
     ) {}
 }
