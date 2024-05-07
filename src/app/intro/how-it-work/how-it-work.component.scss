@@ -19,6 +19,7 @@ div#how-it-work-text {
     margin: 0 15%;
     text-align: justify;
     font-size: 1.4rem;
+    hyphens: auto;
 }
 
 div#buttons-section {
@@ -111,7 +112,6 @@ div.rate-keyWord {
 
     div#how-it-work-text {
         margin: 0 7.5%;
-        text-align: center;
     }
 
     p {

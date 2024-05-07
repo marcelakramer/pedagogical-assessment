@@ -17,6 +17,7 @@ p {
 div#invite-text {
     margin: 0 15%;
     text-align: justify;
+    hyphens: auto;
     font-size: 1.4rem;
 }
 
@@ -43,7 +44,6 @@ div#buttons-section {
     
     div#invite-text {
         margin: 0 7.5%;
-        text-align: center;
     }
 
     p {
