@@ -2,9 +2,10 @@ div#thank-you {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
     font-family: Open Sans, sans-serif;
-    gap: 4rem;
-    margin-top: 2rem;
+    padding-top: 1.5rem;
+    gap: 2.5rem;
 }
 
 div#logo {
@@ -27,7 +28,7 @@ div#thank-you-main-section {
 div#thank-you-text {
     max-width: 60%;
     text-align: center;
-    font-size: 5rem;
+    font-size: 4.25rem;
     font-weight: 700;
     padding-top: 7rem;
 }

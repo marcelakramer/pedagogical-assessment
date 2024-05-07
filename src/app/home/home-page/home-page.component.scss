@@ -2,8 +2,9 @@ div#home {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
     font-family: Open Sans, sans-serif;
-    gap: 6rem;
+    gap: 3rem;
     padding-top: 2rem;
 }
 
@@ -24,9 +25,9 @@ div#home-main-section {
 }
 
 div#home-text {
-    max-width: 40%;
+    max-width: 37.5%;
     text-align: center;
-    font-size: 5rem;
+    font-size: 4.25rem;
     font-weight: 700;
 }
 
