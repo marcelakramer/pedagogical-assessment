@@ -296,6 +296,7 @@ export class ReportViewingComponent implements OnInit {
       this.overallAverage = this.calcOverallAverage(this.filteredAssessments);
       this.updateOverallStatus();
       this.specificsAverages = this.calcSpecificsAverages(this.filteredAssessments);
+      this.orderSpecificsAverages();
       this.selectedSpecificAverage = this.specificsAverages.find(specificsAverage => specificsAverage.dimension === this.selectedSpecificAverage.dimension)!;
       this.changeDimensionInSelect();
       this.closeModal();
